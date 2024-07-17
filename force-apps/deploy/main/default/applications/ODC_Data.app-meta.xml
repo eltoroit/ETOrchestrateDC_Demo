@@ -8,9 +8,12 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
-    <label>LWC Demo</label>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>ODC Data</label>
     <navType>Standard</navType>
-    <tabs>Counter</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Lead</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>LWC_Demo_UtilityBar</utilityBar>
+    <utilityBar>ODC_Data_UtilityBar</utilityBar>
 </CustomApplication>
