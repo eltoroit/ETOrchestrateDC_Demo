@@ -14,6 +14,9 @@
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Lead</tabs>
+    <tabs>dcOrders__c</tabs>
+    <tabs>dcOrderItems__c</tabs>
+    <tabs>dcProducts__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>ODC_Data_UtilityBar</utilityBar>
 </CustomApplication>
