@@ -5,9 +5,14 @@
     <columns>ACCOUNT.NAME</columns>
     <columns>FullName__c</columns>
     <columns>BirthDate__c</columns>
-    <columns>CONTACT.FIRST_NAME</columns>
-    <columns>MiddleName__c</columns>
-    <columns>CONTACT.LAST_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.GENDER_IDENTITY</columns>
+    <columns>CONTACT.PHONE6</columns>
+    <columns>CONTACT.PHONE4</columns>
+    <columns>CONTACT.PHONE5</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>TaxRatePercent__c</columns>
+    <columns>WebSiteURL__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

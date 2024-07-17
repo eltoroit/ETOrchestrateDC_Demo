@@ -285,7 +285,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>dcOrders__c.SoldToCustomer__c</relatedList>
+        <relatedList>Order__c.SoldToCustomer__c</relatedList>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
