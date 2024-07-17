@@ -1,6 +1,6 @@
 {
-  "orgSource": "soDEMO",
-  "orgDestination": "soDEMO",
+  "orgSource": "soDcoDemo",
+  "orgDestination": "soDcoDemo",
   "sObjectsData": [
     {
       "name": "Opportunity",
@@ -67,7 +67,7 @@
   ],
   "sObjectsMetadata": [],
   "rootFolder": "ETCopyData",
-  "includeAllCustom": false,
+  "includeAllCustom": true,
   "customObjectsToIgnore": null,
   "stopOnErrors": true,
   "ignoreFields": null,
