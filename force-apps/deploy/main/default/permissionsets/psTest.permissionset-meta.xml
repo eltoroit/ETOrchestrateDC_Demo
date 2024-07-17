@@ -401,47 +401,47 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcOrderItems__c.DiscountPercent__c</field>
+        <field>OrderItem__c.DiscountPercent__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcOrderItems__c.ListPriceAmount__c</field>
+        <field>OrderItem__c.ListPriceAmount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcOrderItems__c.OrderedQuantity__c</field>
+        <field>OrderItem__c.OrderedQuantity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcOrderItems__c.UnitPriceAmount__c</field>
+        <field>OrderItem__c.UnitPriceAmount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcOrders__c.CreatedDate__c</field>
+        <field>Order__c.CreatedDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcOrders__c.GrandTotalAmount__c</field>
+        <field>Order__c.GrandTotalAmount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcOrders__c.IsTaxExempt__c</field>
+        <field>Order__c.IsTaxExempt__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcOrders__c.PromiseDate__c</field>
+        <field>Order__c.PromiseDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dcProducts__c.MSRPAmount__c</field>
+        <field>Product__c.MSRPAmount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
@@ -479,7 +479,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>dcOrderItems__c</object>
+        <object>OrderItem__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -488,7 +488,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>dcOrders__c</object>
+        <object>Order__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -497,23 +497,19 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>dcProducts__c</object>
+        <object>Product__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <tabSettings>
-        <tab>Counter</tab>
+        <tab>OrderItem__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>dcOrderItems__c</tab>
+        <tab>Order__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>dcOrders__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>dcProducts__c</tab>
+        <tab>Product__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

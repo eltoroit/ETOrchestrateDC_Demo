@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -145,25 +145,26 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableFeeds>true</enableFeeds>
+    <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>dcProducts</label>
+    <label>Order</label>
     <nameField>
-        <label>dcProducts</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
+        <displayFormat>ORDER-{0000}</displayFormat>
+        <label>Order</label>
+        <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>dcProducts</pluralLabel>
+    <pluralLabel>Orders</pluralLabel>
     <searchLayouts>
-        <searchResultsAdditionalFields>GoodsProductId__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil></searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>MSRPAmount__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PromiseDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CreatedDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IsTaxExempt__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>GrandTotalAmount__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

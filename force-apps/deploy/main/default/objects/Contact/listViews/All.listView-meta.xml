@@ -3,7 +3,6 @@
     <fullName>All</fullName>
     <columns>FULL_NAME</columns>
     <columns>ACCOUNT.NAME</columns>
-    <columns>IndividualId__c</columns>
     <columns>FullName__c</columns>
     <columns>BirthDate__c</columns>
     <columns>CONTACT.FIRST_NAME</columns>
