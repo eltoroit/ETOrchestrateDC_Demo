@@ -36,15 +36,39 @@
       "twoPassReferenceFields": "",
       "where": null,
       "orderBy": null
+    },
+    {
+      "name": "Order__c",
+      "ignoreFields": "",
+      "externalIdField": null,
+      "twoPassReferenceFields": "",
+      "where": null,
+      "orderBy": null
+    },
+    {
+      "name": "OrderItem__c",
+      "ignoreFields": "",
+      "externalIdField": null,
+      "twoPassReferenceFields": "",
+      "where": null,
+      "orderBy": null
+    },
+    {
+      "name": "Product__c",
+      "ignoreFields": "",
+      "externalIdField": null,
+      "twoPassReferenceFields": "",
+      "where": null,
+      "orderBy": null
     }
   ],
   "sObjectsMetadata": [],
   "rootFolder": "ETCopyData",
-  "includeAllCustom": true,
+  "includeAllCustom": false,
   "customObjectsToIgnore": null,
   "stopOnErrors": true,
   "ignoreFields": null,
-  "copyToProduction": false,
+  "copyToProduction": true,
   "twoPassReferenceFields": null,
   "deleteDestination": true,
   "useBulkAPI": false,

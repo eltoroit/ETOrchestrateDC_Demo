@@ -19,7 +19,7 @@
 		// Push metadata
 		"ShowDeployPage",
 		"PushMetadata",
-		{ "AssignPermissionSet": "psTest" },
+		{ "AssignPermissionSet": "psDataCloudData" },
 		{ "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
 		// Loading Data
