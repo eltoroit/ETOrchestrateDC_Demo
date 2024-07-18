@@ -1,6 +1,6 @@
 {
-  "orgSource": "soDcoDemo",
-  "orgDestination": "soDcoDemo",
+  "orgSource": "prDCO_DemoSDO",
+  "orgDestination": "prDCO_DemoSDO",
   "sObjectsData": [
     {
       "name": "Lead",
