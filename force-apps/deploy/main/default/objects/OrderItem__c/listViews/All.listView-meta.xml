@@ -4,10 +4,11 @@
     <columns>NAME</columns>
     <columns>SalesOrder__c</columns>
     <columns>Product__c</columns>
+    <columns>OrderedQuantity__c</columns>
     <columns>ListPriceAmount__c</columns>
     <columns>DiscountPercent__c</columns>
     <columns>UnitPriceAmount__c</columns>
-    <columns>OrderedQuantity__c</columns>
+    <columns>LineTotal__c</columns>
     <filterScope>Everything</filterScope>
     <label>All Records</label>
 </ListView>

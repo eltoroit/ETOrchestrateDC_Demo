@@ -1,6 +1,6 @@
 {
-  "orgSource": "prDCO_DemoSDO",
-  "orgDestination": "prDCO_DemoSDO",
+  "orgSource": "prDCO_Demo",
+  "orgDestination": "prDCO_Demo",
   "sObjectsData": [
     {
       "name": "Lead",
@@ -10,6 +10,14 @@
       "where": null,
       "orderBy": null,
       "maxRecords": -1
+    },
+    {
+      "name": "Case",
+      "ignoreFields": "",
+      "externalIdField": null,
+      "twoPassReferenceFields": "",
+      "where": null,
+      "orderBy": null
     },
     {
       "name": "Contact",

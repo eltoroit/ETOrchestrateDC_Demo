@@ -4,7 +4,6 @@
     <fields>Name</fields>
     <fields>ListPriceAmount__c</fields>
     <fields>DiscountPercent__c</fields>
-    <fields>UnitPriceAmount__c</fields>
     <fields>OrderedQuantity__c</fields>
     <label>Custom Compact Layout</label>
 </CompactLayout>

@@ -3,9 +3,9 @@
     <fullName>GrandTotalAmount__c</fullName>
     <externalId>false</externalId>
     <label>GrandTotalAmount</label>
-    <precision>18</precision>
-    <required>false</required>
-    <scale>2</scale>
+    <summarizedField>OrderItem__c.LineTotal__c</summarizedField>
+    <summaryForeignKey>OrderItem__c.SalesOrder__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
     <trackTrending>false</trackTrending>
-    <type>Currency</type>
+    <type>Summary</type>
 </CustomField>

@@ -5,6 +5,5 @@
     <fields>PromiseDate__c</fields>
     <fields>CreatedDate__c</fields>
     <fields>IsTaxExempt__c</fields>
-    <fields>GrandTotalAmount__c</fields>
     <label>Custom Compact Layout</label>
 </CompactLayout>

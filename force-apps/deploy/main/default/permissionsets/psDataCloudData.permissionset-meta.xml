@@ -35,6 +35,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>OrderItem__c.LineTotal__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>OrderItem__c.ListPriceAmount__c</field>
         <readable>true</readable>
@@ -45,7 +50,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>OrderItem__c.UnitPriceAmount__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -55,7 +60,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Order__c.GrandTotalAmount__c</field>
         <readable>true</readable>
     </fieldPermissions>
