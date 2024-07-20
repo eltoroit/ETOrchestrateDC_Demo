@@ -4,7 +4,7 @@
     <externalId>false</externalId>
     <formula>FirstName + &apos; &apos; + IF( MiddleName__c != &apos;&apos;, MiddleName__c + &apos; &apos;, &apos;&apos;) +  LastName</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>Full Name</label>
+    <label>Person Name</label>
     <required>false</required>
     <type>Text</type>
     <unique>false</unique>

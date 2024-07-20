@@ -1,0 +1,7597 @@
+{
+	"alias": "prDCO_Demo64275",
+	"importOrder": [
+		"Account",
+		"Product__c",
+		"Contact",
+		"Case",
+		"Lead",
+		"Order__c",
+		"OrderItem__c"
+	],
+	"metadata": {},
+	"sObjects": {
+		"Account": {
+			"children": [
+				{
+					"children": "Cases",
+					"parentId": "AccountId",
+					"sObj": "Case"
+				},
+				{
+					"children": "Contacts",
+					"parentId": "AccountId",
+					"sObj": "Contact"
+				},
+				{
+					"children": null,
+					"parentId": "ConvertedAccountId",
+					"sObj": "Lead"
+				}
+			],
+			"describeUrl": "/services/data/v61.0/sobjects/Account/describe",
+			"fields": [
+				"AccountNumber",
+				"AccountSource",
+				"AnnualRevenue",
+				"BillingCity",
+				"BillingCountry",
+				"BillingGeocodeAccuracy",
+				"BillingLatitude",
+				"BillingLongitude",
+				"BillingPostalCode",
+				"BillingState",
+				"BillingStreet",
+				"CreatedDate",
+				"CurrencyIsoCode",
+				"Description",
+				"Fax",
+				"Id",
+				"Industry",
+				"Jigsaw",
+				"LastModifiedDate",
+				"Name",
+				"NumberOfEmployees",
+				"Ownership",
+				"Phone",
+				"Rating",
+				"ShippingCity",
+				"ShippingCountry",
+				"ShippingGeocodeAccuracy",
+				"ShippingLatitude",
+				"ShippingLongitude",
+				"ShippingPostalCode",
+				"ShippingState",
+				"ShippingStreet",
+				"Sic",
+				"SicDesc",
+				"Site",
+				"Status__c",
+				"Support_Level__c",
+				"TickerSymbol",
+				"Type",
+				"Website"
+			],
+			"keyPrefix": "001",
+			"label": "Account",
+			"name": "Account",
+			"orderBy": null,
+			"parents": [],
+			"twoPassParents": [],
+			"parentsRequired": []
+		},
+		"Case": {
+			"children": [],
+			"describeUrl": "/services/data/v61.0/sobjects/Case/describe",
+			"fields": [
+				"AccountId",
+				"Bug_Number__c",
+				"ClosedDate",
+				"Comments",
+				"ContactId",
+				"CreatedDate",
+				"CurrencyIsoCode",
+				"Description",
+				"Id",
+				"IsEscalated",
+				"LastModifiedDate",
+				"Origin",
+				"Priority",
+				"Product_Category__c",
+				"Proposed_Solution__c",
+				"Reason",
+				"Requirements__c",
+				"Status",
+				"Subject",
+				"SuppliedCompany",
+				"SuppliedEmail",
+				"SuppliedName",
+				"SuppliedPhone",
+				"Type"
+			],
+			"keyPrefix": "500",
+			"label": "Case",
+			"name": "Case",
+			"orderBy": null,
+			"parents": [
+				{
+					"parentId": "AccountId",
+					"sObj": "Account"
+				},
+				{
+					"parentId": "ContactId",
+					"sObj": "Contact"
+				}
+			],
+			"twoPassParents": [],
+			"parentsRequired": []
+		},
+		"Contact": {
+			"children": [
+				{
+					"children": "Cases",
+					"parentId": "ContactId",
+					"sObj": "Case"
+				},
+				{
+					"children": null,
+					"parentId": "ConvertedContactId",
+					"sObj": "Lead"
+				},
+				{
+					"children": "dcOrders__r",
+					"parentId": "SoldToCustomer__c",
+					"sObj": "Order__c"
+				}
+			],
+			"describeUrl": "/services/data/v61.0/sobjects/Contact/describe",
+			"fields": [
+				"AccountId",
+				"AssistantName",
+				"AssistantPhone",
+				"Birthdate",
+				"BuyerAttributes",
+				"ContactSource",
+				"CreatedDate",
+				"CurrencyIsoCode",
+				"CustomerId__c",
+				"DateBirth__c",
+				"Department",
+				"DepartmentGroup",
+				"Description",
+				"DoNotCall",
+				"Email",
+				"EmailBouncedDate",
+				"EmailBouncedReason",
+				"External_ID__c",
+				"Fax",
+				"FirstName",
+				"HasOptedOutOfEmail",
+				"HasOptedOutOfFax",
+				"HomePhone",
+				"Id",
+				"Jigsaw",
+				"LastModifiedDate",
+				"LastName",
+				"LeadSource",
+				"MailingCity",
+				"MailingCountry",
+				"MailingGeocodeAccuracy",
+				"MailingLatitude",
+				"MailingLongitude",
+				"MailingPostalCode",
+				"MailingState",
+				"MailingStreet",
+				"MiddleName__c",
+				"MobilePhone",
+				"OtherCity",
+				"OtherCountry",
+				"OtherGeocodeAccuracy",
+				"OtherLatitude",
+				"OtherLongitude",
+				"OtherPhone",
+				"OtherPostalCode",
+				"OtherState",
+				"OtherStreet",
+				"Phone",
+				"RAVG_Retail_Membership_Number__c",
+				"RAVG_Retail_Points_Balance__c",
+				"Salutation",
+				"Status__c",
+				"TaxRatePercent__c",
+				"Title",
+				"TitleType",
+				"WebSiteURL__c"
+			],
+			"keyPrefix": "003",
+			"label": "Contact",
+			"name": "Contact",
+			"orderBy": null,
+			"parents": [
+				{
+					"parentId": "AccountId",
+					"sObj": "Account"
+				}
+			],
+			"twoPassParents": [],
+			"parentsRequired": []
+		},
+		"Lead": {
+			"children": [],
+			"describeUrl": "/services/data/v61.0/sobjects/Lead/describe",
+			"fields": [
+				"AnnualRevenue",
+				"City",
+				"Company",
+				"ConvertedAccountId",
+				"ConvertedContactId",
+				"ConvertedDate",
+				"Country",
+				"CreatedDate",
+				"CurrencyIsoCode",
+				"Description",
+				"DoNotCall",
+				"Email",
+				"Fax",
+				"FirstName",
+				"GeocodeAccuracy",
+				"HasOptedOutOfEmail",
+				"HasOptedOutOfFax",
+				"Id",
+				"Industry",
+				"IsConverted",
+				"IsUnreadByOwner",
+				"Jigsaw",
+				"LastModifiedDate",
+				"LastName",
+				"Latitude",
+				"LeadSource",
+				"Longitude",
+				"MobilePhone",
+				"NumberOfEmployees",
+				"Phone",
+				"PostalCode",
+				"Rating",
+				"Salutation",
+				"State",
+				"Status",
+				"Street",
+				"Title",
+				"Website"
+			],
+			"keyPrefix": "00Q",
+			"label": "Lead",
+			"name": "Lead",
+			"orderBy": null,
+			"parents": [
+				{
+					"parentId": "ConvertedAccountId",
+					"sObj": "Account"
+				},
+				{
+					"parentId": "ConvertedContactId",
+					"sObj": "Contact"
+				}
+			],
+			"twoPassParents": [],
+			"parentsRequired": []
+		},
+		"OrderItem__c": {
+			"children": [],
+			"describeUrl": "/services/data/v61.0/sobjects/OrderItem__c/describe",
+			"fields": [
+				"CreatedDate",
+				"CurrencyIsoCode",
+				"DiscountPercent__c",
+				"Id",
+				"LastModifiedDate",
+				"ListPriceAmount__c",
+				"OrderedQuantity__c",
+				"Product__c",
+				"SalesOrder__c"
+			],
+			"keyPrefix": "a0G",
+			"label": "OrderItem",
+			"name": "OrderItem__c",
+			"orderBy": null,
+			"parents": [
+				{
+					"parentId": "SalesOrder__c",
+					"sObj": "Order__c"
+				},
+				{
+					"parentId": "Product__c",
+					"sObj": "Product__c"
+				}
+			],
+			"twoPassParents": [],
+			"parentsRequired": []
+		},
+		"Order__c": {
+			"children": [
+				{
+					"children": "dcOrderItems__r",
+					"parentId": "SalesOrder__c",
+					"sObj": "OrderItem__c"
+				}
+			],
+			"describeUrl": "/services/data/v61.0/sobjects/Order__c/describe",
+			"fields": [
+				"CreatedDate",
+				"CreatedDate__c",
+				"CurrencyIsoCode",
+				"Id",
+				"IsTaxExempt__c",
+				"LastModifiedDate",
+				"PromiseDate__c",
+				"SoldToCustomer__c"
+			],
+			"keyPrefix": "a0H",
+			"label": "Order",
+			"name": "Order__c",
+			"orderBy": null,
+			"parents": [
+				{
+					"parentId": "SoldToCustomer__c",
+					"sObj": "Contact"
+				}
+			],
+			"twoPassParents": [],
+			"parentsRequired": []
+		},
+		"Product__c": {
+			"children": [
+				{
+					"children": "dcOrderItems__r",
+					"parentId": "Product__c",
+					"sObj": "OrderItem__c"
+				}
+			],
+			"describeUrl": "/services/data/v61.0/sobjects/Product__c/describe",
+			"fields": [
+				"CreatedDate",
+				"CurrencyIsoCode",
+				"Id",
+				"LastModifiedDate",
+				"MSRPAmount__c",
+				"Name"
+			],
+			"keyPrefix": "a0I",
+			"label": "Product",
+			"name": "Product__c",
+			"orderBy": null,
+			"parents": [],
+			"twoPassParents": [],
+			"parentsRequired": []
+		}
+	},
+	"allFields": {
+		"AIApplication": [],
+		"AIApplicationConfig": [],
+		"AIInsightAction": [],
+		"AIInsightFeedback": [],
+		"AIInsightReason": [],
+		"AIInsightValue": [],
+		"AIPredictionEvent": [],
+		"AIRecordInsight": [],
+		"AcceptedEventRelation": [],
+		"Account": [
+			"AccountNumber",
+			"AccountSource",
+			"AnnualRevenue",
+			"BillingAddress",
+			"BillingCity",
+			"BillingCountry",
+			"BillingGeocodeAccuracy",
+			"BillingLatitude",
+			"BillingLongitude",
+			"BillingPostalCode",
+			"BillingState",
+			"BillingStreet",
+			"CreatedById",
+			"CreatedDate",
+			"CurrencyIsoCode",
+			"Description",
+			"Fax",
+			"Id",
+			"Industry",
+			"IsDeleted",
+			"Jigsaw",
+			"JigsawCompanyId",
+			"LastActivityDate",
+			"LastModifiedById",
+			"LastModifiedDate",
+			"LastReferencedDate",
+			"LastViewedDate",
+			"MasterRecordId",
+			"Name",
+			"NumberOfEmployees",
+			"OwnerId",
+			"Ownership",
+			"ParentId",
+			"Phone",
+			"PhotoUrl",
+			"Rating",
+			"RecordTypeId",
+			"ShippingAddress",
+			"ShippingCity",
+			"ShippingCountry",
+			"ShippingGeocodeAccuracy",
+			"ShippingLatitude",
+			"ShippingLongitude",
+			"ShippingPostalCode",
+			"ShippingState",
+			"ShippingStreet",
+			"Sic",
+			"SicDesc",
+			"Site",
+			"Status__c",
+			"Support_Level__c",
+			"SystemModstamp",
+			"TickerSymbol",
+			"Type",
+			"Website"
+		],
+		"AccountChangeEvent": [],
+		"AccountContactRole": [],
+		"AccountContactRoleChangeEvent": [],
+		"AccountFeed": [],
+		"AccountHistory": [],
+		"AccountPartner": [],
+		"AccountShare": [],
+		"ActionLinkGroupTemplate": [],
+		"ActionLinkTemplate": [],
+		"ActivationTarget": [],
+		"ActivationTargetFeed": [],
+		"ActivationTargetHistory": [],
+		"ActivationTargetPlatform": [],
+		"ActivationTargetPlatformHistory": [],
+		"ActivationTargetPlatformShare": [],
+		"ActivationTargetSecureFTP": [],
+		"ActivationTargetShare": [],
+		"ActivationTrgtIntOrgAccess": [],
+		"ActivationTrgtIntOrgAccessFeed": [],
+		"ActivationTrgtIntOrgAccessHistory": [],
+		"ActivationTrgtIntOrgAccessShare": [],
+		"ActiveFeatureLicenseMetric": [],
+		"ActivePermSetLicenseMetric": [],
+		"ActiveProfileMetric": [],
+		"ActivityFieldHistory": [],
+		"ActivityHistory": [],
+		"ActvTgtPlatformFieldValue": [],
+		"ActvTgtPlatformFieldValueHistory": [],
+		"ActvTgtPlatformFieldValueShare": [],
+		"AdditionalNumber": [],
+		"AgentWork": [],
+		"AgentWorkShare": [],
+		"AggregateResult": [],
+		"AnalyticsTaskStatusEvent": [],
+		"Announcement": [],
+		"ApexClass": [],
+		"ApexComponent": [],
+		"ApexEmailNotification": [],
+		"ApexLog": [],
+		"ApexPage": [],
+		"ApexPageInfo": [],
+		"ApexTestQueueItem": [],
+		"ApexTestResult": [],
+		"ApexTestResultLimits": [],
+		"ApexTestRunResult": [],
+		"ApexTestSuite": [],
+		"ApexTrigger": [],
+		"ApexTypeImplementor": [],
+		"AppAnalyticsQueryRequest": [],
+		"AppDefinition": [],
+		"AppMenuItem": [],
+		"AppTabMember": [],
+		"Asset": [],
+		"AssetChangeEvent": [],
+		"AssetFeed": [],
+		"AssetHistory": [],
+		"AssetRelationship": [],
+		"AssetRelationshipFeed": [],
+		"AssetRelationshipHistory": [],
+		"AssetShare": [],
+		"AssetTokenEvent": [],
+		"AssignmentRule": [],
+		"AssociatedLocation": [],
+		"AssociatedLocationHistory": [],
+		"AsyncApexJob": [],
+		"AsyncOperationEvent": [],
+		"AsyncOperationStatus": [],
+		"AttachedContentDocument": [],
+		"AttachedContentNote": [],
+		"Attachment": [],
+		"AuraDefinition": [],
+		"AuraDefinitionBundle": [],
+		"AuraDefinitionBundleInfo": [],
+		"AuraDefinitionInfo": [],
+		"AuthConfig": [],
+		"AuthConfigProviders": [],
+		"AuthProvider": [],
+		"AuthSession": [],
+		"AuthorizationForm": [],
+		"AuthorizationFormChangeEvent": [],
+		"AuthorizationFormConsent": [],
+		"AuthorizationFormConsentChangeEvent": [],
+		"AuthorizationFormConsentHistory": [],
+		"AuthorizationFormConsentShare": [],
+		"AuthorizationFormDataUse": [],
+		"AuthorizationFormDataUseHistory": [],
+		"AuthorizationFormDataUseShare": [],
+		"AuthorizationFormHistory": [],
+		"AuthorizationFormShare": [],
+		"AuthorizationFormText": [],
+		"AuthorizationFormTextChangeEvent": [],
+		"AuthorizationFormTextFeed": [],
+		"AuthorizationFormTextHistory": [],
+		"BackgroundOperation": [],
+		"BatchApexErrorEvent": [],
+		"Booking__ChangeEvent": [],
+		"Booking__Share": [],
+		"Booking__c": [],
+		"BrandTemplate": [],
+		"BrandingSet": [],
+		"BrandingSetProperty": [],
+		"BriefcaseAssignment": [],
+		"BriefcaseAssignmentChangeEvent": [],
+		"BriefcaseDefinition": [],
+		"BriefcaseDefinitionChangeEvent": [],
+		"BriefcaseRule": [],
+		"BriefcaseRuleFilter": [],
+		"BrowserPolicyViolation": [],
+		"BusProcessFeedbackConfig": [],
+		"BusinessBrand": [],
+		"BusinessBrandShare": [],
+		"BusinessHours": [],
+		"BusinessProcess": [],
+		"CalcInsightStatusEvent": [],
+		"Calendar": [],
+		"CalendarView": [],
+		"CalendarViewShare": [],
+		"CallCenter": [],
+		"CallCoachingMediaProvider": [],
+		"Candidate__ChangeEvent": [],
+		"Candidate__History": [],
+		"Candidate__Share": [],
+		"Candidate__c": [],
+		"Case": [
+			"AccountId",
+			"AssetId",
+			"Bug_Number__c",
+			"BusinessHoursId",
+			"CaseNumber",
+			"ClosedDate",
+			"Comments",
+			"ContactEmail",
+			"ContactFax",
+			"ContactId",
+			"ContactMobile",
+			"ContactPhone",
+			"CreatedById",
+			"CreatedDate",
+			"CurrencyIsoCode",
+			"Description",
+			"Id",
+			"IsClosed",
+			"IsClosedOnCreate",
+			"IsDeleted",
+			"IsEscalated",
+			"LastModifiedById",
+			"LastModifiedDate",
+			"LastReferencedDate",
+			"LastViewedDate",
+			"MasterRecordId",
+			"Origin",
+			"OwnerId",
+			"ParentId",
+			"Priority",
+			"Product_Category__c",
+			"Proposed_Solution__c",
+			"Reason",
+			"RecordTypeId",
+			"Requirements__c",
+			"SourceId",
+			"Status",
+			"Subject",
+			"SuppliedCompany",
+			"SuppliedEmail",
+			"SuppliedName",
+			"SuppliedPhone",
+			"SystemModstamp",
+			"Type"
+		],
+		"CaseChangeEvent": [],
+		"CaseComment": [],
+		"CaseContactRole": [],
+		"CaseFeed": [],
+		"CaseHistory": [],
+		"CaseHistory2": [],
+		"CaseHistory2ChangeEvent": [],
+		"CaseShare": [],
+		"CaseSolution": [],
+		"CaseStatus": [],
+		"CaseSubjectParticle": [],
+		"CaseTeamMember": [],
+		"CaseTeamRole": [],
+		"CaseTeamTemplate": [],
+		"CaseTeamTemplateMember": [],
+		"CaseTeamTemplateRecord": [],
+		"CategoryData": [],
+		"CategoryNode": [],
+		"Certification_Attempt__ChangeEvent": [],
+		"Certification_Attempt__History": [],
+		"Certification_Attempt__Share": [],
+		"Certification_Attempt__c": [],
+		"Certification_Element__ChangeEvent": [],
+		"Certification_Element__History": [],
+		"Certification_Element__c": [],
+		"Certification_Held__ChangeEvent": [],
+		"Certification_Held__History": [],
+		"Certification_Held__c": [],
+		"Certification__ChangeEvent": [],
+		"Certification__History": [],
+		"Certification__Share": [],
+		"Certification__c": [],
+		"ChatterActivity": [],
+		"ChatterExtension": [],
+		"ChatterExtensionConfig": [],
+		"ClientBrowser": [],
+		"CollaborationGroup": [],
+		"CollaborationGroupFeed": [],
+		"CollaborationGroupMember": [],
+		"CollaborationGroupMemberRequest": [],
+		"CollaborationGroupRecord": [],
+		"CollaborationInvitation": [],
+		"ColorDefinition": [],
+		"CombinedAttachment": [],
+		"CommSubscription": [],
+		"CommSubscriptionChangeEvent": [],
+		"CommSubscriptionChannelType": [],
+		"CommSubscriptionChannelTypeChangeEvent": [],
+		"CommSubscriptionChannelTypeFeed": [],
+		"CommSubscriptionChannelTypeHistory": [],
+		"CommSubscriptionChannelTypeShare": [],
+		"CommSubscriptionConsent": [],
+		"CommSubscriptionConsentChangeEvent": [],
+		"CommSubscriptionConsentFeed": [],
+		"CommSubscriptionConsentHistory": [],
+		"CommSubscriptionConsentShare": [],
+		"CommSubscriptionFeed": [],
+		"CommSubscriptionHistory": [],
+		"CommSubscriptionShare": [],
+		"CommSubscriptionTiming": [],
+		"CommSubscriptionTimingFeed": [],
+		"CommSubscriptionTimingHistory": [],
+		"Community": [],
+		"ConferenceNumber": [],
+		"ConnectedApplication": [],
+		"Contact": [
+			"AccountId",
+			"AssistantName",
+			"AssistantPhone",
+			"Birthdate",
+			"BuyerAttributes",
+			"ContactSource",
+			"CreatedById",
+			"CreatedDate",
+			"CurrencyIsoCode",
+			"CustomerId__c",
+			"DateBirth__c",
+			"Department",
+			"DepartmentGroup",
+			"Description",
+			"DoNotCall",
+			"Email",
+			"EmailBouncedDate",
+			"EmailBouncedReason",
+			"External_ID__c",
+			"Fax",
+			"FirstName",
+			"HasOptedOutOfEmail",
+			"HasOptedOutOfFax",
+			"HomePhone",
+			"Id",
+			"IndividualId",
+			"IsDeleted",
+			"IsEmailBounced",
+			"Jigsaw",
+			"JigsawContactId",
+			"LastActivityDate",
+			"LastCURequestDate",
+			"LastCUUpdateDate",
+			"LastModifiedById",
+			"LastModifiedDate",
+			"LastName",
+			"LastReferencedDate",
+			"LastViewedDate",
+			"LeadSource",
+			"MailingAddress",
+			"MailingCity",
+			"MailingCountry",
+			"MailingGeocodeAccuracy",
+			"MailingLatitude",
+			"MailingLongitude",
+			"MailingPostalCode",
+			"MailingState",
+			"MailingStreet",
+			"MasterRecordId",
+			"MiddleName__c",
+			"MobilePhone",
+			"Name",
+			"Number_of_Certifications_Held__c",
+			"OtherAddress",
+			"OtherCity",
+			"OtherCountry",
+			"OtherGeocodeAccuracy",
+			"OtherLatitude",
+			"OtherLongitude",
+			"OtherPhone",
+			"OtherPostalCode",
+			"OtherState",
+			"OtherStreet",
+			"OwnerId",
+			"PersonName__c",
+			"Phone",
+			"PhotoUrl",
+			"RAVG_Retail_Membership_Number__c",
+			"RAVG_Retail_Points_Balance__c",
+			"RecordTypeId",
+			"ReportsToId",
+			"Salutation",
+			"Status__c",
+			"SystemModstamp",
+			"TaxRatePercent__c",
+			"Title",
+			"TitleType",
+			"WebSiteURL__c"
+		],
+		"ContactChangeEvent": [],
+		"ContactFeed": [],
+		"ContactHistory": [],
+		"ContactPointAddress": [],
+		"ContactPointAddressChangeEvent": [],
+		"ContactPointAddressHistory": [],
+		"ContactPointAddressShare": [],
+		"ContactPointConsent": [],
+		"ContactPointConsentChangeEvent": [],
+		"ContactPointConsentHistory": [],
+		"ContactPointConsentShare": [],
+		"ContactPointEmail": [],
+		"ContactPointEmailChangeEvent": [],
+		"ContactPointEmailHistory": [],
+		"ContactPointEmailShare": [],
+		"ContactPointPhone": [],
+		"ContactPointPhoneChangeEvent": [],
+		"ContactPointPhoneHistory": [],
+		"ContactPointPhoneShare": [],
+		"ContactPointTypeConsent": [],
+		"ContactPointTypeConsentChangeEvent": [],
+		"ContactPointTypeConsentHistory": [],
+		"ContactPointTypeConsentShare": [],
+		"ContactRequest": [],
+		"ContactRequestShare": [],
+		"ContactShare": [],
+		"ContentAsset": [],
+		"ContentBody": [],
+		"ContentDistribution": [],
+		"ContentDistributionView": [],
+		"ContentDocument": [],
+		"ContentDocumentChangeEvent": [],
+		"ContentDocumentFeed": [],
+		"ContentDocumentHistory": [],
+		"ContentDocumentLink": [],
+		"ContentDocumentLinkChangeEvent": [],
+		"ContentDocumentSubscription": [],
+		"ContentFolder": [],
+		"ContentFolderItem": [],
+		"ContentFolderLink": [],
+		"ContentFolderMember": [],
+		"ContentNote": [],
+		"ContentNotification": [],
+		"ContentTagSubscription": [],
+		"ContentUserSubscription": [],
+		"ContentVersion": [],
+		"ContentVersionChangeEvent": [],
+		"ContentVersionComment": [],
+		"ContentVersionHistory": [],
+		"ContentVersionRating": [],
+		"ContentWorkspace": [],
+		"ContentWorkspaceDoc": [],
+		"ContentWorkspaceMember": [],
+		"ContentWorkspacePermission": [],
+		"ContentWorkspaceSubscription": [],
+		"Contract": [],
+		"ContractChangeEvent": [],
+		"ContractContactRole": [],
+		"ContractFeed": [],
+		"ContractHistory": [],
+		"ContractStatus": [],
+		"CorsWhitelistEntry": [],
+		"Course_Attendee__ChangeEvent": [],
+		"Course_Attendee__History": [],
+		"Course_Attendee__c": [],
+		"Course_Delivery__ChangeEvent": [],
+		"Course_Delivery__History": [],
+		"Course_Delivery__c": [],
+		"Course__ChangeEvent": [],
+		"Course__History": [],
+		"Course__Share": [],
+		"Course__c": [],
+		"CronJobDetail": [],
+		"CronTrigger": [],
+		"CspTrustedSite": [],
+		"CuratedExpJobEvent": [],
+		"CuratedExpPlanEvent": [],
+		"CurrencyType": [],
+		"CustomBrand": [],
+		"CustomBrandAsset": [],
+		"CustomHelpMenuItem": [],
+		"CustomHelpMenuSection": [],
+		"CustomHttpHeader": [],
+		"CustomNotificationType": [],
+		"CustomPermission": [],
+		"CustomPermissionDependency": [],
+		"Customer": [],
+		"CustomerShare": [],
+		"Dashboard": [],
+		"DashboardComponent": [],
+		"DashboardComponentFeed": [],
+		"DashboardFeed": [],
+		"DataAction": [],
+		"DataActionFeed": [],
+		"DataActionHistory": [],
+		"DataActionJobStatusEvent": [],
+		"DataActionJobSummary": [],
+		"DataActionJobSummaryFeed": [],
+		"DataActionJobSummaryHistory": [],
+		"DataActionJobSummaryShare": [],
+		"DataActionTarget": [],
+		"DataActionTargetFeed": [],
+		"DataActionTargetHistory": [],
+		"DataActionTargetShare": [],
+		"DataAssessmentFieldMetric": [],
+		"DataAssessmentMetric": [],
+		"DataAssessmentValueMetric": [],
+		"DataConctCredExpiryEvent": [],
+		"DataConnectorStatusEvent": [],
+		"DataGraph": [],
+		"DataIntegrationRecordPurchasePermission": [],
+		"DataKitDeployEvent": [],
+		"DataKitDeploymentLog": [],
+		"DataKitDeploymentLogShare": [],
+		"DataLakeObjectInstance": [],
+		"DataLakeObjectInstanceFeed": [],
+		"DataLakeObjectInstanceHistory": [],
+		"DataLakeObjectInstanceShare": [],
+		"DataMultiOrgConnection": [],
+		"DataMultiOrgObjectRef": [],
+		"DataMultiOrgServiceEvent": [],
+		"DataMultiOrgSyncStatus": [],
+		"DataObjectDataChgEvent": [],
+		"DataObjectMetadataChgEvent": [],
+		"DataQueryWorkspace": [],
+		"DataQueryWorkspaceFeed": [],
+		"DataQueryWorkspaceHistory": [],
+		"DataQueryWorkspaceShare": [],
+		"DataQueryWorkspaceTab": [],
+		"DataRemoteOrgDataSpaceMap": [],
+		"DataSemanticSearch": [],
+		"DataSemanticSearchFeed": [],
+		"DataSemanticSearchHistory": [],
+		"DataShellTntUpgradeEvent": [],
+		"DataSourceBundle": [],
+		"DataSourceBundleShare": [],
+		"DataSpace": [],
+		"DataSpaceFeed": [],
+		"DataSpaceFilterCondition": [],
+		"DataSpaceFilterCriteria": [],
+		"DataSpaceHistory": [],
+		"DataSpaceInternalOrg": [],
+		"DataStatistics": [],
+		"DataStream": [],
+		"DataStreamFeed": [],
+		"DataStreamHistory": [],
+		"DataStreamNewFieldEvent": [],
+		"DataStreamShare": [],
+		"DataStreamStatusEvent": [],
+		"DataSyncConnectorEvent": [],
+		"DataType": [],
+		"DataUseLegalBasis": [],
+		"DataUseLegalBasisHistory": [],
+		"DataUseLegalBasisShare": [],
+		"DataUsePurpose": [],
+		"DataUsePurposeHistory": [],
+		"DataUsePurposeShare": [],
+		"DataWeaveResource": [],
+		"DatacloudAddress": [],
+		"DatedConversionRate": [],
+		"DeclinedEventRelation": [],
+		"DeleteEvent": [],
+		"Document": [],
+		"DocumentAttachmentMap": [],
+		"Domain": [],
+		"DomainSite": [],
+		"DuplicateRecordItem": [],
+		"DuplicateRecordSet": [],
+		"DuplicateRule": [],
+		"EmailBounceEvent": [],
+		"EmailCapture": [],
+		"EmailDomainFilter": [],
+		"EmailDomainKey": [],
+		"EmailMessage": [],
+		"EmailMessageChangeEvent": [],
+		"EmailMessageRelation": [],
+		"EmailRelay": [],
+		"EmailRoutingAddress": [],
+		"EmailServicesAddress": [],
+		"EmailServicesFunction": [],
+		"EmailStatus": [],
+		"EmailTemplate": [],
+		"EmailTemplateChangeEvent": [],
+		"EmbeddedServiceDetail": [],
+		"EmbeddedServiceLabel": [],
+		"EngagementChannelType": [],
+		"EngagementChannelTypeChangeEvent": [],
+		"EngagementChannelTypeFeed": [],
+		"EngagementChannelTypeHistory": [],
+		"EngagementChannelTypeShare": [],
+		"EngmtChannelTypeSettings": [],
+		"EnhancedLetterhead": [],
+		"EnhancedLetterheadFeed": [],
+		"EntityDefinition": [],
+		"EntityParticle": [],
+		"EntitySubscription": [],
+		"Error_Log__ChangeEvent": [],
+		"Error_Log__Share": [],
+		"Error_Log__c": [],
+		"Event": [],
+		"EventBusSubscriber": [],
+		"EventChangeEvent": [],
+		"EventFeed": [],
+		"EventLogFile": [],
+		"EventRelation": [],
+		"EventRelationChangeEvent": [],
+		"EventRelayConfig": [],
+		"EventRelayConfigChangeEvent": [],
+		"EventRelayFeedback": [],
+		"ExpressionFilter": [],
+		"ExpressionFilterCriteria": [],
+		"ExpressionSetView": [],
+		"ExtDataShare": [],
+		"ExtDataShareFeed": [],
+		"ExtDataShareHistory": [],
+		"ExtDataShareTarget": [],
+		"ExtDataShareTargetFeed": [],
+		"ExtDataShareTargetHistory": [],
+		"ExtDataShareTargetShare": [],
+		"ExternalDataSource": [],
+		"ExternalDataSrcDescriptor": [],
+		"ExternalDataUserAuth": [],
+		"ExternalEvent": [],
+		"ExternalEventMapping": [],
+		"ExternalEventMappingShare": [],
+		"ExternalSocialAccount": [],
+		"ExternalSourceStatusEvent": [],
+		"FeedAttachment": [],
+		"FeedComment": [],
+		"FeedItem": [],
+		"FeedLike": [],
+		"FeedPollChoice": [],
+		"FeedPollVote": [],
+		"FeedRevision": [],
+		"FeedSignal": [],
+		"FeedTrackedChange": [],
+		"FieldDefinition": [],
+		"FieldPermissions": [],
+		"FieldSecurityClassification": [],
+		"FileSearchActivity": [],
+		"FiscalYearSettings": [],
+		"FlexQueueItem": [],
+		"FlowDefinitionView": [],
+		"FlowExecutionErrorEvent": [],
+		"FlowInterview": [],
+		"FlowInterviewLog": [],
+		"FlowInterviewLogEntry": [],
+		"FlowInterviewLogShare": [],
+		"FlowInterviewShare": [],
+		"FlowOrchestrationEvent": [],
+		"FlowOrchestrationInstance": [],
+		"FlowOrchestrationInstanceShare": [],
+		"FlowOrchestrationLog": [],
+		"FlowOrchestrationStageInstance": [],
+		"FlowOrchestrationStageInstanceShare": [],
+		"FlowOrchestrationStepInstance": [],
+		"FlowOrchestrationStepInstanceShare": [],
+		"FlowOrchestrationWorkItem": [],
+		"FlowOrchestrationWorkItemShare": [],
+		"FlowRecord": [],
+		"FlowRecordElement": [],
+		"FlowRecordRelation": [],
+		"FlowRecordShare": [],
+		"FlowRecordVersion": [],
+		"FlowRecordVersionChangeEvent": [],
+		"FlowRecordVersionOccurrence": [],
+		"FlowStageRelation": [],
+		"FlowTestResult": [],
+		"FlowTestResultShare": [],
+		"FlowTestView": [],
+		"FlowVariableView": [],
+		"FlowVersionView": [],
+		"Folder": [],
+		"FolderedContentDocument": [],
+		"FormulaFunction": [],
+		"FormulaFunctionAllowedType": [],
+		"FormulaFunctionCategory": [],
+		"GrantedByLicense": [],
+		"Group": [],
+		"GroupMember": [],
+		"Holiday": [],
+		"IPAddressRange": [],
+		"IconDefinition": [],
+		"IdRsolStatusEvent": [],
+		"Idea": [],
+		"IdeaComment": [],
+		"IdentityResolution": [],
+		"IdentityResolutionFeed": [],
+		"IdentityResolutionHistory": [],
+		"IdpEventLog": [],
+		"IframeWhiteListUrl": [],
+		"Image": [],
+		"ImageFeed": [],
+		"ImageHistory": [],
+		"ImageShare": [],
+		"Individual": [],
+		"IndividualChangeEvent": [],
+		"IndividualHistory": [],
+		"IndividualShare": [],
+		"InstalledMobileApp": [],
+		"Job_Application__ChangeEvent": [],
+		"Job_Application__Share": [],
+		"Job_Application__c": [],
+		"KnowledgeableUser": [],
+		"Lead": [
+			"Address",
+			"AnnualRevenue",
+			"City",
+			"Company",
+			"ConvertedAccountId",
+			"ConvertedContactId",
+			"ConvertedDate",
+			"ConvertedOpportunityId",
+			"Country",
+			"CreatedById",
+			"CreatedDate",
+			"CurrencyIsoCode",
+			"Description",
+			"DoNotCall",
+			"Email",
+			"EmailBouncedDate",
+			"EmailBouncedReason",
+			"Fax",
+			"FirstName",
+			"GeocodeAccuracy",
+			"HasOptedOutOfEmail",
+			"HasOptedOutOfFax",
+			"Id",
+			"IndividualId",
+			"Industry",
+			"IsConverted",
+			"IsDeleted",
+			"IsUnreadByOwner",
+			"Jigsaw",
+			"JigsawContactId",
+			"LastActivityDate",
+			"LastModifiedById",
+			"LastModifiedDate",
+			"LastName",
+			"LastReferencedDate",
+			"LastTransferDate",
+			"LastViewedDate",
+			"Latitude",
+			"LeadSource",
+			"Longitude",
+			"MasterRecordId",
+			"MobilePhone",
+			"Name",
+			"NumberOfEmployees",
+			"OwnerId",
+			"Phone",
+			"PhotoUrl",
+			"PostalCode",
+			"Rating",
+			"Salutation",
+			"State",
+			"Status",
+			"Street",
+			"SystemModstamp",
+			"Title",
+			"Website"
+		],
+		"LeadChangeEvent": [],
+		"LeadFeed": [],
+		"LeadHistory": [],
+		"LeadShare": [],
+		"LeadStatus": [],
+		"LightningExitByPageMetrics": [],
+		"LightningExperienceTheme": [],
+		"LightningOnboardingConfig": [],
+		"LightningToggleMetrics": [],
+		"LightningUsageByAppTypeMetrics": [],
+		"LightningUsageByBrowserMetrics": [],
+		"LightningUsageByFlexiPageMetrics": [],
+		"LightningUsageByPageMetrics": [],
+		"ListEmail": [],
+		"ListEmailChangeEvent": [],
+		"ListEmailIndividualRecipient": [],
+		"ListEmailRecipientSource": [],
+		"ListEmailShare": [],
+		"ListView": [],
+		"ListViewChart": [],
+		"ListViewChartInstance": [],
+		"Location": [],
+		"LocationChangeEvent": [],
+		"LocationFeed": [],
+		"LocationHistory": [],
+		"LocationShare": [],
+		"LocationTrustMeasure": [],
+		"LocationTrustMeasureShare": [],
+		"LoginGeo": [],
+		"LoginHistory": [],
+		"LoginIp": [],
+		"LogoutEventStream": [],
+		"LookedUpFromActivity": [],
+		"MLEngagementEvent": [],
+		"MLModel": [],
+		"MLModelFactor": [],
+		"MLModelFactorComponent": [],
+		"MLModelMetric": [],
+		"MLPredictionDefinition": [],
+		"MLRecommendationDefinition": [],
+		"Macro": [],
+		"MacroChangeEvent": [],
+		"MacroHistory": [],
+		"MacroInstruction": [],
+		"MacroInstructionChangeEvent": [],
+		"MacroShare": [],
+		"MacroUsage": [],
+		"MacroUsageShare": [],
+		"MailmergeTemplate": [],
+		"ManagedContent": [],
+		"ManagedContentChannel": [],
+		"ManagedContentSpace": [],
+		"ManagedContentVariant": [],
+		"ManagedContentVariantChangeEvent": [],
+		"MarketSegment": [],
+		"MarketSegmentActivation": [],
+		"MarketSegmentActivationFeed": [],
+		"MarketSegmentActivationHistory": [],
+		"MarketSegmentChangeEvent": [],
+		"MarketSegmentDefMapping": [],
+		"MarketSegmentFeed": [],
+		"MarketSegmentHistory": [],
+		"MarketSegmentStatusEvent": [],
+		"MarketSgmtActvStatusEvent": [],
+		"MatchingInformation": [],
+		"MatchingRule": [],
+		"MatchingRuleItem": [],
+		"MktCalculatedInsight": [],
+		"MktCalculatedInsightFeed": [],
+		"MktCalculatedInsightHistory": [],
+		"MktDataLakeMapping": [],
+		"MktDataTransform": [],
+		"MktDataTransformEvent": [],
+		"MktDataTransformFeed": [],
+		"MktDataTransformHistory": [],
+		"MktDataTransformShare": [],
+		"MktMLModel": [],
+		"MktMLModelFeed": [],
+		"MktMLModelHistory": [],
+		"MktMLModelShare": [],
+		"MktMLPredictionJob": [],
+		"MktMLPredictionJobFeed": [],
+		"MktMLPredictionJobHistory": [],
+		"MktMLSetupRunChgEvent": [],
+		"MktSgmntActvtnAudAttribute": [],
+		"MktSgmntActvtnContactPoint": [],
+		"MktSgmtActvContactPtField": [],
+		"MktSgmtActvContactPtSrc": [],
+		"MktSgmtActvDataModelFld": [],
+		"MktSgmtActvDataSource": [],
+		"MktSgmtDefCalcInsightFld": [],
+		"MktSgmtDefDataMdlObjFld": [],
+		"MlFeatureValueMetric": [],
+		"MobileApplicationDetail": [],
+		"MutingPermissionSet": [],
+		"MyDomainDiscoverableLogin": [],
+		"Name": [],
+		"NamedCredential": [],
+		"Note": [],
+		"NoteAndAttachment": [],
+		"OauthCustomScope": [],
+		"OauthCustomScopeApp": [],
+		"OauthToken": [],
+		"OauthTokenExchHandlerApp": [],
+		"OauthTokenExchangeHandler": [],
+		"ObjectDataImport": [],
+		"ObjectDataImportReference": [],
+		"ObjectDataImportShare": [],
+		"ObjectPermissions": [],
+		"OmniRoutingEventStore": [],
+		"OmniSupervisorConfig": [],
+		"OmniSupervisorConfigAction": [],
+		"OmniSupervisorConfigGroup": [],
+		"OmniSupervisorConfigProfile": [],
+		"OmniSupervisorConfigQueue": [],
+		"OmniSupervisorConfigSkill": [],
+		"OmniSupervisorConfigTab": [],
+		"OmniSupervisorConfigUser": [],
+		"OnboardingMetrics": [],
+		"OpenActivity": [],
+		"Opportunity": [],
+		"OpportunityChangeEvent": [],
+		"OpportunityCompetitor": [],
+		"OpportunityContactRole": [],
+		"OpportunityContactRoleChangeEvent": [],
+		"OpportunityFeed": [],
+		"OpportunityFieldHistory": [],
+		"OpportunityHistory": [],
+		"OpportunityLineItem": [],
+		"OpportunityLineItemChangeEvent": [],
+		"OpportunityPartner": [],
+		"OpportunityRelatedDeleteLog": [],
+		"OpportunityShare": [],
+		"OpportunityStage": [],
+		"OpportunityTeamMember": [],
+		"OpportunityTeamMemberHistory": [],
+		"Order": [],
+		"OrderChangeEvent": [],
+		"OrderFeed": [],
+		"OrderHistory": [],
+		"OrderItem": [],
+		"OrderItemChangeEvent": [],
+		"OrderItemFeed": [],
+		"OrderItemHistory": [],
+		"OrderItem__ChangeEvent": [],
+		"OrderItem__c": [
+			"CreatedById",
+			"CreatedDate",
+			"CurrencyIsoCode",
+			"DiscountPercent__c",
+			"Id",
+			"IsDeleted",
+			"LastModifiedById",
+			"LastModifiedDate",
+			"LastReferencedDate",
+			"LastViewedDate",
+			"LineTotal__c",
+			"ListPriceAmount__c",
+			"Name",
+			"OrderedQuantity__c",
+			"Product__c",
+			"SalesOrder__c",
+			"SystemModstamp",
+			"UnitPriceAmount__c"
+		],
+		"OrderShare": [],
+		"OrderStatus": [],
+		"Order__ChangeEvent": [],
+		"Order__Share": [],
+		"Order__c": [
+			"CreatedById",
+			"CreatedDate",
+			"CreatedDate__c",
+			"CurrencyIsoCode",
+			"GrandTotalAmount__c",
+			"Id",
+			"IsDeleted",
+			"IsTaxExempt__c",
+			"LastModifiedById",
+			"LastModifiedDate",
+			"LastReferencedDate",
+			"LastViewedDate",
+			"Name",
+			"OwnerId",
+			"PromiseDate__c",
+			"SoldToCustomer__c",
+			"SystemModstamp"
+		],
+		"OrgEmailAddressSecurity": [],
+		"OrgLifecycleNotification": [],
+		"OrgWideEmailAddress": [],
+		"Organization": [],
+		"Outbound_Message__ChangeEvent": [],
+		"Outbound_Message__Share": [],
+		"Outbound_Message__c": [],
+		"OutgoingEmail": [],
+		"OutgoingEmailRelation": [],
+		"OwnedContentDocument": [],
+		"OwnerChangeOptionInfo": [],
+		"PackageLicense": [],
+		"Partner": [],
+		"PartnerRole": [],
+		"PartyConsent": [],
+		"PartyConsentChangeEvent": [],
+		"PartyConsentFeed": [],
+		"PartyConsentHistory": [],
+		"PartyConsentShare": [],
+		"PendingServiceRouting": [],
+		"PendingServiceRoutingInteractionInfo": [],
+		"PendingServiceRoutingShare": [],
+		"Period": [],
+		"PermissionSet": [],
+		"PermissionSetAssignment": [],
+		"PermissionSetGroup": [],
+		"PermissionSetGroupComponent": [],
+		"PermissionSetLicense": [],
+		"PermissionSetLicenseAssign": [],
+		"PermissionSetTabSetting": [],
+		"PicklistValueInfo": [],
+		"PlatformAction": [],
+		"PlatformCachePartition": [],
+		"PlatformCachePartitionType": [],
+		"PlatformEventUsageMetric": [],
+		"PlatformStatusAlertEvent": [],
+		"Position__ChangeEvent": [],
+		"Position__History": [],
+		"Position__Share": [],
+		"Position__c": [],
+		"PresenceConfigDeclineReason": [],
+		"PresenceDeclineReason": [],
+		"PresenceUserConfig": [],
+		"PresenceUserConfigProfile": [],
+		"PresenceUserConfigUser": [],
+		"Pricebook2": [],
+		"Pricebook2ChangeEvent": [],
+		"Pricebook2History": [],
+		"PricebookEntry": [],
+		"PricebookEntryChangeEvent": [],
+		"PricebookEntryHistory": [],
+		"ProcessDefinition": [],
+		"ProcessException": [],
+		"ProcessExceptionEvent": [],
+		"ProcessExceptionShare": [],
+		"ProcessFlowMigration": [],
+		"ProcessInstance": [],
+		"ProcessInstanceChangeEvent": [],
+		"ProcessInstanceHistory": [],
+		"ProcessInstanceNode": [],
+		"ProcessInstanceStep": [],
+		"ProcessInstanceStepChangeEvent": [],
+		"ProcessInstanceWorkitem": [],
+		"ProcessNode": [],
+		"Product2": [],
+		"Product2ChangeEvent": [],
+		"Product2Feed": [],
+		"Product2History": [],
+		"Product__ChangeEvent": [],
+		"Product__Feed": [],
+		"Product__Share": [],
+		"Product__c": [
+			"CreatedById",
+			"CreatedDate",
+			"CurrencyIsoCode",
+			"Id",
+			"IsDeleted",
+			"LastModifiedById",
+			"LastModifiedDate",
+			"LastReferencedDate",
+			"LastViewedDate",
+			"MSRPAmount__c",
+			"Name",
+			"OwnerId",
+			"SystemModstamp"
+		],
+		"Profile": [],
+		"Prompt": [],
+		"PromptAction": [],
+		"PromptActionShare": [],
+		"PromptError": [],
+		"PromptErrorShare": [],
+		"PromptVersion": [],
+		"Publisher": [],
+		"PushTopic": [],
+		"QueueRoutingConfig": [],
+		"QueueSobject": [],
+		"QuickText": [],
+		"QuickTextChangeEvent": [],
+		"QuickTextHistory": [],
+		"QuickTextShare": [],
+		"QuickTextUsage": [],
+		"QuickTextUsageShare": [],
+		"RecentlyViewed": [],
+		"Recommendation": [],
+		"RecommendationChangeEvent": [],
+		"RecommendationResponse": [],
+		"RecordAction": [],
+		"RecordActionHistory": [],
+		"RecordType": [],
+		"RedirectWhitelistUrl": [],
+		"RelatedListColumnDefinition": [],
+		"RelatedListDefinition": [],
+		"RelationshipDomain": [],
+		"RelationshipInfo": [],
+		"Rental_Preference__ChangeEvent": [],
+		"Rental_Preference__Share": [],
+		"Rental_Preference__c": [],
+		"Rental__ChangeEvent": [],
+		"Rental__Share": [],
+		"Rental__c": [],
+		"ReplyEmailSettings": [],
+		"Report": [],
+		"ReportFeed": [],
+		"SPSamlAttributes": [],
+		"SamlSsoConfig": [],
+		"Scontrol": [],
+		"Scorecard": [],
+		"ScorecardAssociation": [],
+		"ScorecardMetric": [],
+		"ScorecardShare": [],
+		"SearchIndexJobStatusEvent": [],
+		"SearchLayout": [],
+		"SecurityCustomBaseline": [],
+		"Seller": [],
+		"SellerHistory": [],
+		"SellerShare": [],
+		"ServiceChannel": [],
+		"ServiceChannelFieldPriority": [],
+		"ServiceChannelStatus": [],
+		"ServicePresenceStatus": [],
+		"ServiceResource": [],
+		"ServiceResourceChangeEvent": [],
+		"ServiceResourceFeed": [],
+		"ServiceResourceHistory": [],
+		"ServiceResourceShare": [],
+		"ServiceSetupProvisioning": [],
+		"SessionPermSetActivation": [],
+		"SetupAssistantStep": [],
+		"SetupAuditTrail": [],
+		"SetupEntityAccess": [],
+		"Site": [],
+		"SiteDetail": [],
+		"SiteFeed": [],
+		"SiteHistory": [],
+		"SiteIframeWhiteListUrl": [],
+		"SiteRedirectMapping": [],
+		"SocialPersona": [],
+		"SocialPersonaHistory": [],
+		"SocialPost": [],
+		"SocialPostChangeEvent": [],
+		"SocialPostFeed": [],
+		"SocialPostHistory": [],
+		"SocialPostShare": [],
+		"Solution": [],
+		"SolutionFeed": [],
+		"SolutionHistory": [],
+		"SolutionStatus": [],
+		"SrcPredJobStatusChgEvent": [],
+		"Stamp": [],
+		"StampAssignment": [],
+		"StaticResource": [],
+		"StreamingChannel": [],
+		"StreamingChannelShare": [],
+		"Survey": [],
+		"SurveyChangeEvent": [],
+		"SurveyEmailBranding": [],
+		"SurveyEngagementContext": [],
+		"SurveyEngagementContextShare": [],
+		"SurveyFeed": [],
+		"SurveyInvitation": [],
+		"SurveyInvitationShare": [],
+		"SurveyPage": [],
+		"SurveyPageChangeEvent": [],
+		"SurveyQuestion": [],
+		"SurveyQuestionChangeEvent": [],
+		"SurveyQuestionChoice": [],
+		"SurveyQuestionChoiceChangeEvent": [],
+		"SurveyQuestionResponse": [],
+		"SurveyQuestionResponseChangeEvent": [],
+		"SurveyQuestionScore": [],
+		"SurveyResponse": [],
+		"SurveyResponseChangeEvent": [],
+		"SurveyShare": [],
+		"SurveySubject": [],
+		"SurveyVersion": [],
+		"SurveyVersionAddlInfo": [],
+		"SurveyVersionChangeEvent": [],
+		"TabDefinition": [],
+		"TableauHostMapping": [],
+		"TableauHostMappingShare": [],
+		"Task": [],
+		"TaskChangeEvent": [],
+		"TaskFeed": [],
+		"TaskPriority": [],
+		"TaskStatus": [],
+		"TenantUsageEntitlement": [],
+		"TestSuiteMembership": [],
+		"ThirdPartyAccountLink": [],
+		"TodayGoal": [],
+		"TodayGoalShare": [],
+		"Topic": [],
+		"TopicAssignment": [],
+		"TopicFeed": [],
+		"TopicUserEvent": [],
+		"Translation": [],
+		"TripReport__ChangeEvent": [],
+		"TripReport__Share": [],
+		"TripReport__c": [],
+		"UiFormulaCriterion": [],
+		"UiFormulaRule": [],
+		"UndecidedEventRelation": [],
+		"User": [],
+		"UserAppInfo": [],
+		"UserAppMenuCustomization": [],
+		"UserAppMenuCustomizationShare": [],
+		"UserAppMenuItem": [],
+		"UserChangeEvent": [],
+		"UserDefinedLabel": [],
+		"UserDefinedLabelAssignment": [],
+		"UserDefinedLabelAssignmentShare": [],
+		"UserDefinedLabelShare": [],
+		"UserEmailPreferredPerson": [],
+		"UserEmailPreferredPersonShare": [],
+		"UserEntityAccess": [],
+		"UserFeed": [],
+		"UserFieldAccess": [],
+		"UserLicense": [],
+		"UserListView": [],
+		"UserListViewCriterion": [],
+		"UserLogin": [],
+		"UserPackageLicense": [],
+		"UserPermissionAccess": [],
+		"UserPreference": [],
+		"UserProvAccount": [],
+		"UserProvAccountStaging": [],
+		"UserProvMockTarget": [],
+		"UserProvisioningConfig": [],
+		"UserProvisioningLog": [],
+		"UserProvisioningRequest": [],
+		"UserProvisioningRequestShare": [],
+		"UserRecordAccess": [],
+		"UserRole": [],
+		"UserServicePresence": [],
+		"UserServicePresenceShare": [],
+		"UserSetupEntityAccess": [],
+		"UserShare": [],
+		"UserTeamMember": [],
+		"VerificationHistory": [],
+		"VisualforceAccessMetrics": [],
+		"Vote": [],
+		"WaveAutoInstallRequest": [],
+		"WaveCompatibilityCheckItem": [],
+		"WebLink": [],
+		"WorkOrder": [],
+		"WorkOrderChangeEvent": [],
+		"WorkOrderFeed": [],
+		"WorkOrderHistory": [],
+		"WorkOrderLineItem": [],
+		"WorkOrderLineItemChangeEvent": [],
+		"WorkOrderLineItemFeed": [],
+		"WorkOrderLineItemHistory": [],
+		"WorkOrderLineItemStatus": [],
+		"WorkOrderShare": [],
+		"WorkOrderStatus": []
+	},
+	"rejected": {
+		"ADD_FIELD": {
+			"Product__c.OwnerId": [
+				"Reference, but it points to 0 or more than 1 sObject: | Group | User | "
+			],
+			"Product__c.IsDeleted": [
+				"Must be createable"
+			],
+			"Product__c.CreatedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Product__c.LastModifiedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Product__c.SystemModstamp": [
+				"Must be createable"
+			],
+			"Product__c.LastViewedDate": [
+				"Must be createable"
+			],
+			"Product__c.LastReferencedDate": [
+				"Must be createable"
+			],
+			"Order__c.OwnerId": [
+				"Reference, but it points to 0 or more than 1 sObject: | Group | User | "
+			],
+			"Order__c.IsDeleted": [
+				"Must be createable"
+			],
+			"Order__c.Name": [
+				"Can't be autoNumber",
+				"Must be createable"
+			],
+			"Order__c.CreatedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Order__c.LastModifiedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Order__c.SystemModstamp": [
+				"Must be createable"
+			],
+			"Order__c.LastViewedDate": [
+				"Must be createable"
+			],
+			"Order__c.LastReferencedDate": [
+				"Must be createable"
+			],
+			"Order__c.GrandTotalAmount__c": [
+				"Can't be calculated",
+				"Must be createable"
+			],
+			"OrderItem__c.IsDeleted": [
+				"Must be createable"
+			],
+			"OrderItem__c.Name": [
+				"Can't be autoNumber",
+				"Must be createable"
+			],
+			"OrderItem__c.CreatedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"OrderItem__c.LastModifiedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"OrderItem__c.SystemModstamp": [
+				"Must be createable"
+			],
+			"OrderItem__c.LastViewedDate": [
+				"Must be createable"
+			],
+			"OrderItem__c.LastReferencedDate": [
+				"Must be createable"
+			],
+			"OrderItem__c.LineTotal__c": [
+				"Can't be calculated",
+				"Must be createable"
+			],
+			"OrderItem__c.UnitPriceAmount__c": [
+				"Can't be calculated",
+				"Must be createable"
+			],
+			"Case.IsDeleted": [
+				"Must be createable"
+			],
+			"Case.MasterRecordId": [
+				"Must be createable",
+				"Recursive parenting for field references is supported, but requires the field to be configured as twoPassReferenceField"
+			],
+			"Case.CaseNumber": [
+				"Can't be autoNumber",
+				"Must be createable"
+			],
+			"Case.AssetId": [
+				"Parent sObject [Asset] is not processed"
+			],
+			"Case.SourceId": [
+				"Reference, but it points to 0 or more than 1 sObject: | EmailMessage | SocialPost | "
+			],
+			"Case.BusinessHoursId": [
+				"Parent sObject [BusinessHours] is not processed"
+			],
+			"Case.ParentId": [
+				"Recursive parenting for field references is supported, but requires the field to be configured as twoPassReferenceField"
+			],
+			"Case.RecordTypeId": [
+				"Parent sObject [RecordType] is not processed"
+			],
+			"Case.IsClosed": [
+				"Must be createable"
+			],
+			"Case.OwnerId": [
+				"Reference, but it points to 0 or more than 1 sObject: | Group | User | "
+			],
+			"Case.IsClosedOnCreate": [
+				"Must be createable"
+			],
+			"Case.CreatedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Case.LastModifiedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Case.SystemModstamp": [
+				"Must be createable"
+			],
+			"Case.ContactPhone": [
+				"Must be createable"
+			],
+			"Case.ContactMobile": [
+				"Must be createable"
+			],
+			"Case.ContactEmail": [
+				"Must be createable"
+			],
+			"Case.ContactFax": [
+				"Must be createable"
+			],
+			"Case.LastViewedDate": [
+				"Must be createable"
+			],
+			"Case.LastReferencedDate": [
+				"Must be createable"
+			],
+			"Lead.IsDeleted": [
+				"Must be createable"
+			],
+			"Lead.MasterRecordId": [
+				"Must be createable",
+				"Recursive parenting for field references is supported, but requires the field to be configured as twoPassReferenceField"
+			],
+			"Lead.Name": [
+				"Must be createable"
+			],
+			"Lead.Address": [
+				"Must be createable"
+			],
+			"Lead.PhotoUrl": [
+				"Must be createable"
+			],
+			"Lead.OwnerId": [
+				"User asked for this field to be excluded",
+				"Reference, but it points to 0 or more than 1 sObject: | Group | User | "
+			],
+			"Lead.ConvertedOpportunityId": [
+				"Parent sObject [Opportunity] is not processed"
+			],
+			"Lead.CreatedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Lead.LastModifiedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Lead.SystemModstamp": [
+				"Must be createable"
+			],
+			"Lead.LastActivityDate": [
+				"Must be createable"
+			],
+			"Lead.LastViewedDate": [
+				"Must be createable"
+			],
+			"Lead.LastReferencedDate": [
+				"Must be createable"
+			],
+			"Lead.LastTransferDate": [
+				"Must be createable"
+			],
+			"Lead.JigsawContactId": [
+				"Must be createable"
+			],
+			"Lead.EmailBouncedReason": [
+				"Must be createable"
+			],
+			"Lead.EmailBouncedDate": [
+				"Must be createable"
+			],
+			"Lead.IndividualId": [
+				"Parent sObject [Individual] is not processed"
+			],
+			"Account.IsDeleted": [
+				"Must be createable"
+			],
+			"Account.MasterRecordId": [
+				"Must be createable",
+				"Recursive parenting for field references is supported, but requires the field to be configured as twoPassReferenceField"
+			],
+			"Account.RecordTypeId": [
+				"Parent sObject [RecordType] is not processed"
+			],
+			"Account.ParentId": [
+				"Recursive parenting for field references is supported, but requires the field to be configured as twoPassReferenceField"
+			],
+			"Account.BillingAddress": [
+				"Must be createable"
+			],
+			"Account.ShippingAddress": [
+				"Must be createable"
+			],
+			"Account.PhotoUrl": [
+				"Must be createable"
+			],
+			"Account.OwnerId": [
+				"User asked for this field to be excluded",
+				"Parent sObject [User] is not processed"
+			],
+			"Account.CreatedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Account.LastModifiedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Account.SystemModstamp": [
+				"Must be createable"
+			],
+			"Account.LastActivityDate": [
+				"Must be createable"
+			],
+			"Account.LastViewedDate": [
+				"Must be createable"
+			],
+			"Account.LastReferencedDate": [
+				"Must be createable"
+			],
+			"Account.JigsawCompanyId": [
+				"Must be createable"
+			],
+			"Contact.IsDeleted": [
+				"Must be createable"
+			],
+			"Contact.MasterRecordId": [
+				"Must be createable",
+				"Recursive parenting for field references is supported, but requires the field to be configured as twoPassReferenceField"
+			],
+			"Contact.Name": [
+				"Must be createable"
+			],
+			"Contact.RecordTypeId": [
+				"Parent sObject [RecordType] is not processed"
+			],
+			"Contact.OtherAddress": [
+				"Must be createable"
+			],
+			"Contact.MailingAddress": [
+				"Must be createable"
+			],
+			"Contact.ReportsToId": [
+				"Recursive parenting for field references is supported, but requires the field to be configured as twoPassReferenceField"
+			],
+			"Contact.OwnerId": [
+				"User asked for this field to be excluded",
+				"Parent sObject [User] is not processed"
+			],
+			"Contact.CreatedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Contact.LastModifiedById": [
+				"Parent sObject [User] is not processed"
+			],
+			"Contact.SystemModstamp": [
+				"Must be createable"
+			],
+			"Contact.LastActivityDate": [
+				"Must be createable"
+			],
+			"Contact.LastCURequestDate": [
+				"Must be createable"
+			],
+			"Contact.LastCUUpdateDate": [
+				"Must be createable"
+			],
+			"Contact.LastViewedDate": [
+				"Must be createable"
+			],
+			"Contact.LastReferencedDate": [
+				"Must be createable"
+			],
+			"Contact.IsEmailBounced": [
+				"Must be createable"
+			],
+			"Contact.PhotoUrl": [
+				"Must be createable"
+			],
+			"Contact.JigsawContactId": [
+				"Must be createable"
+			],
+			"Contact.IndividualId": [
+				"Parent sObject [Individual] is not processed"
+			],
+			"Contact.Number_of_Certifications_Held__c": [
+				"Can't be calculated",
+				"Must be createable"
+			],
+			"Contact.PersonName__c": [
+				"Can't be calculated",
+				"Must be createable"
+			]
+		},
+		"ADD_CHILD": {
+			"Product__c.null => AIInsightValue": [
+				"Child sObject [AIInsightValue] is not processed"
+			],
+			"Product__c.null => AIRecordInsight": [
+				"Child sObject [AIRecordInsight] is not processed"
+			],
+			"Product__c.null => AgentWork": [
+				"Child sObject [AgentWork] is not processed"
+			],
+			"Product__c.AttachedContentDocuments => AttachedContentDocument": [
+				"Child sObject [AttachedContentDocument] is not processed"
+			],
+			"Product__c.AttachedContentNotes => AttachedContentNote": [
+				"Child sObject [AttachedContentNote] is not processed"
+			],
+			"Product__c.Attachments => Attachment": [
+				"Child sObject [Attachment] is not processed"
+			],
+			"Product__c.RecordAssociatedGroups => CollaborationGroupRecord": [
+				"Child sObject [CollaborationGroupRecord] is not processed"
+			],
+			"Product__c.CombinedAttachments => CombinedAttachment": [
+				"Child sObject [CombinedAttachment] is not processed"
+			],
+			"Product__c.ContactRequests => ContactRequest": [
+				"Child sObject [ContactRequest] is not processed"
+			],
+			"Product__c.null => ContentDistribution": [
+				"Child sObject [ContentDistribution] is not processed"
+			],
+			"Product__c.ContentDocumentLinks => ContentDocumentLink": [
+				"Child sObject [ContentDocumentLink] is not processed"
+			],
+			"Product__c.null => ContentDocumentLinkChangeEvent": [
+				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
+			],
+			"Product__c.null => ContentVersion": [
+				"Child sObject [ContentVersion] is not processed"
+			],
+			"Product__c.null => ContentVersionChangeEvent": [
+				"Child sObject [ContentVersionChangeEvent] is not processed"
+			],
+			"Product__c.DuplicateRecordItems => DuplicateRecordItem": [
+				"Child sObject [DuplicateRecordItem] is not processed"
+			],
+			"Product__c.null => EmailMessageChangeEvent": [
+				"Child sObject [EmailMessageChangeEvent] is not processed"
+			],
+			"Product__c.FeedSubscriptionsForEntity => EntitySubscription": [
+				"Child sObject [EntitySubscription] is not processed"
+			],
+			"Product__c.null => EventChangeEvent": [
+				"Child sObject [EventChangeEvent] is not processed"
+			],
+			"Product__c.null => EventRelationChangeEvent": [
+				"Child sObject [EventRelationChangeEvent] is not processed"
+			],
+			"Product__c.null => FeedComment": [
+				"Child sObject [FeedComment] is not processed"
+			],
+			"Product__c.null => FeedItem": [
+				"Child sObject [FeedItem] is not processed"
+			],
+			"Product__c.null => FlowExecutionErrorEvent": [
+				"Child sObject [FlowExecutionErrorEvent] is not processed"
+			],
+			"Product__c.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+				"Child sObject [FlowOrchestrationWorkItem] is not processed"
+			],
+			"Product__c.null => FlowRecordRelation": [
+				"Child sObject [FlowRecordRelation] is not processed"
+			],
+			"Product__c.Notes => Note": [
+				"Child sObject [Note] is not processed"
+			],
+			"Product__c.NotesAndAttachments => NoteAndAttachment": [
+				"Child sObject [NoteAndAttachment] is not processed"
+			],
+			"Product__c.null => PendingServiceRouting": [
+				"Child sObject [PendingServiceRouting] is not processed"
+			],
+			"Product__c.null => PendingServiceRoutingInteractionInfo": [
+				"Child sObject [PendingServiceRoutingInteractionInfo] is not processed"
+			],
+			"Product__c.ProcessExceptions => ProcessException": [
+				"Child sObject [ProcessException] is not processed"
+			],
+			"Product__c.null => ProcessExceptionEvent": [
+				"Child sObject [ProcessExceptionEvent] is not processed"
+			],
+			"Product__c.ProcessInstances => ProcessInstance": [
+				"Child sObject [ProcessInstance] is not processed"
+			],
+			"Product__c.null => ProcessInstanceChangeEvent": [
+				"Child sObject [ProcessInstanceChangeEvent] is not processed"
+			],
+			"Product__c.ProcessSteps => ProcessInstanceHistory": [
+				"Child sObject [ProcessInstanceHistory] is not processed"
+			],
+			"Product__c.Feeds => Product__Feed": [
+				"Child sObject [Product__Feed] is not processed"
+			],
+			"Product__c.Shares => Product__Share": [
+				"Child sObject [Product__Share] is not processed"
+			],
+			"Product__c.RecordActions => RecordAction": [
+				"Child sObject [RecordAction] is not processed"
+			],
+			"Product__c.RecordActionHistories => RecordActionHistory": [
+				"Child sObject [RecordActionHistory] is not processed"
+			],
+			"Product__c.SurveySubjectEntities => SurveySubject": [
+				"Child sObject [SurveySubject] is not processed"
+			],
+			"Product__c.null => TaskChangeEvent": [
+				"Child sObject [TaskChangeEvent] is not processed"
+			],
+			"Product__c.TopicAssignments => TopicAssignment": [
+				"Child sObject [TopicAssignment] is not processed"
+			],
+			"Product__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+				"Child sObject [UserDefinedLabelAssignment] is not processed"
+			],
+			"Order__c.null => AIInsightValue": [
+				"Child sObject [AIInsightValue] is not processed"
+			],
+			"Order__c.null => AIRecordInsight": [
+				"Child sObject [AIRecordInsight] is not processed"
+			],
+			"Order__c.null => AgentWork": [
+				"Child sObject [AgentWork] is not processed"
+			],
+			"Order__c.AttachedContentDocuments => AttachedContentDocument": [
+				"Child sObject [AttachedContentDocument] is not processed"
+			],
+			"Order__c.AttachedContentNotes => AttachedContentNote": [
+				"Child sObject [AttachedContentNote] is not processed"
+			],
+			"Order__c.Attachments => Attachment": [
+				"Child sObject [Attachment] is not processed"
+			],
+			"Order__c.RecordAssociatedGroups => CollaborationGroupRecord": [
+				"Child sObject [CollaborationGroupRecord] is not processed"
+			],
+			"Order__c.CombinedAttachments => CombinedAttachment": [
+				"Child sObject [CombinedAttachment] is not processed"
+			],
+			"Order__c.ContactRequests => ContactRequest": [
+				"Child sObject [ContactRequest] is not processed"
+			],
+			"Order__c.null => ContentDistribution": [
+				"Child sObject [ContentDistribution] is not processed"
+			],
+			"Order__c.ContentDocumentLinks => ContentDocumentLink": [
+				"Child sObject [ContentDocumentLink] is not processed"
+			],
+			"Order__c.null => ContentDocumentLinkChangeEvent": [
+				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
+			],
+			"Order__c.null => ContentVersion": [
+				"Child sObject [ContentVersion] is not processed"
+			],
+			"Order__c.null => ContentVersionChangeEvent": [
+				"Child sObject [ContentVersionChangeEvent] is not processed"
+			],
+			"Order__c.DuplicateRecordItems => DuplicateRecordItem": [
+				"Child sObject [DuplicateRecordItem] is not processed"
+			],
+			"Order__c.null => EmailMessageChangeEvent": [
+				"Child sObject [EmailMessageChangeEvent] is not processed"
+			],
+			"Order__c.FeedSubscriptionsForEntity => EntitySubscription": [
+				"Child sObject [EntitySubscription] is not processed"
+			],
+			"Order__c.null => EventChangeEvent": [
+				"Child sObject [EventChangeEvent] is not processed"
+			],
+			"Order__c.null => EventRelationChangeEvent": [
+				"Child sObject [EventRelationChangeEvent] is not processed"
+			],
+			"Order__c.null => FeedComment": [
+				"Child sObject [FeedComment] is not processed"
+			],
+			"Order__c.null => FeedItem": [
+				"Child sObject [FeedItem] is not processed"
+			],
+			"Order__c.null => FlowExecutionErrorEvent": [
+				"Child sObject [FlowExecutionErrorEvent] is not processed"
+			],
+			"Order__c.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+				"Child sObject [FlowOrchestrationWorkItem] is not processed"
+			],
+			"Order__c.null => FlowRecordRelation": [
+				"Child sObject [FlowRecordRelation] is not processed"
+			],
+			"Order__c.Notes => Note": [
+				"Child sObject [Note] is not processed"
+			],
+			"Order__c.NotesAndAttachments => NoteAndAttachment": [
+				"Child sObject [NoteAndAttachment] is not processed"
+			],
+			"Order__c.Shares => Order__Share": [
+				"Child sObject [Order__Share] is not processed"
+			],
+			"Order__c.null => PendingServiceRouting": [
+				"Child sObject [PendingServiceRouting] is not processed"
+			],
+			"Order__c.null => PendingServiceRoutingInteractionInfo": [
+				"Child sObject [PendingServiceRoutingInteractionInfo] is not processed"
+			],
+			"Order__c.ProcessExceptions => ProcessException": [
+				"Child sObject [ProcessException] is not processed"
+			],
+			"Order__c.null => ProcessExceptionEvent": [
+				"Child sObject [ProcessExceptionEvent] is not processed"
+			],
+			"Order__c.ProcessInstances => ProcessInstance": [
+				"Child sObject [ProcessInstance] is not processed"
+			],
+			"Order__c.null => ProcessInstanceChangeEvent": [
+				"Child sObject [ProcessInstanceChangeEvent] is not processed"
+			],
+			"Order__c.ProcessSteps => ProcessInstanceHistory": [
+				"Child sObject [ProcessInstanceHistory] is not processed"
+			],
+			"Order__c.RecordActions => RecordAction": [
+				"Child sObject [RecordAction] is not processed"
+			],
+			"Order__c.RecordActionHistories => RecordActionHistory": [
+				"Child sObject [RecordActionHistory] is not processed"
+			],
+			"Order__c.SurveySubjectEntities => SurveySubject": [
+				"Child sObject [SurveySubject] is not processed"
+			],
+			"Order__c.null => TaskChangeEvent": [
+				"Child sObject [TaskChangeEvent] is not processed"
+			],
+			"Order__c.TopicAssignments => TopicAssignment": [
+				"Child sObject [TopicAssignment] is not processed"
+			],
+			"Order__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+				"Child sObject [UserDefinedLabelAssignment] is not processed"
+			],
+			"OrderItem__c.null => AIInsightValue": [
+				"Child sObject [AIInsightValue] is not processed"
+			],
+			"OrderItem__c.null => AIRecordInsight": [
+				"Child sObject [AIRecordInsight] is not processed"
+			],
+			"OrderItem__c.null => AgentWork": [
+				"Child sObject [AgentWork] is not processed"
+			],
+			"OrderItem__c.AttachedContentDocuments => AttachedContentDocument": [
+				"Child sObject [AttachedContentDocument] is not processed"
+			],
+			"OrderItem__c.AttachedContentNotes => AttachedContentNote": [
+				"Child sObject [AttachedContentNote] is not processed"
+			],
+			"OrderItem__c.Attachments => Attachment": [
+				"Child sObject [Attachment] is not processed"
+			],
+			"OrderItem__c.RecordAssociatedGroups => CollaborationGroupRecord": [
+				"Child sObject [CollaborationGroupRecord] is not processed"
+			],
+			"OrderItem__c.CombinedAttachments => CombinedAttachment": [
+				"Child sObject [CombinedAttachment] is not processed"
+			],
+			"OrderItem__c.ContactRequests => ContactRequest": [
+				"Child sObject [ContactRequest] is not processed"
+			],
+			"OrderItem__c.null => ContentDistribution": [
+				"Child sObject [ContentDistribution] is not processed"
+			],
+			"OrderItem__c.ContentDocumentLinks => ContentDocumentLink": [
+				"Child sObject [ContentDocumentLink] is not processed"
+			],
+			"OrderItem__c.null => ContentDocumentLinkChangeEvent": [
+				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
+			],
+			"OrderItem__c.null => ContentVersion": [
+				"Child sObject [ContentVersion] is not processed"
+			],
+			"OrderItem__c.null => ContentVersionChangeEvent": [
+				"Child sObject [ContentVersionChangeEvent] is not processed"
+			],
+			"OrderItem__c.DuplicateRecordItems => DuplicateRecordItem": [
+				"Child sObject [DuplicateRecordItem] is not processed"
+			],
+			"OrderItem__c.null => EmailMessageChangeEvent": [
+				"Child sObject [EmailMessageChangeEvent] is not processed"
+			],
+			"OrderItem__c.FeedSubscriptionsForEntity => EntitySubscription": [
+				"Child sObject [EntitySubscription] is not processed"
+			],
+			"OrderItem__c.null => EventChangeEvent": [
+				"Child sObject [EventChangeEvent] is not processed"
+			],
+			"OrderItem__c.null => EventRelationChangeEvent": [
+				"Child sObject [EventRelationChangeEvent] is not processed"
+			],
+			"OrderItem__c.null => FeedComment": [
+				"Child sObject [FeedComment] is not processed"
+			],
+			"OrderItem__c.null => FeedItem": [
+				"Child sObject [FeedItem] is not processed"
+			],
+			"OrderItem__c.null => FlowExecutionErrorEvent": [
+				"Child sObject [FlowExecutionErrorEvent] is not processed"
+			],
+			"OrderItem__c.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+				"Child sObject [FlowOrchestrationWorkItem] is not processed"
+			],
+			"OrderItem__c.null => FlowRecordRelation": [
+				"Child sObject [FlowRecordRelation] is not processed"
+			],
+			"OrderItem__c.Notes => Note": [
+				"Child sObject [Note] is not processed"
+			],
+			"OrderItem__c.NotesAndAttachments => NoteAndAttachment": [
+				"Child sObject [NoteAndAttachment] is not processed"
+			],
+			"OrderItem__c.null => PendingServiceRouting": [
+				"Child sObject [PendingServiceRouting] is not processed"
+			],
+			"OrderItem__c.null => PendingServiceRoutingInteractionInfo": [
+				"Child sObject [PendingServiceRoutingInteractionInfo] is not processed"
+			],
+			"OrderItem__c.ProcessExceptions => ProcessException": [
+				"Child sObject [ProcessException] is not processed"
+			],
+			"OrderItem__c.null => ProcessExceptionEvent": [
+				"Child sObject [ProcessExceptionEvent] is not processed"
+			],
+			"OrderItem__c.ProcessInstances => ProcessInstance": [
+				"Child sObject [ProcessInstance] is not processed"
+			],
+			"OrderItem__c.null => ProcessInstanceChangeEvent": [
+				"Child sObject [ProcessInstanceChangeEvent] is not processed"
+			],
+			"OrderItem__c.ProcessSteps => ProcessInstanceHistory": [
+				"Child sObject [ProcessInstanceHistory] is not processed"
+			],
+			"OrderItem__c.RecordActions => RecordAction": [
+				"Child sObject [RecordAction] is not processed"
+			],
+			"OrderItem__c.RecordActionHistories => RecordActionHistory": [
+				"Child sObject [RecordActionHistory] is not processed"
+			],
+			"OrderItem__c.SurveySubjectEntities => SurveySubject": [
+				"Child sObject [SurveySubject] is not processed"
+			],
+			"OrderItem__c.null => TaskChangeEvent": [
+				"Child sObject [TaskChangeEvent] is not processed"
+			],
+			"OrderItem__c.TopicAssignments => TopicAssignment": [
+				"Child sObject [TopicAssignment] is not processed"
+			],
+			"OrderItem__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+				"Child sObject [UserDefinedLabelAssignment] is not processed"
+			],
+			"Case.null => AIInsightValue": [
+				"Child sObject [AIInsightValue] is not processed"
+			],
+			"Case.null => AIRecordInsight": [
+				"Child sObject [AIRecordInsight] is not processed"
+			],
+			"Case.ActivityHistories => ActivityHistory": [
+				"Child sObject [ActivityHistory] is not processed"
+			],
+			"Case.null => AgentWork": [
+				"Child sObject [AgentWork] is not processed"
+			],
+			"Case.AttachedContentDocuments => AttachedContentDocument": [
+				"Child sObject [AttachedContentDocument] is not processed"
+			],
+			"Case.AttachedContentNotes => AttachedContentNote": [
+				"Child sObject [AttachedContentNote] is not processed"
+			],
+			"Case.Attachments => Attachment": [
+				"Child sObject [Attachment] is not processed"
+			],
+			"Case.Cases => Case": [
+				"Current version does not allow recursive parenting for parent-child relations"
+			],
+			"Case.null => CaseChangeEvent": [
+				"Child sObject [CaseChangeEvent] is not processed"
+			],
+			"Case.CaseComments => CaseComment": [
+				"Child sObject [CaseComment] is not processed"
+			],
+			"Case.CaseContactRoles => CaseContactRole": [
+				"Child sObject [CaseContactRole] is not processed"
+			],
+			"Case.Feeds => CaseFeed": [
+				"Child sObject [CaseFeed] is not processed"
+			],
+			"Case.Histories => CaseHistory": [
+				"Child sObject [CaseHistory] is not processed"
+			],
+			"Case.null => CaseHistory2": [
+				"Child sObject [CaseHistory2] is not processed"
+			],
+			"Case.null => CaseHistory2ChangeEvent": [
+				"Child sObject [CaseHistory2ChangeEvent] is not processed"
+			],
+			"Case.Shares => CaseShare": [
+				"Child sObject [CaseShare] is not processed"
+			],
+			"Case.CaseSolutions => CaseSolution": [
+				"Child sObject [CaseSolution] is not processed"
+			],
+			"Case.TeamMembers => CaseTeamMember": [
+				"Child sObject [CaseTeamMember] is not processed"
+			],
+			"Case.TeamTemplateRecords => CaseTeamTemplateRecord": [
+				"Child sObject [CaseTeamTemplateRecord] is not processed"
+			],
+			"Case.RecordAssociatedGroups => CollaborationGroupRecord": [
+				"Child sObject [CollaborationGroupRecord] is not processed"
+			],
+			"Case.CombinedAttachments => CombinedAttachment": [
+				"Child sObject [CombinedAttachment] is not processed"
+			],
+			"Case.ContactRequests => ContactRequest": [
+				"Child sObject [ContactRequest] is not processed"
+			],
+			"Case.null => ContentDistribution": [
+				"Child sObject [ContentDistribution] is not processed"
+			],
+			"Case.ContentDocumentLinks => ContentDocumentLink": [
+				"Child sObject [ContentDocumentLink] is not processed"
+			],
+			"Case.null => ContentDocumentLinkChangeEvent": [
+				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
+			],
+			"Case.null => ContentVersion": [
+				"Child sObject [ContentVersion] is not processed"
+			],
+			"Case.null => ContentVersionChangeEvent": [
+				"Child sObject [ContentVersionChangeEvent] is not processed"
+			],
+			"Case.EmailMessages => EmailMessage": [
+				"Child sObject [EmailMessage] is not processed"
+			],
+			"Case.Emails => EmailMessage": [
+				"Child sObject [EmailMessage] is not processed"
+			],
+			"Case.null => EmailMessageChangeEvent": [
+				"Child sObject [EmailMessageChangeEvent] is not processed"
+			],
+			"Case.FeedSubscriptionsForEntity => EntitySubscription": [
+				"Child sObject [EntitySubscription] is not processed"
+			],
+			"Case.Events => Event": [
+				"Child sObject [Event] is not processed"
+			],
+			"Case.null => EventChangeEvent": [
+				"Child sObject [EventChangeEvent] is not processed"
+			],
+			"Case.null => EventRelationChangeEvent": [
+				"Child sObject [EventRelationChangeEvent] is not processed"
+			],
+			"Case.null => FeedComment": [
+				"Child sObject [FeedComment] is not processed"
+			],
+			"Case.null => FeedItem": [
+				"Child sObject [FeedItem] is not processed"
+			],
+			"Case.null => FlowExecutionErrorEvent": [
+				"Child sObject [FlowExecutionErrorEvent] is not processed"
+			],
+			"Case.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+				"Child sObject [FlowOrchestrationWorkItem] is not processed"
+			],
+			"Case.null => FlowRecordRelation": [
+				"Child sObject [FlowRecordRelation] is not processed"
+			],
+			"Case.ListEmails => ListEmail": [
+				"Child sObject [ListEmail] is not processed"
+			],
+			"Case.null => ListEmailChangeEvent": [
+				"Child sObject [ListEmailChangeEvent] is not processed"
+			],
+			"Case.OpenActivities => OpenActivity": [
+				"Child sObject [OpenActivity] is not processed"
+			],
+			"Case.null => PendingServiceRouting": [
+				"Child sObject [PendingServiceRouting] is not processed"
+			],
+			"Case.null => PendingServiceRoutingInteractionInfo": [
+				"Child sObject [PendingServiceRoutingInteractionInfo] is not processed"
+			],
+			"Case.ProcessExceptions => ProcessException": [
+				"Child sObject [ProcessException] is not processed"
+			],
+			"Case.ProcessInstances => ProcessInstance": [
+				"Child sObject [ProcessInstance] is not processed"
+			],
+			"Case.null => ProcessInstanceChangeEvent": [
+				"Child sObject [ProcessInstanceChangeEvent] is not processed"
+			],
+			"Case.ProcessSteps => ProcessInstanceHistory": [
+				"Child sObject [ProcessInstanceHistory] is not processed"
+			],
+			"Case.RecordActions => RecordAction": [
+				"Child sObject [RecordAction] is not processed"
+			],
+			"Case.RecordActionHistories => RecordActionHistory": [
+				"Child sObject [RecordActionHistory] is not processed"
+			],
+			"Case.Posts => SocialPost": [
+				"Child sObject [SocialPost] is not processed"
+			],
+			"Case.null => SocialPostChangeEvent": [
+				"Child sObject [SocialPostChangeEvent] is not processed"
+			],
+			"Case.SurveySubjectEntities => SurveySubject": [
+				"Child sObject [SurveySubject] is not processed"
+			],
+			"Case.Tasks => Task": [
+				"Child sObject [Task] is not processed"
+			],
+			"Case.null => TaskChangeEvent": [
+				"Child sObject [TaskChangeEvent] is not processed"
+			],
+			"Case.TopicAssignments => TopicAssignment": [
+				"Child sObject [TopicAssignment] is not processed"
+			],
+			"Case.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+				"Child sObject [UserDefinedLabelAssignment] is not processed"
+			],
+			"Case.WorkOrders => WorkOrder": [
+				"Child sObject [WorkOrder] is not processed"
+			],
+			"Case.null => WorkOrderChangeEvent": [
+				"Child sObject [WorkOrderChangeEvent] is not processed"
+			],
+			"Lead.null => AIInsightValue": [
+				"Child sObject [AIInsightValue] is not processed"
+			],
+			"Lead.null => AIRecordInsight": [
+				"Child sObject [AIRecordInsight] is not processed"
+			],
+			"Lead.AcceptedEventRelations => AcceptedEventRelation": [
+				"Child sObject [AcceptedEventRelation] is not processed"
+			],
+			"Lead.ActivityHistories => ActivityHistory": [
+				"Child sObject [ActivityHistory] is not processed"
+			],
+			"Lead.null => AgentWork": [
+				"Child sObject [AgentWork] is not processed"
+			],
+			"Lead.AttachedContentDocuments => AttachedContentDocument": [
+				"Child sObject [AttachedContentDocument] is not processed"
+			],
+			"Lead.AttachedContentNotes => AttachedContentNote": [
+				"Child sObject [AttachedContentNote] is not processed"
+			],
+			"Lead.Attachments => Attachment": [
+				"Child sObject [Attachment] is not processed"
+			],
+			"Lead.AuthorizationFormConsents => AuthorizationFormConsent": [
+				"Child sObject [AuthorizationFormConsent] is not processed"
+			],
+			"Lead.null => AuthorizationFormConsentChangeEvent": [
+				"Child sObject [AuthorizationFormConsentChangeEvent] is not processed"
+			],
+			"Lead.RecordAssociatedGroups => CollaborationGroupRecord": [
+				"Child sObject [CollaborationGroupRecord] is not processed"
+			],
+			"Lead.CombinedAttachments => CombinedAttachment": [
+				"Child sObject [CombinedAttachment] is not processed"
+			],
+			"Lead.ContactRequests => ContactRequest": [
+				"Child sObject [ContactRequest] is not processed"
+			],
+			"Lead.null => ContentDistribution": [
+				"Child sObject [ContentDistribution] is not processed"
+			],
+			"Lead.ContentDocumentLinks => ContentDocumentLink": [
+				"Child sObject [ContentDocumentLink] is not processed"
+			],
+			"Lead.null => ContentDocumentLinkChangeEvent": [
+				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
+			],
+			"Lead.null => ContentVersion": [
+				"Child sObject [ContentVersion] is not processed"
+			],
+			"Lead.null => ContentVersionChangeEvent": [
+				"Child sObject [ContentVersionChangeEvent] is not processed"
+			],
+			"Lead.DeclinedEventRelations => DeclinedEventRelation": [
+				"Child sObject [DeclinedEventRelation] is not processed"
+			],
+			"Lead.DuplicateRecordItems => DuplicateRecordItem": [
+				"Child sObject [DuplicateRecordItem] is not processed"
+			],
+			"Lead.null => EmailBounceEvent": [
+				"Child sObject [EmailBounceEvent] is not processed"
+			],
+			"Lead.null => EmailMessage": [
+				"Child sObject [EmailMessage] is not processed"
+			],
+			"Lead.EmailMessageRelations => EmailMessageRelation": [
+				"Child sObject [EmailMessageRelation] is not processed"
+			],
+			"Lead.EmailStatuses => EmailStatus": [
+				"Child sObject [EmailStatus] is not processed"
+			],
+			"Lead.FeedSubscriptionsForEntity => EntitySubscription": [
+				"Child sObject [EntitySubscription] is not processed"
+			],
+			"Lead.Events => Event": [
+				"Child sObject [Event] is not processed"
+			],
+			"Lead.null => EventChangeEvent": [
+				"Child sObject [EventChangeEvent] is not processed"
+			],
+			"Lead.EventRelations => EventRelation": [
+				"Child sObject [EventRelation] is not processed"
+			],
+			"Lead.null => EventRelationChangeEvent": [
+				"Child sObject [EventRelationChangeEvent] is not processed"
+			],
+			"Lead.null => FeedComment": [
+				"Child sObject [FeedComment] is not processed"
+			],
+			"Lead.null => FeedItem": [
+				"Child sObject [FeedItem] is not processed"
+			],
+			"Lead.null => FlowExecutionErrorEvent": [
+				"Child sObject [FlowExecutionErrorEvent] is not processed"
+			],
+			"Lead.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+				"Child sObject [FlowOrchestrationWorkItem] is not processed"
+			],
+			"Lead.null => FlowRecordRelation": [
+				"Child sObject [FlowRecordRelation] is not processed"
+			],
+			"Lead.Feeds => LeadFeed": [
+				"Child sObject [LeadFeed] is not processed"
+			],
+			"Lead.Histories => LeadHistory": [
+				"Child sObject [LeadHistory] is not processed"
+			],
+			"Lead.Shares => LeadShare": [
+				"Child sObject [LeadShare] is not processed"
+			],
+			"Lead.ListEmails => ListEmail": [
+				"Child sObject [ListEmail] is not processed"
+			],
+			"Lead.null => ListEmailChangeEvent": [
+				"Child sObject [ListEmailChangeEvent] is not processed"
+			],
+			"Lead.ListEmailIndividualRecipients => ListEmailIndividualRecipient": [
+				"Child sObject [ListEmailIndividualRecipient] is not processed"
+			],
+			"Lead.Notes => Note": [
+				"Child sObject [Note] is not processed"
+			],
+			"Lead.NotesAndAttachments => NoteAndAttachment": [
+				"Child sObject [NoteAndAttachment] is not processed"
+			],
+			"Lead.OpenActivities => OpenActivity": [
+				"Child sObject [OpenActivity] is not processed"
+			],
+			"Lead.null => OutgoingEmail": [
+				"Child sObject [OutgoingEmail] is not processed"
+			],
+			"Lead.OutgoingEmailRelations => OutgoingEmailRelation": [
+				"Child sObject [OutgoingEmailRelation] is not processed"
+			],
+			"Lead.null => PendingServiceRouting": [
+				"Child sObject [PendingServiceRouting] is not processed"
+			],
+			"Lead.null => PendingServiceRoutingInteractionInfo": [
+				"Child sObject [PendingServiceRoutingInteractionInfo] is not processed"
+			],
+			"Lead.ProcessInstances => ProcessInstance": [
+				"Child sObject [ProcessInstance] is not processed"
+			],
+			"Lead.null => ProcessInstanceChangeEvent": [
+				"Child sObject [ProcessInstanceChangeEvent] is not processed"
+			],
+			"Lead.ProcessSteps => ProcessInstanceHistory": [
+				"Child sObject [ProcessInstanceHistory] is not processed"
+			],
+			"Lead.RecordActions => RecordAction": [
+				"Child sObject [RecordAction] is not processed"
+			],
+			"Lead.RecordActionHistories => RecordActionHistory": [
+				"Child sObject [RecordActionHistory] is not processed"
+			],
+			"Lead.Personas => SocialPersona": [
+				"Child sObject [SocialPersona] is not processed"
+			],
+			"Lead.Posts => SocialPost": [
+				"Child sObject [SocialPost] is not processed"
+			],
+			"Lead.null => SocialPostChangeEvent": [
+				"Child sObject [SocialPostChangeEvent] is not processed"
+			],
+			"Lead.ContactSurveyInvitations => SurveyInvitation": [
+				"Child sObject [SurveyInvitation] is not processed"
+			],
+			"Lead.SurveyInvitations => SurveyInvitation": [
+				"Child sObject [SurveyInvitation] is not processed"
+			],
+			"Lead.null => SurveyResponse": [
+				"Child sObject [SurveyResponse] is not processed"
+			],
+			"Lead.null => SurveyResponseChangeEvent": [
+				"Child sObject [SurveyResponseChangeEvent] is not processed"
+			],
+			"Lead.SurveySubjectEntities => SurveySubject": [
+				"Child sObject [SurveySubject] is not processed"
+			],
+			"Lead.Tasks => Task": [
+				"Child sObject [Task] is not processed"
+			],
+			"Lead.null => TaskChangeEvent": [
+				"Child sObject [TaskChangeEvent] is not processed"
+			],
+			"Lead.TopicAssignments => TopicAssignment": [
+				"Child sObject [TopicAssignment] is not processed"
+			],
+			"Lead.UndecidedEventRelations => UndecidedEventRelation": [
+				"Child sObject [UndecidedEventRelation] is not processed"
+			],
+			"Lead.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+				"Child sObject [UserDefinedLabelAssignment] is not processed"
+			],
+			"Lead.PersonRecord => UserEmailPreferredPerson": [
+				"Child sObject [UserEmailPreferredPerson] is not processed"
+			],
+			"Account.null => AIInsightValue": [
+				"Child sObject [AIInsightValue] is not processed"
+			],
+			"Account.null => AIRecordInsight": [
+				"Child sObject [AIRecordInsight] is not processed"
+			],
+			"Account.ChildAccounts => Account": [
+				"Current version does not allow recursive parenting for parent-child relations"
+			],
+			"Account.null => AccountChangeEvent": [
+				"Child sObject [AccountChangeEvent] is not processed"
+			],
+			"Account.AccountContactRoles => AccountContactRole": [
+				"Child sObject [AccountContactRole] is not processed"
+			],
+			"Account.null => AccountContactRoleChangeEvent": [
+				"Child sObject [AccountContactRoleChangeEvent] is not processed"
+			],
+			"Account.Feeds => AccountFeed": [
+				"Child sObject [AccountFeed] is not processed"
+			],
+			"Account.Histories => AccountHistory": [
+				"Child sObject [AccountHistory] is not processed"
+			],
+			"Account.AccountPartnersFrom => AccountPartner": [
+				"Child sObject [AccountPartner] is not processed"
+			],
+			"Account.AccountPartnersTo => AccountPartner": [
+				"Child sObject [AccountPartner] is not processed"
+			],
+			"Account.Shares => AccountShare": [
+				"Child sObject [AccountShare] is not processed"
+			],
+			"Account.ActivityHistories => ActivityHistory": [
+				"Child sObject [ActivityHistory] is not processed"
+			],
+			"Account.null => AgentWork": [
+				"Child sObject [AgentWork] is not processed"
+			],
+			"Account.Assets => Asset": [
+				"Child sObject [Asset] is not processed"
+			],
+			"Account.ProvidedAssets => Asset": [
+				"Child sObject [Asset] is not processed"
+			],
+			"Account.ServicedAssets => Asset": [
+				"Child sObject [Asset] is not processed"
+			],
+			"Account.null => AssetChangeEvent": [
+				"Child sObject [AssetChangeEvent] is not processed"
+			],
+			"Account.AssociatedLocations => AssociatedLocation": [
+				"Child sObject [AssociatedLocation] is not processed"
+			],
+			"Account.AttachedContentDocuments => AttachedContentDocument": [
+				"Child sObject [AttachedContentDocument] is not processed"
+			],
+			"Account.AttachedContentNotes => AttachedContentNote": [
+				"Child sObject [AttachedContentNote] is not processed"
+			],
+			"Account.Attachments => Attachment": [
+				"Child sObject [Attachment] is not processed"
+			],
+			"Account.AuthorizationFormConsents => AuthorizationFormConsent": [
+				"Child sObject [AuthorizationFormConsent] is not processed"
+			],
+			"Account.RelatedAuthorizationFormConsents => AuthorizationFormConsent": [
+				"Child sObject [AuthorizationFormConsent] is not processed"
+			],
+			"Account.null => AuthorizationFormConsentChangeEvent": [
+				"Child sObject [AuthorizationFormConsentChangeEvent] is not processed"
+			],
+			"Account.null => CaseChangeEvent": [
+				"Child sObject [CaseChangeEvent] is not processed"
+			],
+			"Account.RecordAssociatedGroups => CollaborationGroupRecord": [
+				"Child sObject [CollaborationGroupRecord] is not processed"
+			],
+			"Account.CombinedAttachments => CombinedAttachment": [
+				"Child sObject [CombinedAttachment] is not processed"
+			],
+			"Account.CommSubscriptionConsents => CommSubscriptionConsent": [
+				"Child sObject [CommSubscriptionConsent] is not processed"
+			],
+			"Account.null => CommSubscriptionConsentChangeEvent": [
+				"Child sObject [CommSubscriptionConsentChangeEvent] is not processed"
+			],
+			"Account.null => ContactChangeEvent": [
+				"Child sObject [ContactChangeEvent] is not processed"
+			],
+			"Account.ContactPointAddresses => ContactPointAddress": [
+				"Child sObject [ContactPointAddress] is not processed"
+			],
+			"Account.null => ContactPointAddressChangeEvent": [
+				"Child sObject [ContactPointAddressChangeEvent] is not processed"
+			],
+			"Account.ContactPointEmails => ContactPointEmail": [
+				"Child sObject [ContactPointEmail] is not processed"
+			],
+			"Account.null => ContactPointEmailChangeEvent": [
+				"Child sObject [ContactPointEmailChangeEvent] is not processed"
+			],
+			"Account.ContactPointPhones => ContactPointPhone": [
+				"Child sObject [ContactPointPhone] is not processed"
+			],
+			"Account.null => ContactPointPhoneChangeEvent": [
+				"Child sObject [ContactPointPhoneChangeEvent] is not processed"
+			],
+			"Account.ContactRequests => ContactRequest": [
+				"Child sObject [ContactRequest] is not processed"
+			],
+			"Account.null => ContentDistribution": [
+				"Child sObject [ContentDistribution] is not processed"
+			],
+			"Account.ContentDocumentLinks => ContentDocumentLink": [
+				"Child sObject [ContentDocumentLink] is not processed"
+			],
+			"Account.null => ContentDocumentLinkChangeEvent": [
+				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
+			],
+			"Account.null => ContentVersion": [
+				"Child sObject [ContentVersion] is not processed"
+			],
+			"Account.null => ContentVersionChangeEvent": [
+				"Child sObject [ContentVersionChangeEvent] is not processed"
+			],
+			"Account.Contracts => Contract": [
+				"Child sObject [Contract] is not processed"
+			],
+			"Account.null => ContractChangeEvent": [
+				"Child sObject [ContractChangeEvent] is not processed"
+			],
+			"Account.DuplicateRecordItems => DuplicateRecordItem": [
+				"Child sObject [DuplicateRecordItem] is not processed"
+			],
+			"Account.Emails => EmailMessage": [
+				"Child sObject [EmailMessage] is not processed"
+			],
+			"Account.null => EmailMessageChangeEvent": [
+				"Child sObject [EmailMessageChangeEvent] is not processed"
+			],
+			"Account.FeedSubscriptionsForEntity => EntitySubscription": [
+				"Child sObject [EntitySubscription] is not processed"
+			],
+			"Account.null => Event": [
+				"Child sObject [Event] is not processed"
+			],
+			"Account.Events => Event": [
+				"Child sObject [Event] is not processed"
+			],
+			"Account.null => EventChangeEvent": [
+				"Child sObject [EventChangeEvent] is not processed"
+			],
+			"Account.null => EventRelationChangeEvent": [
+				"Child sObject [EventRelationChangeEvent] is not processed"
+			],
+			"Account.null => FeedComment": [
+				"Child sObject [FeedComment] is not processed"
+			],
+			"Account.null => FeedItem": [
+				"Child sObject [FeedItem] is not processed"
+			],
+			"Account.null => FlowExecutionErrorEvent": [
+				"Child sObject [FlowExecutionErrorEvent] is not processed"
+			],
+			"Account.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+				"Child sObject [FlowOrchestrationWorkItem] is not processed"
+			],
+			"Account.null => FlowRecordRelation": [
+				"Child sObject [FlowRecordRelation] is not processed"
+			],
+			"Account.null => LeadChangeEvent": [
+				"Child sObject [LeadChangeEvent] is not processed"
+			],
+			"Account.Notes => Note": [
+				"Child sObject [Note] is not processed"
+			],
+			"Account.NotesAndAttachments => NoteAndAttachment": [
+				"Child sObject [NoteAndAttachment] is not processed"
+			],
+			"Account.OpenActivities => OpenActivity": [
+				"Child sObject [OpenActivity] is not processed"
+			],
+			"Account.Opportunities => Opportunity": [
+				"Child sObject [Opportunity] is not processed"
+			],
+			"Account.null => OpportunityChangeEvent": [
+				"Child sObject [OpportunityChangeEvent] is not processed"
+			],
+			"Account.OpportunityPartnersTo => OpportunityPartner": [
+				"Child sObject [OpportunityPartner] is not processed"
+			],
+			"Account.Orders => Order": [
+				"Child sObject [Order] is not processed"
+			],
+			"Account.null => OrderChangeEvent": [
+				"Child sObject [OrderChangeEvent] is not processed"
+			],
+			"Account.null => OutgoingEmail": [
+				"Child sObject [OutgoingEmail] is not processed"
+			],
+			"Account.PartnersFrom => Partner": [
+				"Child sObject [Partner] is not processed"
+			],
+			"Account.PartnersTo => Partner": [
+				"Child sObject [Partner] is not processed"
+			],
+			"Account.null => PendingServiceRouting": [
+				"Child sObject [PendingServiceRouting] is not processed"
+			],
+			"Account.null => PendingServiceRoutingInteractionInfo": [
+				"Child sObject [PendingServiceRoutingInteractionInfo] is not processed"
+			],
+			"Account.ProcessInstances => ProcessInstance": [
+				"Child sObject [ProcessInstance] is not processed"
+			],
+			"Account.null => ProcessInstanceChangeEvent": [
+				"Child sObject [ProcessInstanceChangeEvent] is not processed"
+			],
+			"Account.ProcessSteps => ProcessInstanceHistory": [
+				"Child sObject [ProcessInstanceHistory] is not processed"
+			],
+			"Account.RecordActions => RecordAction": [
+				"Child sObject [RecordAction] is not processed"
+			],
+			"Account.RecordActionHistories => RecordActionHistory": [
+				"Child sObject [RecordActionHistory] is not processed"
+			],
+			"Account.ScorecardAssociations => ScorecardAssociation": [
+				"Child sObject [ScorecardAssociation] is not processed"
+			],
+			"Account.ServiceResources => ServiceResource": [
+				"Child sObject [ServiceResource] is not processed"
+			],
+			"Account.null => ServiceResourceChangeEvent": [
+				"Child sObject [ServiceResourceChangeEvent] is not processed"
+			],
+			"Account.Personas => SocialPersona": [
+				"Child sObject [SocialPersona] is not processed"
+			],
+			"Account.Posts => SocialPost": [
+				"Child sObject [SocialPost] is not processed"
+			],
+			"Account.null => SocialPostChangeEvent": [
+				"Child sObject [SocialPostChangeEvent] is not processed"
+			],
+			"Account.SurveySubjectEntities => SurveySubject": [
+				"Child sObject [SurveySubject] is not processed"
+			],
+			"Account.null => Task": [
+				"Child sObject [Task] is not processed"
+			],
+			"Account.Tasks => Task": [
+				"Child sObject [Task] is not processed"
+			],
+			"Account.null => TaskChangeEvent": [
+				"Child sObject [TaskChangeEvent] is not processed"
+			],
+			"Account.TopicAssignments => TopicAssignment": [
+				"Child sObject [TopicAssignment] is not processed"
+			],
+			"Account.Users => User": [
+				"Child sObject [User] is not processed"
+			],
+			"Account.null => UserChangeEvent": [
+				"Child sObject [UserChangeEvent] is not processed"
+			],
+			"Account.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+				"Child sObject [UserDefinedLabelAssignment] is not processed"
+			],
+			"Account.null => UserRole": [
+				"Child sObject [UserRole] is not processed"
+			],
+			"Account.WorkOrders => WorkOrder": [
+				"Child sObject [WorkOrder] is not processed"
+			],
+			"Account.null => WorkOrderChangeEvent": [
+				"Child sObject [WorkOrderChangeEvent] is not processed"
+			],
+			"Contact.null => AIInsightValue": [
+				"Child sObject [AIInsightValue] is not processed"
+			],
+			"Contact.null => AIRecordInsight": [
+				"Child sObject [AIRecordInsight] is not processed"
+			],
+			"Contact.AcceptedEventRelations => AcceptedEventRelation": [
+				"Child sObject [AcceptedEventRelation] is not processed"
+			],
+			"Contact.AccountContactRoles => AccountContactRole": [
+				"Child sObject [AccountContactRole] is not processed"
+			],
+			"Contact.null => AccountContactRoleChangeEvent": [
+				"Child sObject [AccountContactRoleChangeEvent] is not processed"
+			],
+			"Contact.ActivityHistories => ActivityHistory": [
+				"Child sObject [ActivityHistory] is not processed"
+			],
+			"Contact.null => AgentWork": [
+				"Child sObject [AgentWork] is not processed"
+			],
+			"Contact.Assets => Asset": [
+				"Child sObject [Asset] is not processed"
+			],
+			"Contact.null => AssetChangeEvent": [
+				"Child sObject [AssetChangeEvent] is not processed"
+			],
+			"Contact.AttachedContentDocuments => AttachedContentDocument": [
+				"Child sObject [AttachedContentDocument] is not processed"
+			],
+			"Contact.AttachedContentNotes => AttachedContentNote": [
+				"Child sObject [AttachedContentNote] is not processed"
+			],
+			"Contact.Attachments => Attachment": [
+				"Child sObject [Attachment] is not processed"
+			],
+			"Contact.AuthorizationFormConsents => AuthorizationFormConsent": [
+				"Child sObject [AuthorizationFormConsent] is not processed"
+			],
+			"Contact.null => AuthorizationFormConsentChangeEvent": [
+				"Child sObject [AuthorizationFormConsentChangeEvent] is not processed"
+			],
+			"Contact.Bookings__r => Booking__c": [
+				"Child sObject [Booking__c] is not processed"
+			],
+			"Contact.null => CaseChangeEvent": [
+				"Child sObject [CaseChangeEvent] is not processed"
+			],
+			"Contact.CaseContactRoles => CaseContactRole": [
+				"Child sObject [CaseContactRole] is not processed"
+			],
+			"Contact.null => CaseTeamMember": [
+				"Child sObject [CaseTeamMember] is not processed"
+			],
+			"Contact.null => CaseTeamTemplateMember": [
+				"Child sObject [CaseTeamTemplateMember] is not processed"
+			],
+			"Contact.Certification_Attempts__r => Certification_Attempt__c": [
+				"Child sObject [Certification_Attempt__c] is not processed"
+			],
+			"Contact.Certifications_Held__r => Certification_Held__c": [
+				"Child sObject [Certification_Held__c] is not processed"
+			],
+			"Contact.RecordAssociatedGroups => CollaborationGroupRecord": [
+				"Child sObject [CollaborationGroupRecord] is not processed"
+			],
+			"Contact.CombinedAttachments => CombinedAttachment": [
+				"Child sObject [CombinedAttachment] is not processed"
+			],
+			"Contact.CommSubscriptionConsents => CommSubscriptionConsent": [
+				"Child sObject [CommSubscriptionConsent] is not processed"
+			],
+			"Contact.null => CommSubscriptionConsentChangeEvent": [
+				"Child sObject [CommSubscriptionConsentChangeEvent] is not processed"
+			],
+			"Contact.null => Contact": [
+				"Current version does not allow recursive parenting for parent-child relations"
+			],
+			"Contact.null => ContactChangeEvent": [
+				"Child sObject [ContactChangeEvent] is not processed"
+			],
+			"Contact.Feeds => ContactFeed": [
+				"Child sObject [ContactFeed] is not processed"
+			],
+			"Contact.Histories => ContactHistory": [
+				"Child sObject [ContactHistory] is not processed"
+			],
+			"Contact.ContactRequests => ContactRequest": [
+				"Child sObject [ContactRequest] is not processed"
+			],
+			"Contact.Shares => ContactShare": [
+				"Child sObject [ContactShare] is not processed"
+			],
+			"Contact.null => ContentDistribution": [
+				"Child sObject [ContentDistribution] is not processed"
+			],
+			"Contact.ContentDocumentLinks => ContentDocumentLink": [
+				"Child sObject [ContentDocumentLink] is not processed"
+			],
+			"Contact.null => ContentDocumentLinkChangeEvent": [
+				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
+			],
+			"Contact.null => ContentVersion": [
+				"Child sObject [ContentVersion] is not processed"
+			],
+			"Contact.null => ContentVersionChangeEvent": [
+				"Child sObject [ContentVersionChangeEvent] is not processed"
+			],
+			"Contact.ContractsSigned => Contract": [
+				"Child sObject [Contract] is not processed"
+			],
+			"Contact.null => ContractChangeEvent": [
+				"Child sObject [ContractChangeEvent] is not processed"
+			],
+			"Contact.ContractContactRoles => ContractContactRole": [
+				"Child sObject [ContractContactRole] is not processed"
+			],
+			"Contact.Course_Attendees__r => Course_Attendee__c": [
+				"Child sObject [Course_Attendee__c] is not processed"
+			],
+			"Contact.DeclinedEventRelations => DeclinedEventRelation": [
+				"Child sObject [DeclinedEventRelation] is not processed"
+			],
+			"Contact.DuplicateRecordItems => DuplicateRecordItem": [
+				"Child sObject [DuplicateRecordItem] is not processed"
+			],
+			"Contact.null => EmailBounceEvent": [
+				"Child sObject [EmailBounceEvent] is not processed"
+			],
+			"Contact.null => EmailMessage": [
+				"Child sObject [EmailMessage] is not processed"
+			],
+			"Contact.EmailMessageRelations => EmailMessageRelation": [
+				"Child sObject [EmailMessageRelation] is not processed"
+			],
+			"Contact.EmailStatuses => EmailStatus": [
+				"Child sObject [EmailStatus] is not processed"
+			],
+			"Contact.FeedSubscriptionsForEntity => EntitySubscription": [
+				"Child sObject [EntitySubscription] is not processed"
+			],
+			"Contact.Events => Event": [
+				"Child sObject [Event] is not processed"
+			],
+			"Contact.null => EventChangeEvent": [
+				"Child sObject [EventChangeEvent] is not processed"
+			],
+			"Contact.EventRelations => EventRelation": [
+				"Child sObject [EventRelation] is not processed"
+			],
+			"Contact.null => EventRelationChangeEvent": [
+				"Child sObject [EventRelationChangeEvent] is not processed"
+			],
+			"Contact.null => FeedComment": [
+				"Child sObject [FeedComment] is not processed"
+			],
+			"Contact.null => FeedItem": [
+				"Child sObject [FeedItem] is not processed"
+			],
+			"Contact.null => FlowExecutionErrorEvent": [
+				"Child sObject [FlowExecutionErrorEvent] is not processed"
+			],
+			"Contact.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+				"Child sObject [FlowOrchestrationWorkItem] is not processed"
+			],
+			"Contact.null => FlowRecordRelation": [
+				"Child sObject [FlowRecordRelation] is not processed"
+			],
+			"Contact.null => LeadChangeEvent": [
+				"Child sObject [LeadChangeEvent] is not processed"
+			],
+			"Contact.ListEmails => ListEmail": [
+				"Child sObject [ListEmail] is not processed"
+			],
+			"Contact.null => ListEmailChangeEvent": [
+				"Child sObject [ListEmailChangeEvent] is not processed"
+			],
+			"Contact.ListEmailIndividualRecipients => ListEmailIndividualRecipient": [
+				"Child sObject [ListEmailIndividualRecipient] is not processed"
+			],
+			"Contact.null => MatchingInformation": [
+				"Child sObject [MatchingInformation] is not processed"
+			],
+			"Contact.Notes => Note": [
+				"Child sObject [Note] is not processed"
+			],
+			"Contact.NotesAndAttachments => NoteAndAttachment": [
+				"Child sObject [NoteAndAttachment] is not processed"
+			],
+			"Contact.OpenActivities => OpenActivity": [
+				"Child sObject [OpenActivity] is not processed"
+			],
+			"Contact.Opportunities => Opportunity": [
+				"Child sObject [Opportunity] is not processed"
+			],
+			"Contact.null => OpportunityChangeEvent": [
+				"Child sObject [OpportunityChangeEvent] is not processed"
+			],
+			"Contact.OpportunityContactRoles => OpportunityContactRole": [
+				"Child sObject [OpportunityContactRole] is not processed"
+			],
+			"Contact.null => OpportunityContactRoleChangeEvent": [
+				"Child sObject [OpportunityContactRoleChangeEvent] is not processed"
+			],
+			"Contact.null => Order": [
+				"Child sObject [Order] is not processed"
+			],
+			"Contact.null => OrderChangeEvent": [
+				"Child sObject [OrderChangeEvent] is not processed"
+			],
+			"Contact.null => OutgoingEmail": [
+				"Child sObject [OutgoingEmail] is not processed"
+			],
+			"Contact.OutgoingEmailRelations => OutgoingEmailRelation": [
+				"Child sObject [OutgoingEmailRelation] is not processed"
+			],
+			"Contact.null => PendingServiceRouting": [
+				"Child sObject [PendingServiceRouting] is not processed"
+			],
+			"Contact.null => PendingServiceRoutingInteractionInfo": [
+				"Child sObject [PendingServiceRoutingInteractionInfo] is not processed"
+			],
+			"Contact.ProcessInstances => ProcessInstance": [
+				"Child sObject [ProcessInstance] is not processed"
+			],
+			"Contact.null => ProcessInstanceChangeEvent": [
+				"Child sObject [ProcessInstanceChangeEvent] is not processed"
+			],
+			"Contact.ProcessSteps => ProcessInstanceHistory": [
+				"Child sObject [ProcessInstanceHistory] is not processed"
+			],
+			"Contact.RecordActions => RecordAction": [
+				"Child sObject [RecordAction] is not processed"
+			],
+			"Contact.RecordActionHistories => RecordActionHistory": [
+				"Child sObject [RecordActionHistory] is not processed"
+			],
+			"Contact.Rental_Preferences__r => Rental_Preference__c": [
+				"Child sObject [Rental_Preference__c] is not processed"
+			],
+			"Contact.Rentals__r => Rental__c": [
+				"Child sObject [Rental__c] is not processed"
+			],
+			"Contact.Personas => SocialPersona": [
+				"Child sObject [SocialPersona] is not processed"
+			],
+			"Contact.Posts => SocialPost": [
+				"Child sObject [SocialPost] is not processed"
+			],
+			"Contact.null => SocialPostChangeEvent": [
+				"Child sObject [SocialPostChangeEvent] is not processed"
+			],
+			"Contact.LeadSurveyInvitations => SurveyInvitation": [
+				"Child sObject [SurveyInvitation] is not processed"
+			],
+			"Contact.SurveyInvitations => SurveyInvitation": [
+				"Child sObject [SurveyInvitation] is not processed"
+			],
+			"Contact.null => SurveyResponse": [
+				"Child sObject [SurveyResponse] is not processed"
+			],
+			"Contact.null => SurveyResponseChangeEvent": [
+				"Child sObject [SurveyResponseChangeEvent] is not processed"
+			],
+			"Contact.SurveySubjectEntities => SurveySubject": [
+				"Child sObject [SurveySubject] is not processed"
+			],
+			"Contact.Tasks => Task": [
+				"Child sObject [Task] is not processed"
+			],
+			"Contact.null => TaskChangeEvent": [
+				"Child sObject [TaskChangeEvent] is not processed"
+			],
+			"Contact.TopicAssignments => TopicAssignment": [
+				"Child sObject [TopicAssignment] is not processed"
+			],
+			"Contact.UndecidedEventRelations => UndecidedEventRelation": [
+				"Child sObject [UndecidedEventRelation] is not processed"
+			],
+			"Contact.Users => User": [
+				"Child sObject [User] is not processed"
+			],
+			"Contact.null => UserChangeEvent": [
+				"Child sObject [UserChangeEvent] is not processed"
+			],
+			"Contact.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+				"Child sObject [UserDefinedLabelAssignment] is not processed"
+			],
+			"Contact.PersonRecord => UserEmailPreferredPerson": [
+				"Child sObject [UserEmailPreferredPerson] is not processed"
+			],
+			"Contact.WorkOrders => WorkOrder": [
+				"Child sObject [WorkOrder] is not processed"
+			],
+			"Contact.null => WorkOrderChangeEvent": [
+				"Child sObject [WorkOrderChangeEvent] is not processed"
+			]
+		},
+		"ADD_SOBJECT": {
+			"AIApplication": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AIApplicationConfig": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AIInsightAction": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AIInsightFeedback": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AIInsightReason": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AIInsightValue": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AIPredictionEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AIRecordInsight": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AcceptedEventRelation": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AccountChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AccountContactRole": [
+				"Was Not requested"
+			],
+			"AccountContactRoleChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AccountFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AccountHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AccountPartner": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AccountShare": [
+				"Was Not requested"
+			],
+			"ActionLinkGroupTemplate": [
+				"Was Not requested"
+			],
+			"ActionLinkTemplate": [
+				"Was Not requested"
+			],
+			"ActivationTarget": [
+				"Was Not requested"
+			],
+			"ActivationTargetFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActivationTargetHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActivationTargetPlatform": [
+				"Was Not requested"
+			],
+			"ActivationTargetPlatformHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActivationTargetPlatformShare": [
+				"Was Not requested"
+			],
+			"ActivationTargetSecureFTP": [
+				"Was Not requested"
+			],
+			"ActivationTargetShare": [
+				"Was Not requested"
+			],
+			"ActivationTrgtIntOrgAccess": [
+				"Was Not requested"
+			],
+			"ActivationTrgtIntOrgAccessFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActivationTrgtIntOrgAccessHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActivationTrgtIntOrgAccessShare": [
+				"Was Not requested"
+			],
+			"ActiveFeatureLicenseMetric": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActivePermSetLicenseMetric": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActiveProfileMetric": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActivityFieldHistory": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActivityHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActvTgtPlatformFieldValue": [
+				"Was Not requested"
+			],
+			"ActvTgtPlatformFieldValueHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ActvTgtPlatformFieldValueShare": [
+				"Was Not requested"
+			],
+			"AdditionalNumber": [
+				"Was Not requested"
+			],
+			"AgentWork": [
+				"Was Not requested"
+			],
+			"AgentWorkShare": [
+				"Was Not requested"
+			],
+			"AggregateResult": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AnalyticsTaskStatusEvent": [
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Announcement": [
+				"Was Not requested"
+			],
+			"ApexClass": [
+				"Was Not requested"
+			],
+			"ApexComponent": [
+				"Was Not requested"
+			],
+			"ApexEmailNotification": [
+				"Was Not requested"
+			],
+			"ApexLog": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ApexPage": [
+				"Was Not requested"
+			],
+			"ApexPageInfo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ApexTestQueueItem": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"ApexTestResult": [
+				"Was Not requested"
+			],
+			"ApexTestResultLimits": [
+				"Was Not requested"
+			],
+			"ApexTestRunResult": [
+				"Was Not requested"
+			],
+			"ApexTestSuite": [
+				"Was Not requested"
+			],
+			"ApexTrigger": [
+				"Was Not requested"
+			],
+			"ApexTypeImplementor": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AppAnalyticsQueryRequest": [
+				"Was Not requested"
+			],
+			"AppDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AppMenuItem": [
+				"Must be createable",
+				"Was Not requested"
+			],
+			"AppTabMember": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Asset": [
+				"Was Not requested"
+			],
+			"AssetChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AssetFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AssetHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AssetRelationship": [
+				"Was Not requested"
+			],
+			"AssetRelationshipFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AssetRelationshipHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AssetShare": [
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AssetTokenEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AssignmentRule": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AssociatedLocation": [
+				"Was Not requested"
+			],
+			"AssociatedLocationHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AsyncApexJob": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AsyncOperationEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AsyncOperationStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AttachedContentDocument": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AttachedContentNote": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Attachment": [
+				"Was Not requested"
+			],
+			"AuraDefinition": [
+				"Was Not requested"
+			],
+			"AuraDefinitionBundle": [
+				"Was Not requested"
+			],
+			"AuraDefinitionBundleInfo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuraDefinitionInfo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthConfig": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthConfigProviders": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthProvider": [
+				"Was Not requested"
+			],
+			"AuthSession": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthorizationForm": [
+				"Was Not requested"
+			],
+			"AuthorizationFormChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthorizationFormConsent": [
+				"Was Not requested"
+			],
+			"AuthorizationFormConsentChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthorizationFormConsentHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthorizationFormConsentShare": [
+				"Was Not requested"
+			],
+			"AuthorizationFormDataUse": [
+				"Was Not requested"
+			],
+			"AuthorizationFormDataUseHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthorizationFormDataUseShare": [
+				"Was Not requested"
+			],
+			"AuthorizationFormHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthorizationFormShare": [
+				"Was Not requested"
+			],
+			"AuthorizationFormText": [
+				"Was Not requested"
+			],
+			"AuthorizationFormTextChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthorizationFormTextFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"AuthorizationFormTextHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BackgroundOperation": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BatchApexErrorEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Booking__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Booking__Share": [
+				"Was Not requested"
+			],
+			"Booking__c": [
+				"Was Not requested"
+			],
+			"BrandTemplate": [
+				"Was Not requested"
+			],
+			"BrandingSet": [
+				"Was Not requested"
+			],
+			"BrandingSetProperty": [
+				"Was Not requested"
+			],
+			"BriefcaseAssignment": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BriefcaseAssignmentChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BriefcaseDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BriefcaseDefinitionChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BriefcaseRule": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BriefcaseRuleFilter": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BrowserPolicyViolation": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BusProcessFeedbackConfig": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"BusinessBrand": [
+				"Was Not requested"
+			],
+			"BusinessBrandShare": [
+				"Was Not requested"
+			],
+			"BusinessHours": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"BusinessProcess": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"CalcInsightStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Calendar": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CalendarView": [
+				"Was Not requested"
+			],
+			"CalendarViewShare": [
+				"Was Not requested"
+			],
+			"CallCenter": [
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CallCoachingMediaProvider": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"Candidate__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Candidate__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Candidate__Share": [
+				"Was Not requested"
+			],
+			"Candidate__c": [
+				"Was Not requested"
+			],
+			"CaseChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CaseComment": [
+				"Was Not requested"
+			],
+			"CaseContactRole": [
+				"Was Not requested"
+			],
+			"CaseFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CaseHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CaseHistory2": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CaseHistory2ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CaseShare": [
+				"Was Not requested"
+			],
+			"CaseSolution": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CaseStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CaseSubjectParticle": [
+				"Was Not requested"
+			],
+			"CaseTeamMember": [
+				"Was Not requested"
+			],
+			"CaseTeamRole": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"CaseTeamTemplate": [
+				"Was Not requested"
+			],
+			"CaseTeamTemplateMember": [
+				"Was Not requested"
+			],
+			"CaseTeamTemplateRecord": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CategoryData": [
+				"Was Not requested"
+			],
+			"CategoryNode": [
+				"Was Not requested"
+			],
+			"Certification_Attempt__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Certification_Attempt__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Certification_Attempt__Share": [
+				"Was Not requested"
+			],
+			"Certification_Attempt__c": [
+				"Was Not requested"
+			],
+			"Certification_Element__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Certification_Element__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Certification_Element__c": [
+				"Was Not requested"
+			],
+			"Certification_Held__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Certification_Held__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Certification_Held__c": [
+				"Was Not requested"
+			],
+			"Certification__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Certification__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Certification__Share": [
+				"Was Not requested"
+			],
+			"Certification__c": [
+				"Was Not requested"
+			],
+			"ChatterActivity": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ChatterExtension": [
+				"Was Not requested"
+			],
+			"ChatterExtensionConfig": [
+				"Was Not requested"
+			],
+			"ClientBrowser": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CollaborationGroup": [
+				"Was Not requested"
+			],
+			"CollaborationGroupFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CollaborationGroupMember": [
+				"Was Not requested"
+			],
+			"CollaborationGroupMemberRequest": [
+				"Was Not requested"
+			],
+			"CollaborationGroupRecord": [
+				"Was Not requested"
+			],
+			"CollaborationInvitation": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ColorDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CombinedAttachment": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscription": [
+				"Was Not requested"
+			],
+			"CommSubscriptionChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionChannelType": [
+				"Was Not requested"
+			],
+			"CommSubscriptionChannelTypeChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionChannelTypeFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionChannelTypeHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionChannelTypeShare": [
+				"Was Not requested"
+			],
+			"CommSubscriptionConsent": [
+				"Was Not requested"
+			],
+			"CommSubscriptionConsentChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionConsentFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionConsentHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionConsentShare": [
+				"Was Not requested"
+			],
+			"CommSubscriptionFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionShare": [
+				"Was Not requested"
+			],
+			"CommSubscriptionTiming": [
+				"Was Not requested"
+			],
+			"CommSubscriptionTimingFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CommSubscriptionTimingHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Community": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ConferenceNumber": [
+				"Was Not requested"
+			],
+			"ConnectedApplication": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointAddress": [
+				"Was Not requested"
+			],
+			"ContactPointAddressChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointAddressHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointAddressShare": [
+				"Was Not requested"
+			],
+			"ContactPointConsent": [
+				"Was Not requested"
+			],
+			"ContactPointConsentChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointConsentHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointConsentShare": [
+				"Was Not requested"
+			],
+			"ContactPointEmail": [
+				"Was Not requested"
+			],
+			"ContactPointEmailChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointEmailHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointEmailShare": [
+				"Was Not requested"
+			],
+			"ContactPointPhone": [
+				"Was Not requested"
+			],
+			"ContactPointPhoneChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointPhoneHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointPhoneShare": [
+				"Was Not requested"
+			],
+			"ContactPointTypeConsent": [
+				"Was Not requested"
+			],
+			"ContactPointTypeConsentChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointTypeConsentHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContactPointTypeConsentShare": [
+				"Was Not requested"
+			],
+			"ContactRequest": [
+				"Was Not requested"
+			],
+			"ContactRequestShare": [
+				"Was Not requested"
+			],
+			"ContactShare": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentAsset": [
+				"Was Not requested"
+			],
+			"ContentBody": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentDistribution": [
+				"Was Not requested"
+			],
+			"ContentDistributionView": [
+				"Must be createable",
+				"Was Not requested"
+			],
+			"ContentDocument": [
+				"Must be createable",
+				"Was Not requested"
+			],
+			"ContentDocumentChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentDocumentFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentDocumentHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentDocumentLink": [
+				"Was Not requested"
+			],
+			"ContentDocumentLinkChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentDocumentSubscription": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentFolder": [
+				"Was Not requested"
+			],
+			"ContentFolderItem": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentFolderLink": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentFolderMember": [
+				"Must be createable",
+				"Was Not requested"
+			],
+			"ContentNote": [
+				"Was Not requested"
+			],
+			"ContentNotification": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentTagSubscription": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentUserSubscription": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentVersion": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"ContentVersionChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentVersionComment": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentVersionHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentVersionRating": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContentWorkspace": [
+				"Was Not requested"
+			],
+			"ContentWorkspaceDoc": [
+				"Was Not requested"
+			],
+			"ContentWorkspaceMember": [
+				"Was Not requested"
+			],
+			"ContentWorkspacePermission": [
+				"Was Not requested"
+			],
+			"ContentWorkspaceSubscription": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Contract": [
+				"Was Not requested"
+			],
+			"ContractChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContractContactRole": [
+				"Was Not requested"
+			],
+			"ContractFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContractHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ContractStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CorsWhitelistEntry": [
+				"Was Not requested"
+			],
+			"Course_Attendee__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Course_Attendee__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Course_Attendee__c": [
+				"Was Not requested"
+			],
+			"Course_Delivery__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Course_Delivery__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Course_Delivery__c": [
+				"Was Not requested"
+			],
+			"Course__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Course__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Course__Share": [
+				"Was Not requested"
+			],
+			"Course__c": [
+				"Was Not requested"
+			],
+			"CronJobDetail": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CronTrigger": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CspTrustedSite": [
+				"Was Not requested"
+			],
+			"CuratedExpJobEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CuratedExpPlanEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CurrencyType": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"CustomBrand": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"CustomBrandAsset": [
+				"Was Not requested"
+			],
+			"CustomHelpMenuItem": [
+				"Was Not requested"
+			],
+			"CustomHelpMenuSection": [
+				"Was Not requested"
+			],
+			"CustomHttpHeader": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CustomNotificationType": [
+				"Was Not requested"
+			],
+			"CustomPermission": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"CustomPermissionDependency": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Customer": [
+				"Was Not requested"
+			],
+			"CustomerShare": [
+				"Was Not requested"
+			],
+			"Dashboard": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DashboardComponent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DashboardComponentFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DashboardFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataAction": [
+				"Was Not requested"
+			],
+			"DataActionFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataActionHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataActionJobStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataActionJobSummary": [
+				"Was Not requested"
+			],
+			"DataActionJobSummaryFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataActionJobSummaryHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataActionJobSummaryShare": [
+				"Was Not requested"
+			],
+			"DataActionTarget": [
+				"Was Not requested"
+			],
+			"DataActionTargetFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataActionTargetHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataActionTargetShare": [
+				"Was Not requested"
+			],
+			"DataAssessmentFieldMetric": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataAssessmentMetric": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataAssessmentValueMetric": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataConctCredExpiryEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataConnectorStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataGraph": [
+				"Was Not requested"
+			],
+			"DataIntegrationRecordPurchasePermission": [
+				"Was Not requested"
+			],
+			"DataKitDeployEvent": [
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataKitDeploymentLog": [
+				"Was Not requested"
+			],
+			"DataKitDeploymentLogShare": [
+				"Was Not requested"
+			],
+			"DataLakeObjectInstance": [
+				"Was Not requested"
+			],
+			"DataLakeObjectInstanceFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataLakeObjectInstanceHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataLakeObjectInstanceShare": [
+				"Was Not requested"
+			],
+			"DataMultiOrgConnection": [
+				"Was Not requested"
+			],
+			"DataMultiOrgObjectRef": [
+				"Was Not requested"
+			],
+			"DataMultiOrgServiceEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataMultiOrgSyncStatus": [
+				"Was Not requested"
+			],
+			"DataObjectDataChgEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataObjectMetadataChgEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataQueryWorkspace": [
+				"Was Not requested"
+			],
+			"DataQueryWorkspaceFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataQueryWorkspaceHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataQueryWorkspaceShare": [
+				"Was Not requested"
+			],
+			"DataQueryWorkspaceTab": [
+				"Was Not requested"
+			],
+			"DataRemoteOrgDataSpaceMap": [
+				"Was Not requested"
+			],
+			"DataSemanticSearch": [
+				"Was Not requested"
+			],
+			"DataSemanticSearchFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataSemanticSearchHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataShellTntUpgradeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataSourceBundle": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataSourceBundleShare": [
+				"Was Not requested"
+			],
+			"DataSpace": [
+				"Was Not requested"
+			],
+			"DataSpaceFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataSpaceFilterCondition": [
+				"Was Not requested"
+			],
+			"DataSpaceFilterCriteria": [
+				"Was Not requested"
+			],
+			"DataSpaceHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataSpaceInternalOrg": [
+				"Was Not requested"
+			],
+			"DataStatistics": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataStream": [
+				"Was Not requested"
+			],
+			"DataStreamFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataStreamHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataStreamNewFieldEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataStreamShare": [
+				"Was Not requested"
+			],
+			"DataStreamStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataSyncConnectorEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataType": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataUseLegalBasis": [
+				"Was Not requested"
+			],
+			"DataUseLegalBasisHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataUseLegalBasisShare": [
+				"Was Not requested"
+			],
+			"DataUsePurpose": [
+				"Was Not requested"
+			],
+			"DataUsePurposeHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DataUsePurposeShare": [
+				"Was Not requested"
+			],
+			"DataWeaveResource": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DatacloudAddress": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DatedConversionRate": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DeclinedEventRelation": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DeleteEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Document": [
+				"Was Not requested"
+			],
+			"DocumentAttachmentMap": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"Domain": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DomainSite": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"DuplicateRecordItem": [
+				"Was Not requested"
+			],
+			"DuplicateRecordSet": [
+				"Was Not requested"
+			],
+			"DuplicateRule": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EmailBounceEvent": [
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EmailCapture": [
+				"Was Not requested"
+			],
+			"EmailDomainFilter": [
+				"Was Not requested"
+			],
+			"EmailDomainKey": [
+				"Was Not requested"
+			],
+			"EmailMessage": [
+				"Was Not requested"
+			],
+			"EmailMessageChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EmailMessageRelation": [
+				"Was Not requested"
+			],
+			"EmailRelay": [
+				"Was Not requested"
+			],
+			"EmailRoutingAddress": [
+				"Was Not requested"
+			],
+			"EmailServicesAddress": [
+				"Was Not requested"
+			],
+			"EmailServicesFunction": [
+				"Was Not requested"
+			],
+			"EmailStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EmailTemplate": [
+				"Was Not requested"
+			],
+			"EmailTemplateChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EmbeddedServiceDetail": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EmbeddedServiceLabel": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EngagementChannelType": [
+				"Was Not requested"
+			],
+			"EngagementChannelTypeChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EngagementChannelTypeFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EngagementChannelTypeHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EngagementChannelTypeShare": [
+				"Was Not requested"
+			],
+			"EngmtChannelTypeSettings": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"EnhancedLetterhead": [
+				"Was Not requested"
+			],
+			"EnhancedLetterheadFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EntityDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EntityParticle": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EntitySubscription": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Error_Log__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Error_Log__Share": [
+				"Was Not requested"
+			],
+			"Error_Log__c": [
+				"Was Not requested"
+			],
+			"Event": [
+				"Was Not requested"
+			],
+			"EventBusSubscriber": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EventChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EventFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EventLogFile": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EventRelation": [
+				"Was Not requested"
+			],
+			"EventRelationChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EventRelayConfig": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EventRelayConfigChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"EventRelayFeedback": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExpressionFilter": [
+				"Was Not requested"
+			],
+			"ExpressionFilterCriteria": [
+				"Was Not requested"
+			],
+			"ExpressionSetView": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExtDataShare": [
+				"Was Not requested"
+			],
+			"ExtDataShareFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExtDataShareHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExtDataShareTarget": [
+				"Was Not requested"
+			],
+			"ExtDataShareTargetFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExtDataShareTargetHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExtDataShareTargetShare": [
+				"Was Not requested"
+			],
+			"ExternalDataSource": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExternalDataSrcDescriptor": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExternalDataUserAuth": [
+				"Was Not requested"
+			],
+			"ExternalEvent": [
+				"Was Not requested"
+			],
+			"ExternalEventMapping": [
+				"Was Not requested"
+			],
+			"ExternalEventMappingShare": [
+				"Was Not requested"
+			],
+			"ExternalSocialAccount": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ExternalSourceStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FeedAttachment": [
+				"Was Not requested"
+			],
+			"FeedComment": [
+				"Was Not requested"
+			],
+			"FeedItem": [
+				"Was Not requested"
+			],
+			"FeedLike": [
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FeedPollChoice": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FeedPollVote": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FeedRevision": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FeedSignal": [
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FeedTrackedChange": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FieldDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FieldPermissions": [
+				"Was Not requested"
+			],
+			"FieldSecurityClassification": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FileSearchActivity": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FiscalYearSettings": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlexQueueItem": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowDefinitionView": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowExecutionErrorEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowInterview": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowInterviewLog": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowInterviewLogEntry": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowInterviewLogShare": [
+				"Was Not requested"
+			],
+			"FlowInterviewShare": [
+				"Was Not requested"
+			],
+			"FlowOrchestrationEvent": [
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowOrchestrationInstance": [
+				"Must be createable",
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"FlowOrchestrationInstanceShare": [
+				"Was Not requested"
+			],
+			"FlowOrchestrationLog": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowOrchestrationStageInstance": [
+				"Must be createable",
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"FlowOrchestrationStageInstanceShare": [
+				"Was Not requested"
+			],
+			"FlowOrchestrationStepInstance": [
+				"Must be createable",
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"FlowOrchestrationStepInstanceShare": [
+				"Was Not requested"
+			],
+			"FlowOrchestrationWorkItem": [
+				"Must be createable",
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"FlowOrchestrationWorkItemShare": [
+				"Was Not requested"
+			],
+			"FlowRecord": [
+				"Must be createable",
+				"Was Not requested"
+			],
+			"FlowRecordElement": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowRecordRelation": [
+				"Was Not requested"
+			],
+			"FlowRecordShare": [
+				"Was Not requested"
+			],
+			"FlowRecordVersion": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowRecordVersionChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowRecordVersionOccurrence": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowStageRelation": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowTestResult": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowTestResultShare": [
+				"Was Not requested"
+			],
+			"FlowTestView": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowVariableView": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FlowVersionView": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Folder": [
+				"Was Not requested"
+			],
+			"FolderedContentDocument": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FormulaFunction": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FormulaFunctionAllowedType": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"FormulaFunctionCategory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"GrantedByLicense": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Group": [
+				"Was Not requested"
+			],
+			"GroupMember": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Holiday": [
+				"Was Not requested"
+			],
+			"IPAddressRange": [
+				"Was Not requested"
+			],
+			"IconDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"IdRsolStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Idea": [
+				"Was Not requested"
+			],
+			"IdeaComment": [
+				"Was Not requested"
+			],
+			"IdentityResolution": [
+				"Must be createable",
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"IdentityResolutionFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"IdentityResolutionHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"IdpEventLog": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"IframeWhiteListUrl": [
+				"Was Not requested"
+			],
+			"Image": [
+				"Was Not requested"
+			],
+			"ImageFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ImageHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ImageShare": [
+				"Was Not requested"
+			],
+			"Individual": [
+				"Was Not requested"
+			],
+			"IndividualChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"IndividualHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"IndividualShare": [
+				"Was Not requested"
+			],
+			"InstalledMobileApp": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Job_Application__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Job_Application__Share": [
+				"Was Not requested"
+			],
+			"Job_Application__c": [
+				"Was Not requested"
+			],
+			"KnowledgeableUser": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LeadChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LeadFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LeadHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LeadShare": [
+				"Was Not requested"
+			],
+			"LeadStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LightningExitByPageMetrics": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LightningExperienceTheme": [
+				"Was Not requested"
+			],
+			"LightningOnboardingConfig": [
+				"Was Not requested"
+			],
+			"LightningToggleMetrics": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LightningUsageByAppTypeMetrics": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LightningUsageByBrowserMetrics": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LightningUsageByFlexiPageMetrics": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LightningUsageByPageMetrics": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ListEmail": [
+				"Was Not requested"
+			],
+			"ListEmailChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ListEmailIndividualRecipient": [
+				"Was Not requested"
+			],
+			"ListEmailRecipientSource": [
+				"Was Not requested"
+			],
+			"ListEmailShare": [
+				"Was Not requested"
+			],
+			"ListView": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ListViewChart": [
+				"Was Not requested"
+			],
+			"ListViewChartInstance": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Location": [
+				"Was Not requested"
+			],
+			"LocationChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LocationFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LocationHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LocationShare": [
+				"Was Not requested"
+			],
+			"LocationTrustMeasure": [
+				"Was Not requested"
+			],
+			"LocationTrustMeasureShare": [
+				"Was Not requested"
+			],
+			"LoginGeo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LoginHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LoginIp": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LogoutEventStream": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"LookedUpFromActivity": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MLEngagementEvent": [
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MLModel": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MLModelFactor": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MLModelFactorComponent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MLModelMetric": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MLPredictionDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MLRecommendationDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Macro": [
+				"Was Not requested"
+			],
+			"MacroChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MacroHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MacroInstruction": [
+				"Was Not requested"
+			],
+			"MacroInstructionChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MacroShare": [
+				"Was Not requested"
+			],
+			"MacroUsage": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MacroUsageShare": [
+				"Was Not requested"
+			],
+			"MailmergeTemplate": [
+				"Was Not requested"
+			],
+			"ManagedContent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ManagedContentChannel": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ManagedContentSpace": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ManagedContentVariant": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ManagedContentVariantChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MarketSegment": [
+				"Was Not requested"
+			],
+			"MarketSegmentActivation": [
+				"Was Not requested"
+			],
+			"MarketSegmentActivationFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MarketSegmentActivationHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MarketSegmentChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MarketSegmentDefMapping": [
+				"Was Not requested"
+			],
+			"MarketSegmentFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MarketSegmentHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MarketSegmentStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MarketSgmtActvStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MatchingInformation": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MatchingRule": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MatchingRuleItem": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktCalculatedInsight": [
+				"Was Not requested"
+			],
+			"MktCalculatedInsightFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktCalculatedInsightHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktDataLakeMapping": [
+				"Was Not requested"
+			],
+			"MktDataTransform": [
+				"Was Not requested"
+			],
+			"MktDataTransformEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktDataTransformFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktDataTransformHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktDataTransformShare": [
+				"Was Not requested"
+			],
+			"MktMLModel": [
+				"Was Not requested"
+			],
+			"MktMLModelFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktMLModelHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktMLModelShare": [
+				"Was Not requested"
+			],
+			"MktMLPredictionJob": [
+				"Was Not requested"
+			],
+			"MktMLPredictionJobFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktMLPredictionJobHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktMLSetupRunChgEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"MktSgmntActvtnAudAttribute": [
+				"Was Not requested"
+			],
+			"MktSgmntActvtnContactPoint": [
+				"Was Not requested"
+			],
+			"MktSgmtActvContactPtField": [
+				"Was Not requested"
+			],
+			"MktSgmtActvContactPtSrc": [
+				"Was Not requested"
+			],
+			"MktSgmtActvDataModelFld": [
+				"Was Not requested"
+			],
+			"MktSgmtActvDataSource": [
+				"Was Not requested"
+			],
+			"MktSgmtDefCalcInsightFld": [
+				"Was Not requested"
+			],
+			"MktSgmtDefDataMdlObjFld": [
+				"Was Not requested"
+			],
+			"MlFeatureValueMetric": [
+				"Was Not requested"
+			],
+			"MobileApplicationDetail": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"MutingPermissionSet": [
+				"Was Not requested"
+			],
+			"MyDomainDiscoverableLogin": [
+				"Was Not requested"
+			],
+			"Name": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"NamedCredential": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Note": [
+				"Was Not requested"
+			],
+			"NoteAndAttachment": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OauthCustomScope": [
+				"Was Not requested"
+			],
+			"OauthCustomScopeApp": [
+				"Was Not requested"
+			],
+			"OauthToken": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OauthTokenExchHandlerApp": [
+				"Was Not requested"
+			],
+			"OauthTokenExchangeHandler": [
+				"Was Not requested"
+			],
+			"ObjectDataImport": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ObjectDataImportReference": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ObjectDataImportShare": [
+				"Was Not requested"
+			],
+			"ObjectPermissions": [
+				"Was Not requested"
+			],
+			"OmniRoutingEventStore": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OmniSupervisorConfig": [
+				"Was Not requested"
+			],
+			"OmniSupervisorConfigAction": [
+				"Was Not requested"
+			],
+			"OmniSupervisorConfigGroup": [
+				"Was Not requested"
+			],
+			"OmniSupervisorConfigProfile": [
+				"Was Not requested"
+			],
+			"OmniSupervisorConfigQueue": [
+				"Was Not requested"
+			],
+			"OmniSupervisorConfigSkill": [
+				"Was Not requested"
+			],
+			"OmniSupervisorConfigTab": [
+				"Was Not requested"
+			],
+			"OmniSupervisorConfigUser": [
+				"Was Not requested"
+			],
+			"OnboardingMetrics": [
+				"Was Not requested"
+			],
+			"OpenActivity": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Opportunity": [
+				"Was Not requested"
+			],
+			"OpportunityChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityCompetitor": [
+				"Was Not requested"
+			],
+			"OpportunityContactRole": [
+				"Was Not requested"
+			],
+			"OpportunityContactRoleChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityFieldHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityLineItem": [
+				"Was Not requested"
+			],
+			"OpportunityLineItemChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityPartner": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityRelatedDeleteLog": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityShare": [
+				"Was Not requested"
+			],
+			"OpportunityStage": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OpportunityTeamMember": [
+				"Was Not requested"
+			],
+			"OpportunityTeamMemberHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Order": [
+				"Was Not requested"
+			],
+			"OrderChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrderFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrderHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrderItem": [
+				"Was Not requested"
+			],
+			"OrderItemChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrderItemFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrderItemHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrderItem__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrderShare": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrderStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Order__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Order__Share": [
+				"Was Not requested"
+			],
+			"OrgEmailAddressSecurity": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrgLifecycleNotification": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OrgWideEmailAddress": [
+				"Was Not requested"
+			],
+			"Organization": [
+				"Must be createable",
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"Outbound_Message__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Outbound_Message__Share": [
+				"Was Not requested"
+			],
+			"Outbound_Message__c": [
+				"Was Not requested"
+			],
+			"OutgoingEmail": [
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OutgoingEmailRelation": [
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OwnedContentDocument": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"OwnerChangeOptionInfo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PackageLicense": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Partner": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PartnerRole": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PartyConsent": [
+				"Was Not requested"
+			],
+			"PartyConsentChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PartyConsentFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PartyConsentHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PartyConsentShare": [
+				"Was Not requested"
+			],
+			"PendingServiceRouting": [
+				"Was Not requested"
+			],
+			"PendingServiceRoutingInteractionInfo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PendingServiceRoutingShare": [
+				"Was Not requested"
+			],
+			"Period": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PermissionSet": [
+				"Was Not requested"
+			],
+			"PermissionSetAssignment": [
+				"Was Not requested"
+			],
+			"PermissionSetGroup": [
+				"Was Not requested"
+			],
+			"PermissionSetGroupComponent": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PermissionSetLicense": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PermissionSetLicenseAssign": [
+				"Was Not requested"
+			],
+			"PermissionSetTabSetting": [
+				"Was Not requested"
+			],
+			"PicklistValueInfo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PlatformAction": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PlatformCachePartition": [
+				"Was Not requested"
+			],
+			"PlatformCachePartitionType": [
+				"Was Not requested"
+			],
+			"PlatformEventUsageMetric": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PlatformStatusAlertEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Position__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Position__History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Position__Share": [
+				"Was Not requested"
+			],
+			"Position__c": [
+				"Was Not requested"
+			],
+			"PresenceConfigDeclineReason": [
+				"Was Not requested"
+			],
+			"PresenceDeclineReason": [
+				"Was Not requested"
+			],
+			"PresenceUserConfig": [
+				"Was Not requested"
+			],
+			"PresenceUserConfigProfile": [
+				"Was Not requested"
+			],
+			"PresenceUserConfigUser": [
+				"Was Not requested"
+			],
+			"Pricebook2": [
+				"Was Not requested"
+			],
+			"Pricebook2ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Pricebook2History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PricebookEntry": [
+				"Was Not requested"
+			],
+			"PricebookEntryChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PricebookEntryHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessException": [
+				"Was Not requested"
+			],
+			"ProcessExceptionEvent": [
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessExceptionShare": [
+				"Was Not requested"
+			],
+			"ProcessFlowMigration": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessInstance": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessInstanceChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessInstanceHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessInstanceNode": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessInstanceStep": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessInstanceStepChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ProcessInstanceWorkitem": [
+				"Must be createable",
+				"Was Not requested"
+			],
+			"ProcessNode": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Product2": [
+				"Was Not requested"
+			],
+			"Product2ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Product2Feed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Product2History": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Product__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Product__Feed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Product__Share": [
+				"Was Not requested"
+			],
+			"Profile": [
+				"Was Not requested"
+			],
+			"Prompt": [
+				"Was Not requested"
+			],
+			"PromptAction": [
+				"Was Not requested"
+			],
+			"PromptActionShare": [
+				"Was Not requested"
+			],
+			"PromptError": [
+				"Was Not requested"
+			],
+			"PromptErrorShare": [
+				"Was Not requested"
+			],
+			"PromptVersion": [
+				"Was Not requested"
+			],
+			"Publisher": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"PushTopic": [
+				"Was Not requested"
+			],
+			"QueueRoutingConfig": [
+				"Was Not requested"
+			],
+			"QueueSobject": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"QuickText": [
+				"Was Not requested"
+			],
+			"QuickTextChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"QuickTextHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"QuickTextShare": [
+				"Was Not requested"
+			],
+			"QuickTextUsage": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"QuickTextUsageShare": [
+				"Was Not requested"
+			],
+			"RecentlyViewed": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Was Not requested"
+			],
+			"Recommendation": [
+				"Was Not requested"
+			],
+			"RecommendationChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"RecommendationResponse": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"RecordAction": [
+				"Was Not requested"
+			],
+			"RecordActionHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"RecordType": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"RedirectWhitelistUrl": [
+				"Was Not requested"
+			],
+			"RelatedListColumnDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"RelatedListDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"RelationshipDomain": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"RelationshipInfo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Rental_Preference__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Rental_Preference__Share": [
+				"Was Not requested"
+			],
+			"Rental_Preference__c": [
+				"Was Not requested"
+			],
+			"Rental__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Rental__Share": [
+				"Was Not requested"
+			],
+			"Rental__c": [
+				"Was Not requested"
+			],
+			"ReplyEmailSettings": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"Report": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ReportFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SPSamlAttributes": [
+				"Was Not requested"
+			],
+			"SamlSsoConfig": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Scontrol": [
+				"Must be createable",
+				"Was Not requested"
+			],
+			"Scorecard": [
+				"Was Not requested"
+			],
+			"ScorecardAssociation": [
+				"Must be retrieveable",
+				"Was Not requested"
+			],
+			"ScorecardMetric": [
+				"Was Not requested"
+			],
+			"ScorecardShare": [
+				"Was Not requested"
+			],
+			"SearchIndexJobStatusEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SearchLayout": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SecurityCustomBaseline": [
+				"Was Not requested"
+			],
+			"Seller": [
+				"Was Not requested"
+			],
+			"SellerHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SellerShare": [
+				"Was Not requested"
+			],
+			"ServiceChannel": [
+				"Was Not requested"
+			],
+			"ServiceChannelFieldPriority": [
+				"Was Not requested"
+			],
+			"ServiceChannelStatus": [
+				"Was Not requested"
+			],
+			"ServicePresenceStatus": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"ServiceResource": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"ServiceResourceChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ServiceResourceFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ServiceResourceHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"ServiceResourceShare": [
+				"Was Not requested"
+			],
+			"ServiceSetupProvisioning": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SessionPermSetActivation": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SetupAssistantStep": [
+				"Was Not requested"
+			],
+			"SetupAuditTrail": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SetupEntityAccess": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Site": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SiteDetail": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SiteFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SiteHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SiteIframeWhiteListUrl": [
+				"Was Not requested"
+			],
+			"SiteRedirectMapping": [
+				"Was Not requested"
+			],
+			"SocialPersona": [
+				"Was Not requested"
+			],
+			"SocialPersonaHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SocialPost": [
+				"Was Not requested"
+			],
+			"SocialPostChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SocialPostFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SocialPostHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SocialPostShare": [
+				"Was Not requested"
+			],
+			"Solution": [
+				"Was Not requested"
+			],
+			"SolutionFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SolutionHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SolutionStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SrcPredJobStatusChgEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Stamp": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"StampAssignment": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"StaticResource": [
+				"Was Not requested"
+			],
+			"StreamingChannel": [
+				"Was Not requested"
+			],
+			"StreamingChannelShare": [
+				"Was Not requested"
+			],
+			"Survey": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyEmailBranding": [
+				"Was Not requested"
+			],
+			"SurveyEngagementContext": [
+				"Was Not requested"
+			],
+			"SurveyEngagementContextShare": [
+				"Was Not requested"
+			],
+			"SurveyFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyInvitation": [
+				"Was Not requested"
+			],
+			"SurveyInvitationShare": [
+				"Was Not requested"
+			],
+			"SurveyPage": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyPageChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyQuestion": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyQuestionChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyQuestionChoice": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyQuestionChoiceChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyQuestionResponse": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyQuestionResponseChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyQuestionScore": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyResponse": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyResponseChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyShare": [
+				"Was Not requested"
+			],
+			"SurveySubject": [
+				"Was Not requested"
+			],
+			"SurveyVersion": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyVersionAddlInfo": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"SurveyVersionChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TabDefinition": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TableauHostMapping": [
+				"Was Not requested"
+			],
+			"TableauHostMappingShare": [
+				"Was Not requested"
+			],
+			"Task": [
+				"Was Not requested"
+			],
+			"TaskChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TaskFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TaskPriority": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TaskStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TenantUsageEntitlement": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TestSuiteMembership": [
+				"Was Not requested"
+			],
+			"ThirdPartyAccountLink": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TodayGoal": [
+				"Was Not requested"
+			],
+			"TodayGoalShare": [
+				"Was Not requested"
+			],
+			"Topic": [
+				"Was Not requested"
+			],
+			"TopicAssignment": [
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TopicFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TopicUserEvent": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Translation": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TripReport__ChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"TripReport__Share": [
+				"Was Not requested"
+			],
+			"TripReport__c": [
+				"Was Not requested"
+			],
+			"UiFormulaCriterion": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UiFormulaRule": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UndecidedEventRelation": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"User": [
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"UserAppInfo": [
+				"Was Not requested"
+			],
+			"UserAppMenuCustomization": [
+				"Was Not requested"
+			],
+			"UserAppMenuCustomizationShare": [
+				"Was Not requested"
+			],
+			"UserAppMenuItem": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserDefinedLabel": [
+				"Was Not requested"
+			],
+			"UserDefinedLabelAssignment": [
+				"Was Not requested"
+			],
+			"UserDefinedLabelAssignmentShare": [
+				"Was Not requested"
+			],
+			"UserDefinedLabelShare": [
+				"Was Not requested"
+			],
+			"UserEmailPreferredPerson": [
+				"Was Not requested"
+			],
+			"UserEmailPreferredPersonShare": [
+				"Was Not requested"
+			],
+			"UserEntityAccess": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserFieldAccess": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserLicense": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserListView": [
+				"Was Not requested"
+			],
+			"UserListViewCriterion": [
+				"Was Not requested"
+			],
+			"UserLogin": [
+				"Must be createable",
+				"Must be deletable",
+				"Was Not requested"
+			],
+			"UserPackageLicense": [
+				"Was Not requested"
+			],
+			"UserPermissionAccess": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserPreference": [
+				"Was Not requested"
+			],
+			"UserProvAccount": [
+				"Was Not requested"
+			],
+			"UserProvAccountStaging": [
+				"Was Not requested"
+			],
+			"UserProvMockTarget": [
+				"Was Not requested"
+			],
+			"UserProvisioningConfig": [
+				"Was Not requested"
+			],
+			"UserProvisioningLog": [
+				"Was Not requested"
+			],
+			"UserProvisioningRequest": [
+				"Was Not requested"
+			],
+			"UserProvisioningRequestShare": [
+				"Was Not requested"
+			],
+			"UserRecordAccess": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserRole": [
+				"Was Not requested"
+			],
+			"UserServicePresence": [
+				"Must be createable",
+				"Was Not requested"
+			],
+			"UserServicePresenceShare": [
+				"Was Not requested"
+			],
+			"UserSetupEntityAccess": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be retrieveable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"UserShare": [
+				"Was Not requested"
+			],
+			"UserTeamMember": [
+				"Was Not requested"
+			],
+			"VerificationHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"VisualforceAccessMetrics": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"Vote": [
+				"Was Not requested"
+			],
+			"WaveAutoInstallRequest": [
+				"Was Not requested"
+			],
+			"WaveCompatibilityCheckItem": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"WebLink": [
+				"Was Not requested"
+			],
+			"WorkOrder": [
+				"Was Not requested"
+			],
+			"WorkOrderChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"WorkOrderFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"WorkOrderHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"WorkOrderLineItem": [
+				"Was Not requested"
+			],
+			"WorkOrderLineItemChangeEvent": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be queryable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"WorkOrderLineItemFeed": [
+				"Must be createable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"WorkOrderLineItemHistory": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"WorkOrderLineItemStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			],
+			"WorkOrderShare": [
+				"Was Not requested"
+			],
+			"WorkOrderStatus": [
+				"Must be createable",
+				"Must be deletable",
+				"Must be updateable",
+				"Was Not requested"
+			]
+		},
+		"SOBJ_MISMATCH": {},
+		"FIELD_MISMATCH": {}
+	}
+}
