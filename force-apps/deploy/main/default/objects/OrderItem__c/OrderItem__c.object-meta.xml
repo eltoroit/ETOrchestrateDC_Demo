@@ -153,13 +153,13 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <label>OrderItem</label>
+    <label>DCOrderItem</label>
     <nameField>
         <displayFormat>ORDER_ITEM-{0000}</displayFormat>
         <label>OrderItem</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>OrderItems</pluralLabel>
+    <pluralLabel>DCOrderItems</pluralLabel>
     <searchLayouts>
         <searchResultsAdditionalFields>ListPriceAmount__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>DiscountPercent__c</searchResultsAdditionalFields>

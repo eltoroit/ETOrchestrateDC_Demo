@@ -6,12 +6,12 @@
     </applicationVisibilities>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Contact.FullName__c</field>
+        <field>Contact.PersonName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.IndividualId__c</field>
+        <field>Contact.CustomerId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

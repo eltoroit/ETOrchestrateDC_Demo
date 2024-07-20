@@ -1,0 +1,22 @@
+SELECT
+	sub2.cust_id__c as UnifiedID__c,
+	First (sub2.rfm_recency__c * 1000 + sub2.rfm_frequency__c * 100 + sub2.rfm_monetaryAvg__c * 10 + sub2.rfm_monetaryLifetime__c) as RFMCombined__c,
+	First (sub2.rfm_recency__c) as Recency__c,
+	First (sub2.rfm_frequency__c) as Frequency__c,
+	First (sub2.rfm_monetaryAvg__c) as MonetaryAvg__c,
+	First (sub2.rfm_monetaryLifetime__c) as MonetaryLifetime__c
+From
+	(
+		select
+			UnifiedIndividual__dlm.ssot__Id__c as cust_id__c,
+			ntile (4) over (order by MAX(ssot__SalesOrder__dlm.ssot__CreatedDate__c)) as rfm_recency__c,
+			ntile (4) over (order by count(ssot__SalesOrder__dlm.ssot__Id__c)) as rfm_frequency__c,
+			ntile (4) over (order by avg(ssot__SalesOrder__dlm.ssot__GrandTotalAmount__c)) as rfm_monetaryAvg__c,
+			ntile (4) over (order by sum(ssot__SalesOrder__dlm.ssot__GrandTotalAmount__c)) as rfm_monetaryLifetime__c
+		FROM
+			ssot__SalesOrder__dlm
+			LEFT OUTER JOIN IndividualIdentityLink__dlm ON ssot__SalesOrder__dlm.ssot__SoldToCustomerId__c = IndividualIdentityLink__dlm.SourceRecordId__c
+			LEFT OUTER JOIN UnifiedIndividual__dlm ON UnifiedIndividual__dlm.ssot__Id__c = IndividualIdentityLink__dlm.UnifiedRecordId__c
+		GROUP BY UnifiedIndividual__dlm.ssot__Id__c
+	) as sub2
+GROUP BY sub2.cust_id__c

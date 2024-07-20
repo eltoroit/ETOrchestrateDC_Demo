@@ -1,0 +1,505 @@
+{
+    "version": "56.0",
+    "nodes": {
+        "LOAD_DATASET0": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "type": "dataModelObject",
+                    "name": "ssot__Individual__dlm"
+                },
+                "sampleDetails": {
+                    "type": "TopN"
+                },
+                "fields": [
+                    "ssot__BirthDate__c",
+                    "ssot__DataSourceId__c",
+                    "ssot__Id__c",
+                    "ssot__PersonName__c",
+                    "TaxRatePercent__c",
+                    "ssot__WebSiteURL__c",
+                    "ssot__DataSourceObjectId__c"
+                ]
+            },
+            "sources": []
+        },
+        "LOAD_DATASET1": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "type": "dataModelObject",
+                    "name": "ssot__SalesOrder__dlm"
+                },
+                "sampleDetails": {
+                    "type": "TopN"
+                },
+                "fields": [
+                    "ssot__CreatedDate__c",
+                    "ssot__GrandTotalAmount__c",
+                    "Is_Tax_Exempt__c",
+                    "ssot__PromiseDate__c",
+                    "ssot__Id__c",
+                    "ssot__SoldToCustomerId__c"
+                ]
+            },
+            "sources": []
+        },
+        "EXTRACT0": {
+            "action": "extractGrains",
+            "parameters": {
+                "grainExtractions": []
+            },
+            "sources": [
+                "JOIN3"
+            ]
+        },
+        "AGGREGATE1": {
+            "action": "aggregate",
+            "parameters": {
+                "nodeType": "STANDARD",
+                "aggregations": [
+                    {
+                        "name": "COUNT_Rows__c",
+                        "label": "Rows",
+                        "action": "COUNT"
+                    }
+                ],
+                "groupings": [
+                    "ssot__SoldToCustomerId__c",
+                    "X_Sales.X_Individual.ssot__Id__c"
+                ]
+            },
+            "sources": [
+                "EXTRACT0"
+            ]
+        },
+        "LOAD_DATASET2": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "type": "dataModelObject",
+                    "name": "UnifiedIndividual__dlm"
+                },
+                "sampleDetails": {
+                    "type": "TopN"
+                },
+                "fields": [
+                    "ssot__BirthDate__c",
+                    "ssot__PersonName__c",
+                    "ssot__Id__c"
+                ]
+            },
+            "sources": []
+        },
+        "LOAD_DATASET3": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "type": "dataModelObject",
+                    "name": "IndividualIdentityLink__dlm"
+                },
+                "sampleDetails": {
+                    "type": "TopN"
+                },
+                "fields": [
+                    "SourceRecordId__c",
+                    "UnifiedRecordId__c"
+                ]
+            },
+            "sources": []
+        },
+        "JOIN1": {
+            "action": "join",
+            "parameters": {
+                "joinType": "INNER",
+                "leftKeys": [
+                    "ssot__Id__c"
+                ],
+                "rightQualifier": "X_UL",
+                "rightKeys": [
+                    "UnifiedRecordId__c"
+                ]
+            },
+            "schema": {
+                "slice": {
+                    "mode": "DROP",
+                    "ignoreMissingFields": true,
+                    "fields": [
+                        "X_UL.UnifiedRecordId__c"
+                    ]
+                }
+            },
+            "sources": [
+                "LOAD_DATASET2",
+                "LOAD_DATASET3"
+            ]
+        },
+        "JOIN2": {
+            "action": "join",
+            "parameters": {
+                "joinType": "INNER",
+                "rightQualifier": "X_Individual",
+                "leftKeys": [
+                    "ssot__Id__c"
+                ],
+                "rightKeys": [
+                    "X_UL.SourceRecordId__c"
+                ]
+            },
+            "schema": {
+                "slice": {
+                    "mode": "DROP",
+                    "ignoreMissingFields": true,
+                    "fields": []
+                }
+            },
+            "sources": [
+                "LOAD_DATASET0",
+                "JOIN1"
+            ]
+        },
+        "JOIN3": {
+            "action": "join",
+            "parameters": {
+                "joinType": "INNER",
+                "leftKeys": [
+                    "ssot__SoldToCustomerId__c"
+                ],
+                "rightQualifier": "X_Sales",
+                "rightKeys": [
+                    "ssot__Id__c"
+                ]
+            },
+            "schema": {
+                "slice": {
+                    "mode": "DROP",
+                    "ignoreMissingFields": true,
+                    "fields": [
+                        "Is_Tax_Exempt__c",
+                        "X_Sales.X_Individual.X_UL.SourceRecordId__c",
+                        "X_Sales.X_Individual.ssot__BirthDate__c",
+                        "X_Sales.ssot__DataSourceId__c",
+                        "X_Sales.ssot__DataSourceObjectId__c",
+                        "X_Sales.ssot__FirstName__c",
+                        "X_Sales.ssot__Id__c",
+                        "X_Sales.ssot__LastName__c",
+                        "X_Sales.ssot__MiddleName__c",
+                        "X_Sales.ssot__PhotoURL__c",
+                        "KQ_Id__c",
+                        "KQ_SoldToCustomerId__c",
+                        "ssot__DataSourceId__c",
+                        "ssot__DataSourceObjectId__c",
+                        "ssot__LastModifiedDate__c"
+                    ]
+                }
+            },
+            "sources": [
+                "FILTER0",
+                "JOIN2"
+            ]
+        },
+        "JOIN4": {
+            "action": "join",
+            "parameters": {
+                "joinType": "RIGHT_OUTER",
+                "leftKeys": [
+                    "X_Sales.X_Individual.ssot__Id__c"
+                ],
+                "rightQualifier": "UnifiedInd",
+                "rightKeys": [
+                    "ssot__Id__c"
+                ]
+            },
+            "schema": {
+                "slice": {
+                    "mode": "DROP",
+                    "ignoreMissingFields": true,
+                    "fields": []
+                }
+            },
+            "sources": [
+                "AGGREGATE1",
+                "LOAD_DATASET2"
+            ]
+        },
+        "FORMULA0": {
+            "action": "formula",
+            "parameters": {
+                "expressionType": "SQL",
+                "fields": [
+                    {
+                        "name": "CreatedDate_formula__c",
+                        "label": "Days ago",
+                        "formulaExpression": "datediff(now(), ssot__CreatedDate__c)",
+                        "type": "NUMBER",
+                        "precision": 18,
+                        "scale": 0,
+                        "defaultValue": ""
+                    }
+                ]
+            },
+            "sources": [
+                "FILTER0"
+            ]
+        },
+        "FILTER0": {
+            "action": "filter",
+            "parameters": {
+                "filterExpressions": [
+                    {
+                        "field": "ssot__CreatedDate__c",
+                        "operator": "IN_RANGE",
+                        "operands": [
+                            {
+                                "argument": -30,
+                                "type": "N_DAYS"
+                            },
+                            {
+                                "argument": 0,
+                                "type": "N_DAYS"
+                            }
+                        ],
+                        "type": "DATETIME"
+                    }
+                ]
+            },
+            "sources": [
+                "LOAD_DATASET1"
+            ]
+        },
+        "EXTRACT1": {
+            "action": "extractGrains",
+            "parameters": {
+                "grainExtractions": []
+            },
+            "sources": [
+                "FORMULA0"
+            ]
+        },
+        "AGGREGATE3": {
+            "action": "aggregate",
+            "parameters": {
+                "nodeType": "STANDARD",
+                "aggregations": [
+                    {
+                        "name": "MAX_CreatedDate_formula__c",
+                        "label": "Maximum Days ago",
+                        "action": "MAX",
+                        "source": "CreatedDate_formula__c"
+                    },
+                    {
+                        "name": "MIN_CreatedDate_formula__c",
+                        "label": "Minimum Days ago",
+                        "action": "MIN",
+                        "source": "CreatedDate_formula__c"
+                    }
+                ],
+                "groupings": []
+            },
+            "sources": [
+                "EXTRACT1"
+            ]
+        },
+        "FILTER1": {
+            "action": "filter",
+            "parameters": {
+                "filterExpressions": [
+                    {
+                        "field": "COUNT_Rows__c",
+                        "operator": "GREATER_OR_EQUAL",
+                        "operands": [
+                            "2"
+                        ],
+                        "type": "NUMBER"
+                    }
+                ]
+            },
+            "sources": [
+                "AGGREGATE1"
+            ]
+        }
+    },
+    "ui": {
+        "nodes": {
+            "LOAD_DATASET0": {
+                "label": "Individual",
+                "type": "LOAD_DATASET",
+                "top": 530.2,
+                "left": 392,
+                "parameters": {
+                    "sampleSize": 10000
+                }
+            },
+            "LOAD_DATASET1": {
+                "label": "Sales Order",
+                "type": "LOAD_DATASET",
+                "top": 671.8,
+                "left": 532.1,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "AGGREGATE0": {
+                "label": "Aggregate 0",
+                "type": "AGGREGATE",
+                "top": 390.2,
+                "left": 672,
+                "graph": {
+                    "EXTRACT0": null,
+                    "AGGREGATE1": null
+                },
+                "connectors": [
+                    {
+                        "source": "EXTRACT0",
+                        "target": "AGGREGATE1"
+                    }
+                ]
+            },
+            "LOAD_DATASET2": {
+                "label": "Unified Individual",
+                "type": "LOAD_DATASET",
+                "top": 390.2,
+                "left": 112,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "LOAD_DATASET3": {
+                "label": "Unified Link Individual",
+                "type": "LOAD_DATASET",
+                "top": 530.2,
+                "left": 112,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "JOIN1": {
+                "label": "X_UnifiedLink",
+                "description": "",
+                "type": "JOIN",
+                "top": 390.2,
+                "left": 252
+            },
+            "JOIN2": {
+                "label": "X_Individual",
+                "description": "",
+                "type": "JOIN",
+                "top": 390.2,
+                "left": 392
+            },
+            "JOIN3": {
+                "label": "X_SalesOrder",
+                "description": "",
+                "type": "JOIN",
+                "top": 392.1,
+                "left": 532
+            },
+            "JOIN4": {
+                "label": "Unified Individuals with/without Sales Orders",
+                "description": "",
+                "type": "JOIN",
+                "top": 252,
+                "left": 672.3
+            },
+            "TRANSFORM0": {
+                "label": "Transform 0",
+                "type": "TRANSFORM",
+                "top": 530.2,
+                "left": 672,
+                "graph": {
+                    "FORMULA0": {
+                        "parameters": {
+                            "type": "DATE_DIFFERENCE_UI"
+                        },
+                        "label": "Return Duration Between Dates"
+                    }
+                },
+                "connectors": []
+            },
+            "FILTER0": {
+                "label": "30 days ago",
+                "description": "",
+                "type": "FILTER",
+                "top": 531.8,
+                "left": 532.1
+            },
+            "AGGREGATE2": {
+                "label": "Aggregate 2",
+                "type": "AGGREGATE",
+                "top": 532,
+                "left": 812,
+                "graph": {
+                    "EXTRACT1": null,
+                    "AGGREGATE3": null
+                },
+                "connectors": [
+                    {
+                        "source": "EXTRACT1",
+                        "target": "AGGREGATE3"
+                    }
+                ]
+            },
+            "FILTER1": {
+                "label": "Filter 1",
+                "type": "FILTER",
+                "top": 392.3,
+                "left": 812
+            }
+        },
+        "connectors": [
+            {
+                "source": "LOAD_DATASET2",
+                "target": "JOIN1"
+            },
+            {
+                "source": "LOAD_DATASET3",
+                "target": "JOIN1"
+            },
+            {
+                "source": "LOAD_DATASET0",
+                "target": "JOIN2"
+            },
+            {
+                "source": "JOIN1",
+                "target": "JOIN2"
+            },
+            {
+                "source": "FILTER0",
+                "target": "JOIN3"
+            },
+            {
+                "source": "JOIN2",
+                "target": "JOIN3"
+            },
+            {
+                "source": "JOIN3",
+                "target": "AGGREGATE0"
+            },
+            {
+                "source": "AGGREGATE0",
+                "target": "JOIN4"
+            },
+            {
+                "source": "LOAD_DATASET2",
+                "target": "JOIN4"
+            },
+            {
+                "source": "LOAD_DATASET1",
+                "target": "FILTER0"
+            },
+            {
+                "source": "FILTER0",
+                "target": "TRANSFORM0"
+            },
+            {
+                "source": "TRANSFORM0",
+                "target": "AGGREGATE2"
+            },
+            {
+                "source": "AGGREGATE0",
+                "target": "FILTER1"
+            }
+        ],
+        "hiddenColumns": []
+    }
+}

@@ -153,13 +153,13 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Order</label>
+    <label>DCOrder</label>
     <nameField>
         <displayFormat>ORDER-{0000}</displayFormat>
         <label>Order</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Orders</pluralLabel>
+    <pluralLabel>DCOrders</pluralLabel>
     <searchLayouts>
         <searchResultsAdditionalFields>PromiseDate__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CreatedDate__c</searchResultsAdditionalFields>
