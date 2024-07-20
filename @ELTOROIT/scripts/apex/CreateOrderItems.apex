@@ -1,7 +1,7 @@
 Integer rowNumber = 0;
 List<Product__c> products = [SELECT Id, Name, MSRPAmount__c FROM Product__c];
 List<Order__c> orders = [
-	SELECT Id, Name, CreatedDate__c, GrandTotalAmount__c, IsTaxExempt__c, PromiseDate__c, SoldToCustomer__c
+	SELECT Id, Name, OrderCreatedDate__c, GrandTotalAmount__c, IsTaxExempt__c, PromiseDate__c, SoldToCustomer__c
 	FROM Order__c
 ];
 List<OrderItem__c> items = [

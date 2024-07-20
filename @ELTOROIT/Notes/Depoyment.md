@@ -5,9 +5,9 @@
 # Steps to Create Metadata
 
 1. Deployed simple metatada
-2. Assigned permisison set `psDataCloudData`
+2. Assigned permision set `psDataCloudData`
 3. Disabled `State and Country/Territory Picklists`
-4. Loaded data using ETCopyData
+4. Load data using ETCopyData
 5. Configure Data Cloud
     1. Install Sales Cloud Data Bundle
     2. Ingestion
@@ -15,28 +15,27 @@
             - FLS/CRUD for Account, Contact and the custom objects
         2. Ingest using Sales Cloud Data Bundle
             - Contact custom fields needed
-                - BirthDate_c (Upper case D)
-                - FullName_c => PersonName
-                - IndividualId_c
-                - MiddleName_c
-                - TaxRatePercent_c
-                - WebSiteURL_c
+                - Customer Id | CustomerId_c
+                - Date Of Birth | DateBirth_c
+                - Middle Name | MiddleName_c
+                - Person Name | PersonName_c
+                - Create `Identification Name` "CustomerID" (both both type and name to this)
+            - Use defaults for Accounts and Leads
         3. Ingest custom objects
-            - `Order__c`
-                - Engagement (CreatedDate) // No spaces!
-            - `OrderItem__c`
+            - `DCOrder`
+                - Engagement (OrderCreatedDate_c)
+            - `DCOrderItem`
                 - Other
-            - `Product__c`
+            - `DCProduct`
                 - Other
         4. Create DLO
             - `Normalize Phone Numbers`
+            - Add it to the data space
     3. Harmonize
         1. Custom Fields in Contact DLO
-            1. Contact.IndividualId => PartyIdentification
-            2. Contact.TaxRatePercent => New field on individual
+            1. Contact.CustomerId => PartyIdentification
         2. Custom Objects
-            - [Data Dictionary](https://docs.google.com/spreadsheets/d/1_2z5SW-pPwwLkReuPgnGDjRIeI3JGrLTSY16-Xoyo_o/edit?gid=417928767#gid=417928767)
-            - Include `Normalize Phone Numbers`
+            - [Data Dictionary](hhttps://docs.google.com/spreadsheets/d/1Mxs-FWU3pwnAEEyeXkv0plfgPSk_hY78NlqXdZn1_Uc/edit?gid=226856693#gid=226856693)
     4. Data Transform
         - Name: `Normalize Phone Numbers`
     5. Identity Resolution
@@ -71,7 +70,12 @@
         Name: `ETOrchestrateDC Graph`
 6. Create Data Kit
     - Name: `ETOrchestrateDC Demo Data Kit`
-    - Bundle: `ETOrchestrateDC_DemoBundle`
+    - Data Stream Bundles
+        - Bundle: `ETOrchestrateDC_DataBundle` (Account, Contact, Lead)
+        - Bundle: `ETOrchestrateDC_Custom` (Order, OrderItems, Product)
+    - Data Lake Objects
+    - Data Transforms
+    - Calculated Insights
 7. Create Package
     - Name: `ETOrchestrateDC DemoDK Package`
     - Add Metadata
@@ -83,11 +87,14 @@
 
 -   Retrieve package
     1.  `rm -rf packagesFolder && mkdir packagesFolder && cd packagesFolder`
-    2.  `sf project retrieve start --target-metadata-dir . --package-name "ETOrchestrateDC DemoDK Package" --target-org prDCO_Demo`
+    2.  `sf project retrieve start --target-metadata-dir . --package-name "ETOrchestrateDC DemoDK Package" --target-org prDCO_Demo64276`
     3.  `unzip unpackaged.zip`
 -   Deploy the metadata
-    1.  `sf project deploy start --dry-run --metadata-dir="ETOrchestrateDC DemoDK Package"`
-    2.  `sf project deploy start --metadata-dir="ETOrchestrateDC DemoDK Package"`
+    1.  `sf project deploy start --dry-run --metadata-dir="ETOrchestrateDC DemoDK Package" --target-org soDCO_TestPKG_DC`
+    2.  `sf project deploy start --metadata-dir="ETOrchestrateDC DemoDK Package" --target-org soDCO_TestPKG_DC`
+-   Install Package
+    -   `sf package install --apex-compile=all --package 04tHu000003j1FP --wait=30 --no-prompt --json --target-org soDCO_TestPKG_DC`
+    -   `sf org open --target-org soDCO_TestPKG_DC`
 
 # Deploying Data Cloud
 

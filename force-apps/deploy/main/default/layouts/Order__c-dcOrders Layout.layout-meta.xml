@@ -22,7 +22,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CreatedDate__c</field>
+                <field>OrderCreatedDate__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

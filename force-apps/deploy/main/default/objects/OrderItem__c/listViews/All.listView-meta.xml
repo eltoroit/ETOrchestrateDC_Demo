@@ -7,6 +7,7 @@
     <columns>OrderedQuantity__c</columns>
     <columns>ListPriceAmount__c</columns>
     <columns>DiscountPercent__c</columns>
+    <columns>DiscountAmount__c</columns>
     <columns>UnitPriceAmount__c</columns>
     <columns>LineTotal__c</columns>
     <filterScope>Everything</filterScope>

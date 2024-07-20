@@ -162,7 +162,7 @@
     <pluralLabel>DCOrders</pluralLabel>
     <searchLayouts>
         <searchResultsAdditionalFields>PromiseDate__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CreatedDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OrderCreatedDate__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>IsTaxExempt__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>GrandTotalAmount__c</searchResultsAdditionalFields>
     </searchLayouts>
