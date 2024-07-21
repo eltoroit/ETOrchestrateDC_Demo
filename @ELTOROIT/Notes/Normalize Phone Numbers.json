@@ -284,24 +284,20 @@
 			"parameters": {
 				"fieldMappings": [
 					{
-						"top": "MailingCountry__c",
-						"bottom": "MailingCountry__c"
-					},
-					{
-						"top": "FullName_c__c",
-						"bottom": "FullName_c__c"
+						"top": "Phone",
+						"bottom": "Phone"
 					},
 					{
 						"top": "Id__c",
 						"bottom": "Id__c"
 					},
 					{
-						"top": "Phone",
-						"bottom": "Phone"
+						"top": "MailingCountry__c",
+						"bottom": "MailingCountry__c"
 					},
 					{
-						"top": "IndividualId_c__c",
-						"bottom": "IndividualId_c__c"
+						"top": "CustomerId_c__c",
+						"bottom": "CustomerId_c__c"
 					},
 					{
 						"top": "Type",
@@ -316,24 +312,20 @@
 			"parameters": {
 				"fieldMappings": [
 					{
-						"top": "MailingCountry__c",
-						"bottom": "MailingCountry__c"
-					},
-					{
-						"top": "FullName_c__c",
-						"bottom": "FullName_c__c"
+						"top": "Phone",
+						"bottom": "Phone"
 					},
 					{
 						"top": "Id__c",
 						"bottom": "Id__c"
 					},
 					{
-						"top": "Phone",
-						"bottom": "Phone"
+						"top": "MailingCountry__c",
+						"bottom": "MailingCountry__c"
 					},
 					{
-						"top": "IndividualId_c__c",
-						"bottom": "IndividualId_c__c"
+						"top": "CustomerId_c__c",
+						"bottom": "CustomerId_c__c"
 					},
 					{
 						"top": "Type",
@@ -348,24 +340,20 @@
 			"parameters": {
 				"fieldMappings": [
 					{
-						"top": "MailingCountry__c",
-						"bottom": "MailingCountry__c"
-					},
-					{
-						"top": "FullName_c__c",
-						"bottom": "FullName_c__c"
+						"top": "Phone",
+						"bottom": "Phone"
 					},
 					{
 						"top": "Id__c",
 						"bottom": "Id__c"
 					},
 					{
-						"top": "Phone",
-						"bottom": "Phone"
+						"top": "MailingCountry__c",
+						"bottom": "MailingCountry__c"
 					},
 					{
-						"top": "IndividualId_c__c",
-						"bottom": "IndividualId_c__c"
+						"top": "CustomerId_c__c",
+						"bottom": "CustomerId_c__c"
 					},
 					{
 						"top": "Type",
@@ -380,24 +368,20 @@
 			"parameters": {
 				"fieldMappings": [
 					{
-						"top": "MailingCountry__c",
-						"bottom": "MailingCountry__c"
-					},
-					{
-						"top": "FullName_c__c",
-						"bottom": "FullName_c__c"
+						"top": "Phone",
+						"bottom": "Phone"
 					},
 					{
 						"top": "Id__c",
 						"bottom": "Id__c"
 					},
 					{
-						"top": "Phone",
-						"bottom": "Phone"
+						"top": "MailingCountry__c",
+						"bottom": "MailingCountry__c"
 					},
 					{
-						"top": "IndividualId_c__c",
-						"bottom": "IndividualId_c__c"
+						"top": "CustomerId_c__c",
+						"bottom": "CustomerId_c__c"
 					},
 					{
 						"top": "Type",
