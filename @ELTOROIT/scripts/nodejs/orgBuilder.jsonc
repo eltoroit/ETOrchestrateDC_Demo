@@ -42,7 +42,7 @@
 		// { "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
 		// // === Loading Data ===
-		{ "ETCopyData": "./@ELTOROIT/data" },
+		// { "ETCopyData": "./@ELTOROIT/data" },
 
 		{ "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
 		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud using \"ETOrchestrateDC\" Data Kit" } },
