@@ -3,7 +3,9 @@
     <contactEmail>aperez@salesforce.com</contactEmail>
     <label>ETOrchestrateDC</label>
     <oauthConfig>
-        <callbackUrl>null:null</callbackUrl>
+        <callbackUrl>null:null
+https://fun-customer-8900-dev-ed.scratch.my.salesforce.com/services/authcallback/OrchestrateDC</callbackUrl>
+        <consumerKey>3MVG9bmlmX4LX1ZsoFbEgLVwR8MWc6dEiydV8R3.lQ4wKHcDOM89U.lmSTnhTywXGXVgV1oeUsokJSC_4_dQR</consumerKey>
         <isAdminApproved>false</isAdminApproved>
         <isClientCredentialEnabled>false</isClientCredentialEnabled>
         <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
