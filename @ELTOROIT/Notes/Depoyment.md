@@ -200,14 +200,17 @@ This is not part of ETOrchestrateDC for two reasons:
     - Change URL to `https://***.scratch.my.salesforce.com`
 5. Go to External Credentials [ETOrchestrateDC]
     - Authenticate
-        - If you see this error... **error=redirect_uri_mismatch&error_description=redirect_uri%20must%20match%20configuration**
-            - Wait few minutes before next step
-            - We may try it, but if it fails... keep waiting!
+    - Did you get an error?
+        - `error=redirect_uri_mismatch&error_description=redirect_uri%20must%20match%20configuration`
+            - Validate the `callback URL` on the connected App named `ETOrchestrateDC`
+            - If the URL is correct, then you may need to wait few minutes before authenticating again
             - This has to do with the Connected App [ETOrchestrateDC] callback URL
             - Go back in the browser and try again
-        - If no errors, you should be redirected to the login page.
-            - Use credentials from `etLogs/_user.json`
-            - You may need to authentica twice (????)
+        - `error=invalid_client_id&error_description=client%20identifier%20invalid`
+            - Validate the `consumer key` and `consumer secret` on the auth. provider named `ETOrchestrateDC`
+    - If no errors, you should be redirected to the login page.
+        - Use credentials from `etLogs/_user.json`
+        - You may need to authenticate twice (????)
 
 # Test It
 
