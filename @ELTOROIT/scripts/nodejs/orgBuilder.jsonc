@@ -22,8 +22,7 @@
 		// { "InstallPackage": { "id": "04t2J000000EycyQAC" } },
 		// { "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
 
-		// // === Wait until the Data Cloud instance is ready ===
-		// // Wait for the Data Cloud org to be ready (clicking "the blue button")
+		// // === Wait for Data Cloud to be ready (clicking "the blue button") ===
 		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
 		// Install Sales Cloud Data Bundle
 		// { "InstallPackage": { "id": "04tB0000000BYKv" } },
@@ -43,9 +42,9 @@
 
 		// // === Loading Data ===
 		// { "ETCopyData": "./@ELTOROIT/data" },
+		// { "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
 
 		{ "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
-		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud using \"ETOrchestrateDC\" Data Kit" } },
 
 		// // === Configure HTTP Callouts ===
 		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },

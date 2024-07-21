@@ -137,4 +137,8 @@
         <tab>Product__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <tabSettings>
+        <tab>Demo</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

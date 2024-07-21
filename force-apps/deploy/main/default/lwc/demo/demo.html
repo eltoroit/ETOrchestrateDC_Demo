@@ -1,0 +1,19 @@
+<template>
+    <template lwc:if={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+    </template>
+    <lightning-card title="Demo">
+        <div class="slds-m-around_medium">
+            <lightning-button label="Reset Data" onclick={onResetData}></lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button label="Run simulator" onclick={onRunSimulator}></lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button label="Modify custom metadata types" onclick={onModify__mdt}></lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button label="Show time queue" onclick={onShowTimeQueue}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

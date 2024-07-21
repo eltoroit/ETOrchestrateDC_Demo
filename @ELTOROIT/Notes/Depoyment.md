@@ -3,6 +3,10 @@
 -   When data gets randomized, then Sales Orders can't be more than 30 days ago
 -   Data Cloud components get packaged and deployed via a Data Kit in a package, not working for Salesforce streams
 -   Disable `State and Country/Territory Picklists` before loading data with ETCopyData
+-   Some Data Cloud tabs are missing, but we can reach the pages via URL
+    -   Data Spaces: `/lightning/o/DataSpace/list?filterName=__Recent`
+    -   Query Editor: `/lightning/o/DataQueryWorkspace/list?filterName=__Recent`
+    -   Data Graphs: `/lightning/o/DataGraph/list?filterName=__Recent`
 
 # ========================================================================================================================
 
