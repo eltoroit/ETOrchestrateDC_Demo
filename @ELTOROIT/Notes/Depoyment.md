@@ -13,7 +13,7 @@
     -   Monitoring Data Streams...
         -   `SELECT Id, Name, ImportRunStatus, LastRefreshDate, LastNumberOfRowsAddedCount, TotalNumberOfRowsAdded, ExternalRecordIdentifier, TotalRowsProcessed, LastDataChangeStatusDateTime, LastDataChangeStatusErrorCode, ExternalStreamErrorCode FROM DataStream`
     -   `SELECT Id__c, CustomerId_c__c, Name__c, DateBirth_c__c, AssistantPhone__c, Phone__c, HomePhone__c, MobilePhone__c FROM Contact_Home__dll ORDER BY CustomerId_c__c ASC`
--
+-   Orgs
 
 The batch data transform failed due to a runtime error. Make sure that there aren't any null values in the fields mapped to Contact_Point_Phone_Id\_\_c on output node OUTPUT0. Check the output of join and transform node operations to verify that the operations don't introduce null values for related fields.
 
@@ -176,7 +176,7 @@ The batch data transform failed due to a runtime error. Make sure that there are
 This is not part of ETOrchestrateDC for two reasons:
 
 1. I do not know what can be configured in a managed package and what is blocked. You need to make some changes, and it may not be possible if it's locked being a managed package.
-2. I do not want to fail security review :-)
+2. I do not want to fail security review 😳
 
 ## Steps
 
