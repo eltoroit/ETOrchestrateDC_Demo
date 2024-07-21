@@ -24,7 +24,7 @@
 
 		// // === Wait for Data Cloud to be ready (clicking "the blue button") ===
 		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
-		// Install Sales Cloud Data Bundle
+		// // Install Sales Cloud Data Bundle
 		// { "InstallPackage": { "id": "04tB0000000BYKv" } },
 
 		// // === === === === This is not working for Salesforce streams
@@ -34,23 +34,24 @@
 		// // === === === === // { "InstallPackage": { "id": "04tHs000000z1br" } },
 		// // === === === === This is not working for Salesforce streams
 
-		// === Push metadata ===
-		"ShowDeployPage",
-		"PushMetadata",
+		// // === Push metadata ===
+		// "ShowDeployPage",
+		// "PushMetadata",
 		// { "AssignPermissionSet": "psDataCloudData" },
+		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 		// { "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
 		// // === Loading Data ===
 		// { "ETCopyData": "./@ELTOROIT/data" },
+
+		// // === Configure Data Cloud ===
 		// { "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
 
-		{ "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
-
 		// // === Configure HTTP Callouts ===
-		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
-		// { "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
+		{ "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
 
+		{ "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
 		// // === Success! ===
 		"ShowFinalSuccess"
 	]

@@ -164,31 +164,41 @@
 
 # Configure HTTP Callouts
 
+This is not part of ETOrchestrateDC for two reasons:
+
+1. I do not know what can be configured in a managed package and what is blocked. You need to make some changes, and it may not be possible if it's locked being a managed package.
+2. I do not want to fail security review :-)
+
+## Steps
+
 1. Open Connected App [ETOrchestrateDC]
-    - **/lightning/setup/NavigationMenus/home**
-    - Get Key/Secret
+    - [**Open Page**](/lightning/setup/NavigationMenus/home)
+        - Keep this tab open, we'll need to make changes later
+    - Copy Key/Secret
     - Update project file `etLogs/_user.json`
-2. Keep this tab open, we'll need to make changes later
-3. Open Auth. Provider [ETOrchestrateDC]
-    - **/lightning/setup/AuthProviders/home**
+2. Open Auth. Provider [ETOrchestrateDC]
+    - [**Open Page**](/lightning/setup/AuthProviders/home)
+        - Reuse the tab that showed the credentials
     - Click [Edit]
-    - Set Key/Secret
+    - Paste Key/Secret
+    - Click [Save]
     - Copy Callback URL
-4. Back to Connected App [ETOrchestrateDC]
+3. Back to Connected App [ETOrchestrateDC]
     - Paste Callback URL
     - **Changes can take up to 10 minutes to take effect**
-5. Enable UN/PW flow
-    - **/lightning/setup/OauthOidcSettings/home**
-    - Allow OAuth Username-Password Flows
-6. Go To Named Credentials [ETOrchestrateDC]
-    - **/lightning/setup/NamedCredential/home**
+4. Go To Named Credentials [ETOrchestrateDC]
+    - [**Open Page**](/lightning/setup/NamedCredential/home)
     - Change URL to `https://***.scratch.my.salesforce.com`
-7. Go to External Credentials [ETOrchestrateDC]
-    - Wait...
-        - Wait few minutes before next step
-        - We may try it, but if it fails... keep waiting!
-        - This has to do with the Connected App [ETOrchestrateDC] callback URL
+5. Go to External Credentials [ETOrchestrateDC]
     - Authenticate
+        - If you see this error... **error=redirect_uri_mismatch&error_description=redirect_uri%20must%20match%20configuration**
+            - Wait few minutes before next step
+            - We may try it, but if it fails... keep waiting!
+            - This has to do with the Connected App [ETOrchestrateDC] callback URL
+            - Go back in the browser and try again
+        - If no errors, you should be redirected to the login page.
+            - Use credentials from `etLogs/_user.json`
+            - You may need to authentica twice (????)
 
 # Test It
 
