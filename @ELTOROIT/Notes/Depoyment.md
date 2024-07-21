@@ -212,7 +212,7 @@ This is not part of ETOrchestrateDC for two reasons:
         - Use credentials from `etLogs/_user.json`
         - You may need to authenticate twice (????)
 
-# Test It
+# Run the simulator
 
 1.  Validate Custom metadata types [ETOrchestrateDC]
     -   **/lightning/setup/CustomMetadata/home**
@@ -226,28 +226,10 @@ This is not part of ETOrchestrateDC for two reasons:
 
 # Ingest Data
 
-1. Flows take a bit to be active.
-2. Run Node.js App
-3. Validate the correct Org
-    - Option `6. Dispay My Domain`
-    - Validate against URL in browser
-4. Randomize customer data
-    - Option `5. Update Customers.json`
-5. Ingest Data
-    - New org, ingest all Data Streams
-    - Options in order:
-        - Option `1. Ingest`
-        - Option `2. BULK`
-        - Option `6. All`
-6. Test Again
-7. Randomize customer data
-    - Option `5. Update Customers.json`
-8. Ingest Data
-    - No need to ingest all records, only customers
-    - Options in order:
-        - Option `1. Ingest`
-        - Option `2. BULK`
-        - Option `1. Customers` (all 500 customers) or `2. Customers (5 records)`
+1. Flows may take a bit to be active after they are created (30 minutes).
+2. Make a change to a contact record
+3. On data Cloud refresh the Contact_Home data stream
+4. Wait... 😳
 
 # ========================================================================================================================
 
