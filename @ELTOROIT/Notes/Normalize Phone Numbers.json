@@ -1,7 +1,7 @@
 {
 	"version": "56.0",
 	"nodes": {
-		"LOAD_DATASET0_copy0_copy0": {
+		"LOAD_DATASET0_copy0_copy0_copy0": {
 			"action": "load",
 			"parameters": {
 				"dataset": {
@@ -24,14 +24,14 @@
 			},
 			"sources": []
 		},
-		"FILTER0_copy0_copy0": {
+		"FILTER0_copy0_copy0_copy0": {
 			"action": "sqlFilter",
 			"parameters": {
 				"sqlFilterExpression": "char_length(AssistantPhone__c) > 0"
 			},
-			"sources": ["LOAD_DATASET0_copy0_copy0"]
+			"sources": ["LOAD_DATASET0_copy0_copy0_copy0"]
 		},
-		"DROP_FIELDS0_copy0_copy0": {
+		"DROP_FIELDS0_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"slice": {
@@ -40,9 +40,9 @@
 					"fields": ["Phone__c", "HomePhone__c", "MobilePhone__c", "OtherPhone__c"]
 				}
 			},
-			"sources": ["FILTER0_copy0_copy0"]
+			"sources": ["FILTER0_copy0_copy0_copy0"]
 		},
-		"FORMULA0_copy0_copy0": {
+		"FORMULA0_copy0_copy0_copy0": {
 			"action": "formula",
 			"parameters": {
 				"expressionType": "SQL",
@@ -57,9 +57,9 @@
 					}
 				]
 			},
-			"sources": ["EDIT_ATTRIBUTES0_copy0_copy0"]
+			"sources": ["EDIT_ATTRIBUTES0_copy0_copy0_copy0"]
 		},
-		"EDIT_ATTRIBUTES0_copy0_copy0": {
+		"EDIT_ATTRIBUTES0_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"fields": [
@@ -73,16 +73,16 @@
 					}
 				]
 			},
-			"sources": ["DROP_FIELDS0_copy0_copy0"]
+			"sources": ["DROP_FIELDS0_copy0_copy0_copy0"]
 		},
-		"FILTER0_copy0_copy0_copy0": {
+		"FILTER0_copy0_copy0_copy0_copy0": {
 			"action": "sqlFilter",
 			"parameters": {
 				"sqlFilterExpression": "char_length(Phone__c) > 0"
 			},
-			"sources": ["LOAD_DATASET0_copy0_copy0"]
+			"sources": ["LOAD_DATASET0_copy0_copy0_copy0"]
 		},
-		"DROP_FIELDS0_copy0_copy0_copy0": {
+		"DROP_FIELDS0_copy0_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"slice": {
@@ -91,9 +91,9 @@
 					"fields": ["HomePhone__c", "MobilePhone__c", "OtherPhone__c", "AssistantPhone__c"]
 				}
 			},
-			"sources": ["FILTER0_copy0_copy0_copy0"]
+			"sources": ["FILTER0_copy0_copy0_copy0_copy0"]
 		},
-		"FORMULA0_copy0_copy0_copy0": {
+		"FORMULA0_copy0_copy0_copy0_copy0": {
 			"action": "formula",
 			"parameters": {
 				"expressionType": "SQL",
@@ -108,9 +108,9 @@
 					}
 				]
 			},
-			"sources": ["EDIT_ATTRIBUTES1_copy0_copy0"]
+			"sources": ["EDIT_ATTRIBUTES1_copy0_copy0_copy0"]
 		},
-		"EDIT_ATTRIBUTES1_copy0_copy0": {
+		"EDIT_ATTRIBUTES1_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"fields": [
@@ -124,16 +124,16 @@
 					}
 				]
 			},
-			"sources": ["DROP_FIELDS0_copy0_copy0_copy0"]
+			"sources": ["DROP_FIELDS0_copy0_copy0_copy0_copy0"]
 		},
-		"FILTER0_copy0_copy0_copy0_copy0": {
+		"FILTER0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "sqlFilter",
 			"parameters": {
 				"sqlFilterExpression": "char_length(HomePhone__c) > 0"
 			},
-			"sources": ["LOAD_DATASET0_copy0_copy0"]
+			"sources": ["LOAD_DATASET0_copy0_copy0_copy0"]
 		},
-		"DROP_FIELDS0_copy0_copy0_copy0_copy0": {
+		"DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"slice": {
@@ -142,9 +142,9 @@
 					"fields": ["MobilePhone__c", "OtherPhone__c", "AssistantPhone__c", "Phone__c"]
 				}
 			},
-			"sources": ["FILTER0_copy0_copy0_copy0_copy0"]
+			"sources": ["FILTER0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"FORMULA0_copy0_copy0_copy0_copy0": {
+		"FORMULA0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "formula",
 			"parameters": {
 				"expressionType": "SQL",
@@ -159,9 +159,9 @@
 					}
 				]
 			},
-			"sources": ["EDIT_ATTRIBUTES2_copy0_copy0"]
+			"sources": ["EDIT_ATTRIBUTES2_copy0_copy0_copy0"]
 		},
-		"EDIT_ATTRIBUTES2_copy0_copy0": {
+		"EDIT_ATTRIBUTES2_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"fields": [
@@ -175,16 +175,16 @@
 					}
 				]
 			},
-			"sources": ["DROP_FIELDS0_copy0_copy0_copy0_copy0"]
+			"sources": ["DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"FILTER0_copy0_copy0_copy0_copy0_copy0": {
+		"FILTER0_copy0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "sqlFilter",
 			"parameters": {
 				"sqlFilterExpression": "char_length(MobilePhone__c) > 0"
 			},
-			"sources": ["LOAD_DATASET0_copy0_copy0"]
+			"sources": ["LOAD_DATASET0_copy0_copy0_copy0"]
 		},
-		"DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0": {
+		"DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"slice": {
@@ -193,9 +193,9 @@
 					"fields": ["HomePhone__c", "OtherPhone__c", "AssistantPhone__c", "Phone__c"]
 				}
 			},
-			"sources": ["FILTER0_copy0_copy0_copy0_copy0_copy0"]
+			"sources": ["FILTER0_copy0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"FORMULA0_copy0_copy0_copy0_copy0_copy0": {
+		"FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "formula",
 			"parameters": {
 				"expressionType": "SQL",
@@ -210,9 +210,9 @@
 					}
 				]
 			},
-			"sources": ["EDIT_ATTRIBUTES3_copy0_copy0"]
+			"sources": ["EDIT_ATTRIBUTES3_copy0_copy0_copy0"]
 		},
-		"EDIT_ATTRIBUTES3_copy0_copy0": {
+		"EDIT_ATTRIBUTES3_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"fields": [
@@ -226,16 +226,16 @@
 					}
 				]
 			},
-			"sources": ["DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0"]
+			"sources": ["DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"FILTER0_copy0_copy0_copy0_copy0_copy0_copy0": {
+		"FILTER0_copy0_copy0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "sqlFilter",
 			"parameters": {
 				"sqlFilterExpression": "char_length(OtherPhone__c) > 0"
 			},
-			"sources": ["LOAD_DATASET0_copy0_copy0"]
+			"sources": ["LOAD_DATASET0_copy0_copy0_copy0"]
 		},
-		"DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0": {
+		"DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"slice": {
@@ -244,9 +244,9 @@
 					"fields": ["HomePhone__c", "MobilePhone__c", "AssistantPhone__c", "Phone__c"]
 				}
 			},
-			"sources": ["FILTER0_copy0_copy0_copy0_copy0_copy0_copy0"]
+			"sources": ["FILTER0_copy0_copy0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0": {
+		"FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0_copy0": {
 			"action": "formula",
 			"parameters": {
 				"expressionType": "SQL",
@@ -261,9 +261,9 @@
 					}
 				]
 			},
-			"sources": ["EDIT_ATTRIBUTES4_copy0_copy0"]
+			"sources": ["EDIT_ATTRIBUTES4_copy0_copy0_copy0"]
 		},
-		"EDIT_ATTRIBUTES4_copy0_copy0": {
+		"EDIT_ATTRIBUTES4_copy0_copy0_copy0": {
 			"action": "schema",
 			"parameters": {
 				"fields": [
@@ -277,9 +277,9 @@
 					}
 				]
 			},
-			"sources": ["DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0"]
+			"sources": ["DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"APPEND0_copy0_copy0": {
+		"APPEND0_copy0_copy0_copy0": {
 			"action": "appendV2",
 			"parameters": {
 				"fieldMappings": [
@@ -309,9 +309,9 @@
 					}
 				]
 			},
-			"sources": ["FORMULA0_copy0_copy0", "FORMULA0_copy0_copy0_copy0"]
+			"sources": ["FORMULA0_copy0_copy0_copy0", "FORMULA0_copy0_copy0_copy0_copy0"]
 		},
-		"APPEND1_copy0_copy0": {
+		"APPEND1_copy0_copy0_copy0": {
 			"action": "appendV2",
 			"parameters": {
 				"fieldMappings": [
@@ -341,9 +341,9 @@
 					}
 				]
 			},
-			"sources": ["APPEND0_copy0_copy0", "FORMULA0_copy0_copy0_copy0_copy0"]
+			"sources": ["APPEND0_copy0_copy0_copy0", "FORMULA0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"APPEND2_copy0_copy0": {
+		"APPEND2_copy0_copy0_copy0": {
 			"action": "appendV2",
 			"parameters": {
 				"fieldMappings": [
@@ -373,9 +373,9 @@
 					}
 				]
 			},
-			"sources": ["APPEND1_copy0_copy0", "FORMULA0_copy0_copy0_copy0_copy0_copy0"]
+			"sources": ["APPEND1_copy0_copy0_copy0", "FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"APPEND3_copy0_copy0": {
+		"APPEND3_copy0_copy0_copy0": {
 			"action": "appendV2",
 			"parameters": {
 				"fieldMappings": [
@@ -405,16 +405,16 @@
 					}
 				]
 			},
-			"sources": ["APPEND2_copy0_copy0", "FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0"]
+			"sources": ["APPEND2_copy0_copy0_copy0", "FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0_copy0"]
 		},
-		"FORMULA1_copy0_copy0": {
+		"FORMULA1_copy0_copy0_copy0": {
 			"action": "formula",
 			"parameters": {
 				"expressionType": "SQL",
 				"fields": [
 					{
-						"name": "PK",
-						"label": "PK",
+						"name": "ContactPointPhoneId",
+						"label": "Contact Point Phone Id",
 						"formulaExpression": "concat(CustomerId_c__c, '_', Type)",
 						"businessType": "TEXT",
 						"precision": 40,
@@ -422,24 +422,67 @@
 					}
 				]
 			},
-			"sources": ["APPEND3_copy0_copy0"]
+			"sources": ["APPEND3_copy0_copy0_copy0"]
+		},
+		"EDIT_ATTRIBUTES6": {
+			"action": "schema",
+			"parameters": {
+				"fields": [
+					{
+						"name": "MailingCountry__c",
+						"newProperties": {
+							"name": "Country",
+							"label": "Country",
+							"typeProperties": null
+						}
+					}
+				]
+			},
+			"sources": ["FORMULA1_copy0_copy0_copy0"]
+		},
+		"EDIT_ATTRIBUTES7": {
+			"action": "schema",
+			"parameters": {
+				"fields": [
+					{
+						"name": "Id__c",
+						"newProperties": {
+							"name": "Party",
+							"label": "Party",
+							"typeProperties": null
+						}
+					}
+				]
+			},
+			"sources": ["EDIT_ATTRIBUTES6"]
+		},
+		"DROP_FIELDS1": {
+			"action": "schema",
+			"parameters": {
+				"slice": {
+					"mode": "DROP",
+					"ignoreMissingFields": true,
+					"fields": ["CustomerId_c__c"]
+				}
+			},
+			"sources": ["EDIT_ATTRIBUTES7"]
 		},
 		"OUTPUT0": {
 			"action": "outputD360",
 			"parameters": {
 				"type": "dataLakeObject",
-				"name": "Normalize_Phone_Numbers__dll",
+				"name": "Phone_Numbers_Normalized__dll",
 				"fieldsMappings": [
 					{
 						"sourceField": "Phone",
 						"targetField": "Phone__c"
 					},
 					{
-						"sourceField": "Id__c",
+						"sourceField": "Party",
 						"targetField": "Party__c"
 					},
 					{
-						"sourceField": "MailingCountry__c",
+						"sourceField": "Country",
 						"targetField": "Country__c"
 					},
 					{
@@ -447,17 +490,17 @@
 						"targetField": "Type__c"
 					},
 					{
-						"sourceField": "PK",
+						"sourceField": "ContactPointPhoneId",
 						"targetField": "Contact_Point_Phone_Id__c"
 					}
 				]
 			},
-			"sources": ["FORMULA1_copy0_copy0"]
+			"sources": ["DROP_FIELDS1"]
 		}
 	},
 	"ui": {
 		"nodes": {
-			"LOAD_DATASET0_copy0_copy0": {
+			"LOAD_DATASET0_copy0_copy0_copy0": {
 				"label": "Contact_Home",
 				"type": "LOAD_DATASET",
 				"top": 112,
@@ -466,56 +509,18 @@
 					"sampleSize": 2000
 				}
 			},
-			"FILTER0_copy0_copy0": {
+			"FILTER0_copy0_copy0_copy0": {
 				"label": "Assistant Phone",
 				"description": "",
 				"type": "FILTER",
 				"top": 112,
 				"left": 252
 			},
-			"TRANSFORM0_copy0_copy0": {
+			"TRANSFORM0_copy0_copy0_copy0": {
 				"label": "Assistant Phone Copy",
 				"description": "",
 				"type": "TRANSFORM",
 				"top": 112,
-				"left": 392,
-				"graph": {
-					"DROP_FIELDS0_copy0_copy0": {
-						"label": "Drop Columns"
-					},
-					"FORMULA0_copy0_copy0": {
-						"parameters": {
-							"type": "BASE_FORMULA_UI"
-						},
-						"label": "Formula"
-					},
-					"EDIT_ATTRIBUTES0_copy0_copy0": {
-						"label": "Edit Attributes"
-					}
-				},
-				"connectors": [
-					{
-						"source": "EDIT_ATTRIBUTES0_copy0_copy0",
-						"target": "FORMULA0_copy0_copy0"
-					},
-					{
-						"source": "DROP_FIELDS0_copy0_copy0",
-						"target": "EDIT_ATTRIBUTES0_copy0_copy0"
-					}
-				]
-			},
-			"FILTER0_copy0_copy0_copy0": {
-				"label": "Business Phone",
-				"description": "",
-				"type": "FILTER",
-				"top": 252,
-				"left": 252
-			},
-			"TRANSFORM0_copy0_copy0_copy0": {
-				"label": "Business Phone Copy",
-				"description": "",
-				"type": "TRANSFORM",
-				"top": 252,
 				"left": 392,
 				"graph": {
 					"DROP_FIELDS0_copy0_copy0_copy0": {
@@ -527,33 +532,33 @@
 						},
 						"label": "Formula"
 					},
-					"EDIT_ATTRIBUTES1_copy0_copy0": {
+					"EDIT_ATTRIBUTES0_copy0_copy0_copy0": {
 						"label": "Edit Attributes"
 					}
 				},
 				"connectors": [
 					{
-						"source": "EDIT_ATTRIBUTES1_copy0_copy0",
+						"source": "EDIT_ATTRIBUTES0_copy0_copy0_copy0",
 						"target": "FORMULA0_copy0_copy0_copy0"
 					},
 					{
 						"source": "DROP_FIELDS0_copy0_copy0_copy0",
-						"target": "EDIT_ATTRIBUTES1_copy0_copy0"
+						"target": "EDIT_ATTRIBUTES0_copy0_copy0_copy0"
 					}
 				]
 			},
 			"FILTER0_copy0_copy0_copy0_copy0": {
-				"label": "Home Phone",
+				"label": "Business Phone",
 				"description": "",
 				"type": "FILTER",
-				"top": 392,
+				"top": 252,
 				"left": 252
 			},
 			"TRANSFORM0_copy0_copy0_copy0_copy0": {
-				"label": "Home Phone Copy",
+				"label": "Business Phone Copy",
 				"description": "",
 				"type": "TRANSFORM",
-				"top": 392,
+				"top": 252,
 				"left": 392,
 				"graph": {
 					"DROP_FIELDS0_copy0_copy0_copy0_copy0": {
@@ -565,33 +570,33 @@
 						},
 						"label": "Formula"
 					},
-					"EDIT_ATTRIBUTES2_copy0_copy0": {
+					"EDIT_ATTRIBUTES1_copy0_copy0_copy0": {
 						"label": "Edit Attributes"
 					}
 				},
 				"connectors": [
 					{
-						"source": "EDIT_ATTRIBUTES2_copy0_copy0",
+						"source": "EDIT_ATTRIBUTES1_copy0_copy0_copy0",
 						"target": "FORMULA0_copy0_copy0_copy0_copy0"
 					},
 					{
 						"source": "DROP_FIELDS0_copy0_copy0_copy0_copy0",
-						"target": "EDIT_ATTRIBUTES2_copy0_copy0"
+						"target": "EDIT_ATTRIBUTES1_copy0_copy0_copy0"
 					}
 				]
 			},
 			"FILTER0_copy0_copy0_copy0_copy0_copy0": {
-				"label": "Mobile Phone",
+				"label": "Home Phone",
 				"description": "",
 				"type": "FILTER",
-				"top": 532,
+				"top": 392,
 				"left": 252
 			},
 			"TRANSFORM0_copy0_copy0_copy0_copy0_copy0": {
-				"label": "Mobile Phone Copy",
+				"label": "Home Phone Copy",
 				"description": "",
 				"type": "TRANSFORM",
-				"top": 532,
+				"top": 392,
 				"left": 392,
 				"graph": {
 					"DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0": {
@@ -603,33 +608,33 @@
 						},
 						"label": "Formula"
 					},
-					"EDIT_ATTRIBUTES3_copy0_copy0": {
+					"EDIT_ATTRIBUTES2_copy0_copy0_copy0": {
 						"label": "Edit Attributes"
 					}
 				},
 				"connectors": [
 					{
-						"source": "EDIT_ATTRIBUTES3_copy0_copy0",
+						"source": "EDIT_ATTRIBUTES2_copy0_copy0_copy0",
 						"target": "FORMULA0_copy0_copy0_copy0_copy0_copy0"
 					},
 					{
 						"source": "DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0",
-						"target": "EDIT_ATTRIBUTES3_copy0_copy0"
+						"target": "EDIT_ATTRIBUTES2_copy0_copy0_copy0"
 					}
 				]
 			},
 			"FILTER0_copy0_copy0_copy0_copy0_copy0_copy0": {
-				"label": "Other Phone",
+				"label": "Mobile Phone",
 				"description": "",
 				"type": "FILTER",
-				"top": 672,
+				"top": 532,
 				"left": 252
 			},
 			"TRANSFORM0_copy0_copy0_copy0_copy0_copy0_copy0": {
-				"label": "Other Phone Copy",
+				"label": "Mobile Phone Copy",
 				"description": "",
 				"type": "TRANSFORM",
-				"top": 672,
+				"top": 532,
 				"left": 392,
 				"graph": {
 					"DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0": {
@@ -641,53 +646,91 @@
 						},
 						"label": "Formula"
 					},
-					"EDIT_ATTRIBUTES4_copy0_copy0": {
+					"EDIT_ATTRIBUTES3_copy0_copy0_copy0": {
 						"label": "Edit Attributes"
 					}
 				},
 				"connectors": [
 					{
-						"source": "EDIT_ATTRIBUTES4_copy0_copy0",
+						"source": "EDIT_ATTRIBUTES3_copy0_copy0_copy0",
 						"target": "FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0"
 					},
 					{
 						"source": "DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0",
-						"target": "EDIT_ATTRIBUTES4_copy0_copy0"
+						"target": "EDIT_ATTRIBUTES3_copy0_copy0_copy0"
 					}
 				]
 			},
-			"APPEND0_copy0_copy0": {
+			"FILTER0_copy0_copy0_copy0_copy0_copy0_copy0_copy0": {
+				"label": "Other Phone",
+				"description": "",
+				"type": "FILTER",
+				"top": 672,
+				"left": 252
+			},
+			"TRANSFORM0_copy0_copy0_copy0_copy0_copy0_copy0_copy0": {
+				"label": "Other Phone Copy",
+				"description": "",
+				"type": "TRANSFORM",
+				"top": 672,
+				"left": 392,
+				"graph": {
+					"DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0_copy0": {
+						"label": "Drop Columns"
+					},
+					"FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0_copy0": {
+						"parameters": {
+							"type": "BASE_FORMULA_UI"
+						},
+						"label": "Formula"
+					},
+					"EDIT_ATTRIBUTES4_copy0_copy0_copy0": {
+						"label": "Edit Attributes"
+					}
+				},
+				"connectors": [
+					{
+						"source": "EDIT_ATTRIBUTES4_copy0_copy0_copy0",
+						"target": "FORMULA0_copy0_copy0_copy0_copy0_copy0_copy0_copy0"
+					},
+					{
+						"source": "DROP_FIELDS0_copy0_copy0_copy0_copy0_copy0_copy0_copy0",
+						"target": "EDIT_ATTRIBUTES4_copy0_copy0_copy0"
+					}
+				]
+			},
+			"APPEND0_copy0_copy0_copy0": {
 				"label": "Append 0",
 				"type": "APPEND",
 				"top": 112,
 				"left": 532
 			},
-			"APPEND1_copy0_copy0": {
+			"APPEND1_copy0_copy0_copy0": {
 				"label": "Append 1",
 				"type": "APPEND",
 				"top": 112,
 				"left": 672
 			},
-			"APPEND2_copy0_copy0": {
+			"APPEND2_copy0_copy0_copy0": {
 				"label": "Append 2",
 				"type": "APPEND",
 				"top": 112,
 				"left": 812
 			},
-			"APPEND3_copy0_copy0": {
+			"APPEND3_copy0_copy0_copy0": {
 				"label": "Append 3",
 				"type": "APPEND",
 				"top": 112,
 				"left": 952
 			},
-			"TRANSFORM1_copy0_copy0": {
+			"TRANSFORM1_copy0_copy0_copy0": {
 				"label": "Additional fields",
 				"description": "",
 				"type": "TRANSFORM",
 				"top": 112,
 				"left": 1092,
 				"graph": {
-					"FORMULA1_copy0_copy0": {
+					"FORMULA1_copy0_copy0_copy0": {
 						"parameters": {
 							"type": "BASE_FORMULA_UI"
 						},
@@ -696,37 +739,57 @@
 				},
 				"connectors": []
 			},
+			"TRANSFORM2": {
+				"label": "Prepare data for output",
+				"description": "",
+				"type": "TRANSFORM",
+				"top": 112,
+				"left": 1232,
+				"graph": {
+					"EDIT_ATTRIBUTES6": {
+						"label": "Edit Attributes"
+					},
+					"EDIT_ATTRIBUTES7": {
+						"label": "Edit Attributes"
+					},
+					"DROP_FIELDS1": {
+						"label": "Drop Columns"
+					}
+				},
+				"connectors": [
+					{
+						"source": "EDIT_ATTRIBUTES6",
+						"target": "EDIT_ATTRIBUTES7"
+					},
+					{
+						"source": "EDIT_ATTRIBUTES7",
+						"target": "DROP_FIELDS1"
+					}
+				]
+			},
 			"OUTPUT0": {
-				"label": "Write to DLO",
+				"label": "Write DLO",
 				"description": "",
 				"type": "OUTPUT",
 				"top": 112,
-				"left": 1232
+				"left": 1372
 			}
 		},
 		"connectors": [
 			{
-				"source": "LOAD_DATASET0_copy0_copy0",
-				"target": "FILTER0_copy0_copy0"
-			},
-			{
-				"source": "FILTER0_copy0_copy0",
-				"target": "TRANSFORM0_copy0_copy0"
+				"source": "LOAD_DATASET0_copy0_copy0_copy0",
+				"target": "FILTER0_copy0_copy0_copy0"
 			},
 			{
 				"source": "FILTER0_copy0_copy0_copy0",
 				"target": "TRANSFORM0_copy0_copy0_copy0"
 			},
 			{
-				"source": "LOAD_DATASET0_copy0_copy0",
-				"target": "FILTER0_copy0_copy0_copy0"
-			},
-			{
 				"source": "FILTER0_copy0_copy0_copy0_copy0",
 				"target": "TRANSFORM0_copy0_copy0_copy0_copy0"
 			},
 			{
-				"source": "LOAD_DATASET0_copy0_copy0",
+				"source": "LOAD_DATASET0_copy0_copy0_copy0",
 				"target": "FILTER0_copy0_copy0_copy0_copy0"
 			},
 			{
@@ -734,7 +797,7 @@
 				"target": "TRANSFORM0_copy0_copy0_copy0_copy0_copy0"
 			},
 			{
-				"source": "LOAD_DATASET0_copy0_copy0",
+				"source": "LOAD_DATASET0_copy0_copy0_copy0",
 				"target": "FILTER0_copy0_copy0_copy0_copy0_copy0"
 			},
 			{
@@ -742,47 +805,59 @@
 				"target": "TRANSFORM0_copy0_copy0_copy0_copy0_copy0_copy0"
 			},
 			{
-				"source": "LOAD_DATASET0_copy0_copy0",
+				"source": "LOAD_DATASET0_copy0_copy0_copy0",
 				"target": "FILTER0_copy0_copy0_copy0_copy0_copy0_copy0"
 			},
 			{
-				"source": "TRANSFORM0_copy0_copy0",
-				"target": "APPEND0_copy0_copy0"
+				"source": "FILTER0_copy0_copy0_copy0_copy0_copy0_copy0_copy0",
+				"target": "TRANSFORM0_copy0_copy0_copy0_copy0_copy0_copy0_copy0"
+			},
+			{
+				"source": "LOAD_DATASET0_copy0_copy0_copy0",
+				"target": "FILTER0_copy0_copy0_copy0_copy0_copy0_copy0_copy0"
 			},
 			{
 				"source": "TRANSFORM0_copy0_copy0_copy0",
-				"target": "APPEND0_copy0_copy0"
-			},
-			{
-				"source": "APPEND0_copy0_copy0",
-				"target": "APPEND1_copy0_copy0"
+				"target": "APPEND0_copy0_copy0_copy0"
 			},
 			{
 				"source": "TRANSFORM0_copy0_copy0_copy0_copy0",
-				"target": "APPEND1_copy0_copy0"
+				"target": "APPEND0_copy0_copy0_copy0"
 			},
 			{
-				"source": "APPEND1_copy0_copy0",
-				"target": "APPEND2_copy0_copy0"
+				"source": "APPEND0_copy0_copy0_copy0",
+				"target": "APPEND1_copy0_copy0_copy0"
 			},
 			{
 				"source": "TRANSFORM0_copy0_copy0_copy0_copy0_copy0",
-				"target": "APPEND2_copy0_copy0"
+				"target": "APPEND1_copy0_copy0_copy0"
 			},
 			{
-				"source": "APPEND2_copy0_copy0",
-				"target": "APPEND3_copy0_copy0"
+				"source": "APPEND1_copy0_copy0_copy0",
+				"target": "APPEND2_copy0_copy0_copy0"
 			},
 			{
 				"source": "TRANSFORM0_copy0_copy0_copy0_copy0_copy0_copy0",
-				"target": "APPEND3_copy0_copy0"
+				"target": "APPEND2_copy0_copy0_copy0"
 			},
 			{
-				"source": "APPEND3_copy0_copy0",
-				"target": "TRANSFORM1_copy0_copy0"
+				"source": "APPEND2_copy0_copy0_copy0",
+				"target": "APPEND3_copy0_copy0_copy0"
 			},
 			{
-				"source": "TRANSFORM1_copy0_copy0",
+				"source": "TRANSFORM0_copy0_copy0_copy0_copy0_copy0_copy0_copy0",
+				"target": "APPEND3_copy0_copy0_copy0"
+			},
+			{
+				"source": "APPEND3_copy0_copy0_copy0",
+				"target": "TRANSFORM1_copy0_copy0_copy0"
+			},
+			{
+				"source": "TRANSFORM1_copy0_copy0_copy0",
+				"target": "TRANSFORM2"
+			},
+			{
+				"source": "TRANSFORM2",
 				"target": "OUTPUT0"
 			}
 		]

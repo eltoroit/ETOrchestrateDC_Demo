@@ -2,7 +2,13 @@
 
 -   When data gets randomized, then Sales Orders can't be more than 30 days ago
 -   Data Cloud components get packaged and deployed via a Data Kit in a package, not working for Salesforce streams
--   Disable `State and Country/Territory Picklists`
+-   Disable `State and Country/Territory Picklists` before loading data with ETCopyData
+
+# ========================================================================================================================
+
+# ========================================================================================================================
+
+# ========================================================================================================================
 
 # Steps without a Data Kit
 
@@ -15,130 +21,142 @@
 
 # Configure Data Cloud
 
-1. Ingest Salesforce data via the Sales Cloud Data Bundle
-
-    - Only need to make changes to the Contact Object
-    -
-
-2. Ingest using Sales Cloud Data Bundle
-    - Contact custom fields needed
-        - Customer Id | CustomerId_c
-        - Date Of Birth | DateBirth_c
-        - Middle Name | MiddleName_c
-        - Person Name | PersonName_c
-        - Create `Identification Name` "CustomerID" (both both type and name to this)
-    - Use defaults for Accounts and Leads
-3. Ingest custom objects
-    - `DCOrder`
-        - Engagement (OrderCreatedDate_c)
-    - `DCOrderItem`
-        - Other
-    - `DCProduct`
-        - Other
-4. Create DLO
-    - `Normalize Phone Numbers`
-    - Add it to the data space
-5. Harmonize
-6. Custom Fields in Contact DLO
-    1. Contact.CustomerId => PartyIdentification
-7. Custom Objects
-    - [Data Dictionary](hhttps://docs.google.com/spreadsheets/d/1Mxs-FWU3pwnAEEyeXkv0plfgPSk_hY78NlqXdZn1_Uc/edit?gid=226856693#gid=226856693)
-8. Data Transform
-
--   Name: `Normalize Phone Numbers`
-
-5. Identity Resolution
-
--   Name: `Create Buckets`
--   Toggle `Run jobs automatically` off
--   Fuzzy Name and Normalized Email (Standard configuration)
--   Fuzzy Name and Normalized Phone (Standard configuration)
--   Fuzzy Name and Normalized Address (Standard configuration)
--   Ignore reconciliation rules
-
-6. Calculated Insights
-   Name: `RFM`
-1. Create Activation target
-
--   Type: Data Cloud
--   Name: `ETOrchestrateDC`
-
-2. Create Segment
-
--   Name: `Top Adult Customers`
--   **OR**
-    -   Container: `Birth Date` Is Before `Jan 1, 2000`
-    -   Container: `RFMCombined__c` = `1111`
-
-3. Create Activation
-
--   Name: `Activate Top Adult Customers`
--   Fields:
-    -   Person Name
-    -   Birth Date
-    -   RFM Combined
-    -   Unified Party
-        -   Party
-        -   Type
-        -   Name
-        -   Number
-
-4.  Data Graph
-    Name: `ETOrchestrateDC Graph`
-
-// ???
-
-1.  Create Data Kit
-    -   Name: `ETOrchestrateDC Demo Data Kit`
-    -   Data Stream Bundles
-        -   Bundle: `ETOrchestrateDC_DataBundle` (Account, Contact, Lead)
-        -   Bundle: `ETOrchestrateDC_Custom` (Order, OrderItems, Product)
-    -   Data Lake Objects
-    -   Data Transforms
-    -   Calculated Insights
-1.  Create Package
-    -   Name: `ETOrchestrateDC DemoDK Package`
-    -   Add Metadata
-        -   Data Package Kit Definition: `ETOrchestrateDC Demo Data Kit`
-        -   Consider this:
-            -   Market Segment Definition: `Top_Adult_Customers`
-
-========================================================================================================================
-
-# Steps to Install Metadata
-
-# Configure Data Cloud using "ETOrchestrateDC" Data Kit
-
-1.  Create Data Streams
-    -   Using Data Kits & Package
-    -   Create connector `ETOrchestrateDC`
-    -   Accept all defaults
-2.  Create DLO from Data Kit
-    -   **RENAME IT**
-    -   Validate name `Customer Phones`
-3.  Create Data Transform from Data Kit
-    -   Name `Normalize Phone Numbers`
-    -   Don't run it!
-4.  Identity Resolution
-    -   Name: `ETOrchestrateDC`
+1.  Ingest Salesforce standard objects
+    -   Use the Sales Cloud Data Bundle
+    -   No changes for Account and Lead objects
+    -   Contact Object
+        -   Include these custom fields
+            -   Customer Id | CustomerId_c
+            -   Date Of Birth | DateBirth_c
+            -   Middle Name | MiddleName_c
+            -   Person Name | PersonName_c
+        -   Create a new formula fied
+            -   Name: `Identification Type`
+            -   Formula: `"ETOrchestrateDC"`
+        -   Create a new formula fied
+            -   Name: `Identification Name`
+            -   Formula: `"CustomerID"`
+2.  Ingest Salesforce custom objects
+    -   Use the "All Objects" option
+    -   `DCOrder`
+        -   Category: Engagement
+        -   Event Time Field: OrderCreatedDate_c
+    -   `DCOrderItem`
+        -   Category: Other
+    -   `DCProduct`
+        -   Category: Other
+3.  Create DLO
+    -   Name: `Phone Numbers Normalized`
+    -   Category: `Other`
+    -   Create these 5 text fields:
+        -   Name: `Contact Point Phone Id` (Primary Key)
+        -   Name: `Country`
+        -   Name: `Party`
+        -   Name: `Phone`
+        -   Name: `Type`
+    -   Add it to the data space
+        -   Navigate to this URL: `/lightning/o/DataSpace/list?filterName=__Recent`
+        -   Add `Phone Numbers Normalized` DLO to the data space without any filters
+4.  Harmonizate the objects based on the Data Dictionary
+    -   No changes for Account and Lead objects
+    -   [Data Dictionary](hhttps://docs.google.com/spreadsheets/d/1Mxs-FWU3pwnAEEyeXkv0plfgPSk_hY78NlqXdZn1_Uc/edit?gid=226856693#gid=226856693)
+5.  Create relationship between Orders and Individuals
+    -   Back to the harmonization screen for `Order__c_Home`
+    -   Click on the relations button
+    -   Click Edit
+    -   Click `+ New Relationship` button
+    -   `Sales Order`.`Sold To Customer` | `N:1` | `Individual`.`Individual Id`
+6.  Create Data Transform
+    -   Name: `Normalize Phone Numbers`
+    -   Paste this JSON file `@ELTOROIT/Notes/Normalize Phone Numbers.json`
+7.  Create the Identity Resolution Ruleset
+    -   Primary DMO: `Individual`
+    -   Name: `Create Buckets`
     -   Toggle `Run jobs automatically` off
     -   Fuzzy Name and Normalized Email (Standard configuration)
     -   Fuzzy Name and Normalized Phone (Standard configuration)
     -   Fuzzy Name and Normalized Address (Standard configuration)
-    -   Custom Rule (`Party Identification => Customer ID`)
     -   Ignore reconciliation rules
-5.  Calculated Insights
-    -   From Data Kit
-6.  Create Activation target
-    -   Name: `ETOrchestrateDC`
+8.  Create a calculated insight
+    -   Create with SQL
+    -   Name: `RFM`
+    -   Paste this text file `@ELTOROIT/Notes/RFM_sql.txt`
+9.  Create Activation target
     -   Type: Data Cloud
-7.  Create Segment
+    -   Name: `ETOrchestrateDC`
+10. Create Segment
     -   Name: `Top Adult Customers`
+    -   Segment on: `Unified Individual`
+    -   Type: `Standard Publish`
     -   **OR**
         -   Container: `Birth Date` Is Before `Jan 1, 2000`
         -   Container: `RFMCombined__c` = `1111`
-8.  Create Activation
+11. Create Activation
+    -   Activation Target: `ETOrchestrateDC`
+    -   Activation Membership: `Unified Individual`
+    -   Select both Contact Points (email, phone)
+    -   Add Attributes:
+        -   Person Name
+        -   Birth Date
+        -   RFM Combined
+        -   Unified Indv Party Identification
+            -   Type
+            -   Name
+            -   Number
+    -   Contact Point Phone
+        -   Preferred Name for `Formatted E164 Phone Number`: `Phone`
+    -   Unified Indv Party Identification
+        -   Sort By: `Unified Party Identification Id`
     -   Name: `Activate Top Adult Customers`
+    -   Refresh Type: `Incremental Refresh`
+12. Create Data Graph
+    -   Go to this URL: `/lightning/o/DataGraph/list?filterName=__Recent`
+    -   Name: `ETOrchestrateDC Graph`
+    -   Primary Data Model Object: `Unified Individual`
+    -   Graph
+        -   Unified Individual (4/9)
+            -   Fields
+                -   Unified Individual Id
+                -   Birth Date
+                -   Person Name
+                -   Salutation
+            -   Unified Link Individual (4/8)
+                -   Fields
+                    -   Individual Id
+                    -   Key Qualifier Id
+                    -   Unified Individual Id
+                    -   Match Keys
+                -   Individual (6/12)
+                    -   Fields
+                        -   Individual Id
+                        -   Key Qualifier Individual Id
+                        -   Birth Date
+                        -   Data Source
+                        -   Data Source Object
+                        -   Person Name
+                    -   Sales Order (9/10)
+                        -   Fields
+                            -   All except Last Modified Date
+                        -   Sales Order Product (12/15)
+                            -   Fields
+                                -   Key Qualifier Sales Order
+                                -   Key Qualifier Sales Order Product
+                                -   Sales Order
+                                -   Sales Order Product
+                                -   Data Source
+                                -   Data Source Object
+                                -   Discount Amount
+                                -   List Price Amount
+                                -   Ordered Quantity
+                                -   Product
+                                -   Total Line Amount
+                                -   Unit Price Amount
+            -   RFM (4/5)
+                -   Fields
+                    -   Frequency
+                    -   MonetaryAvg
+                    -   MonetaryLifetime
+                    -   Recency
 
 # Configure HTTP Callouts
 
@@ -205,7 +223,28 @@
         - Option `2. BULK`
         - Option `1. Customers` (all 500 customers) or `2. Customers (5 records)`
 
-===
+# ========================================================================================================================
+
+# ========================================================================================================================
+
+# ========================================================================================================================
+
+# How to work with a Data Kit
+
+1.  Create Data Kit
+    -   Name: `ETOrchestrateDC Demo Data Kit`
+    -   Data Stream Bundles
+        -   Bundle: `ETOrchestrateDC_DataBundle` (Account, Contact, Lead)
+        -   Bundle: `ETOrchestrateDC_Custom` (Order, OrderItems, Product)
+    -   Data Lake Objects
+    -   Data Transforms
+    -   Calculated Insights
+2.  Create Package
+    -   Name: `ETOrchestrateDC DemoDK Package`
+    -   Add Metadata
+        -   Data Package Kit Definition: `ETOrchestrateDC Demo Data Kit`
+        -   Consider this:
+            -   Market Segment Definition: `Top_Adult_Customers`
 
 # Packages
 
@@ -220,4 +259,8 @@
     -   `sf package install --apex-compile=all --package 04tHu000003j1FP --wait=30 --no-prompt --json --target-org soDCO_TestPKG_DC`
     -   `sf org open --target-org soDCO_TestPKG_DC`
 
-# Deploying Data Cloud
+# ========================================================================================================================
+
+# ========================================================================================================================
+
+# ========================================================================================================================

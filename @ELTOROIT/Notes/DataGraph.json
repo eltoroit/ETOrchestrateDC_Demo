@@ -1,0 +1,408 @@
+{
+	"ssot__BirthDate__c": "<DATE>",
+	"ssot__Id__c": "<TEXT>",
+	"ssot__PersonName__c": "<TEXT>",
+	"ssot__Salutation__c": "<TEXT>",
+	"IndividualIdentityLink__dlm": [
+		{
+			"KQ_SourceRecordId__c": "<TEXT>",
+			"MatchKeys__c": "<TEXT>",
+			"SourceRecordId__c": "<TEXT>",
+			"UnifiedRecordId__c": "<TEXT>",
+			"ssot__Individual__dlm": [
+				{
+					"KQ_Id__c": "<TEXT>",
+					"ssot__DataSourceId__c": "<TEXT>",
+					"ssot__DataSourceObjectId__c": "<TEXT>",
+					"ssot__Id__c": "<TEXT>",
+					"ssot__PersonName__c": "<TEXT>",
+					"ssot__BirthDate__c": "<DATE>",
+					"ssot__SalesOrder__dlm": [
+						{
+							"KQ_Id__c": "<TEXT>",
+							"ssot__CreatedDate__c": "<DATE>",
+							"ssot__DataSourceId__c": "<TEXT>",
+							"ssot__DataSourceObjectId__c": "<TEXT>",
+							"ssot__GrandTotalAmount__c": "<NUMBER>",
+							"ssot__Id__c": "<TEXT>",
+							"ssot__PromiseDate__c": "<DATE>",
+							"KQ_SoldToCustomerId__c": "<TEXT>",
+							"ssot__SoldToCustomerId__c": "<TEXT>",
+							"ssot__SalesOrderProduct__dlm": [
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								},
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								}
+							]
+						},
+						{
+							"KQ_Id__c": "<TEXT>",
+							"ssot__CreatedDate__c": "<DATE>",
+							"ssot__DataSourceId__c": "<TEXT>",
+							"ssot__DataSourceObjectId__c": "<TEXT>",
+							"ssot__GrandTotalAmount__c": "<NUMBER>",
+							"ssot__Id__c": "<TEXT>",
+							"ssot__PromiseDate__c": "<DATE>",
+							"KQ_SoldToCustomerId__c": "<TEXT>",
+							"ssot__SoldToCustomerId__c": "<TEXT>",
+							"ssot__SalesOrderProduct__dlm": [
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								},
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								}
+							]
+						}
+					]
+				},
+				{
+					"KQ_Id__c": "<TEXT>",
+					"ssot__DataSourceId__c": "<TEXT>",
+					"ssot__DataSourceObjectId__c": "<TEXT>",
+					"ssot__Id__c": "<TEXT>",
+					"ssot__PersonName__c": "<TEXT>",
+					"ssot__BirthDate__c": "<DATE>",
+					"ssot__SalesOrder__dlm": [
+						{
+							"KQ_Id__c": "<TEXT>",
+							"ssot__CreatedDate__c": "<DATE>",
+							"ssot__DataSourceId__c": "<TEXT>",
+							"ssot__DataSourceObjectId__c": "<TEXT>",
+							"ssot__GrandTotalAmount__c": "<NUMBER>",
+							"ssot__Id__c": "<TEXT>",
+							"ssot__PromiseDate__c": "<DATE>",
+							"KQ_SoldToCustomerId__c": "<TEXT>",
+							"ssot__SoldToCustomerId__c": "<TEXT>",
+							"ssot__SalesOrderProduct__dlm": [
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								},
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								}
+							]
+						},
+						{
+							"KQ_Id__c": "<TEXT>",
+							"ssot__CreatedDate__c": "<DATE>",
+							"ssot__DataSourceId__c": "<TEXT>",
+							"ssot__DataSourceObjectId__c": "<TEXT>",
+							"ssot__GrandTotalAmount__c": "<NUMBER>",
+							"ssot__Id__c": "<TEXT>",
+							"ssot__PromiseDate__c": "<DATE>",
+							"KQ_SoldToCustomerId__c": "<TEXT>",
+							"ssot__SoldToCustomerId__c": "<TEXT>",
+							"ssot__SalesOrderProduct__dlm": [
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								},
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"KQ_SourceRecordId__c": "<TEXT>",
+			"MatchKeys__c": "<TEXT>",
+			"SourceRecordId__c": "<TEXT>",
+			"UnifiedRecordId__c": "<TEXT>",
+			"ssot__Individual__dlm": [
+				{
+					"KQ_Id__c": "<TEXT>",
+					"ssot__DataSourceId__c": "<TEXT>",
+					"ssot__DataSourceObjectId__c": "<TEXT>",
+					"ssot__Id__c": "<TEXT>",
+					"ssot__PersonName__c": "<TEXT>",
+					"ssot__BirthDate__c": "<DATE>",
+					"ssot__SalesOrder__dlm": [
+						{
+							"KQ_Id__c": "<TEXT>",
+							"ssot__CreatedDate__c": "<DATE>",
+							"ssot__DataSourceId__c": "<TEXT>",
+							"ssot__DataSourceObjectId__c": "<TEXT>",
+							"ssot__GrandTotalAmount__c": "<NUMBER>",
+							"ssot__Id__c": "<TEXT>",
+							"ssot__PromiseDate__c": "<DATE>",
+							"KQ_SoldToCustomerId__c": "<TEXT>",
+							"ssot__SoldToCustomerId__c": "<TEXT>",
+							"ssot__SalesOrderProduct__dlm": [
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								},
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								}
+							]
+						},
+						{
+							"KQ_Id__c": "<TEXT>",
+							"ssot__CreatedDate__c": "<DATE>",
+							"ssot__DataSourceId__c": "<TEXT>",
+							"ssot__DataSourceObjectId__c": "<TEXT>",
+							"ssot__GrandTotalAmount__c": "<NUMBER>",
+							"ssot__Id__c": "<TEXT>",
+							"ssot__PromiseDate__c": "<DATE>",
+							"KQ_SoldToCustomerId__c": "<TEXT>",
+							"ssot__SoldToCustomerId__c": "<TEXT>",
+							"ssot__SalesOrderProduct__dlm": [
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								},
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								}
+							]
+						}
+					]
+				},
+				{
+					"KQ_Id__c": "<TEXT>",
+					"ssot__DataSourceId__c": "<TEXT>",
+					"ssot__DataSourceObjectId__c": "<TEXT>",
+					"ssot__Id__c": "<TEXT>",
+					"ssot__PersonName__c": "<TEXT>",
+					"ssot__BirthDate__c": "<DATE>",
+					"ssot__SalesOrder__dlm": [
+						{
+							"KQ_Id__c": "<TEXT>",
+							"ssot__CreatedDate__c": "<DATE>",
+							"ssot__DataSourceId__c": "<TEXT>",
+							"ssot__DataSourceObjectId__c": "<TEXT>",
+							"ssot__GrandTotalAmount__c": "<NUMBER>",
+							"ssot__Id__c": "<TEXT>",
+							"ssot__PromiseDate__c": "<DATE>",
+							"KQ_SoldToCustomerId__c": "<TEXT>",
+							"ssot__SoldToCustomerId__c": "<TEXT>",
+							"ssot__SalesOrderProduct__dlm": [
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								},
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								}
+							]
+						},
+						{
+							"KQ_Id__c": "<TEXT>",
+							"ssot__CreatedDate__c": "<DATE>",
+							"ssot__DataSourceId__c": "<TEXT>",
+							"ssot__DataSourceObjectId__c": "<TEXT>",
+							"ssot__GrandTotalAmount__c": "<NUMBER>",
+							"ssot__Id__c": "<TEXT>",
+							"ssot__PromiseDate__c": "<DATE>",
+							"KQ_SoldToCustomerId__c": "<TEXT>",
+							"ssot__SoldToCustomerId__c": "<TEXT>",
+							"ssot__SalesOrderProduct__dlm": [
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								},
+								{
+									"KQ_Id__c": "<TEXT>",
+									"ssot__DataSourceId__c": "<TEXT>",
+									"ssot__DataSourceObjectId__c": "<TEXT>",
+									"ssot__DiscountAmount__c": "<NUMBER>",
+									"ssot__Id__c": "<TEXT>",
+									"ssot__ListPriceAmount__c": "<NUMBER>",
+									"ssot__OrderedQuantity__c": "<NUMBER>",
+									"ssot__ProductId__c": "<TEXT>",
+									"ssot__SalesOrderId__c": "<TEXT>",
+									"ssot__TotalLineAmount__c": "<NUMBER>",
+									"ssot__UnitPriceAmount__c": "<NUMBER>",
+									"KQ_SalesOrderId__c": "<TEXT>"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"RFM__cio": [
+		{
+			"Recency__c": "<NUMBER>",
+			"Frequency__c": "<NUMBER>",
+			"MonetaryAvg__c": "<NUMBER>",
+			"MonetaryLifetime__c": "<NUMBER>",
+			"UnifiedID__c": "<TEXT>"
+		},
+		{
+			"Recency__c": "<NUMBER>",
+			"Frequency__c": "<NUMBER>",
+			"MonetaryAvg__c": "<NUMBER>",
+			"MonetaryLifetime__c": "<NUMBER>",
+			"UnifiedID__c": "<TEXT>"
+		}
+	]
+}
