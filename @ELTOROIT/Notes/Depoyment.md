@@ -7,6 +7,15 @@
     -   Data Spaces: `/lightning/o/DataSpace/list?filterName=__Recent`
     -   Query Editor: `/lightning/o/DataQueryWorkspace/list?filterName=__Recent`
     -   Data Graphs: `/lightning/o/DataGraph/list?filterName=__Recent`
+-   Simulator requires specific records in `ETOrchestrateDC__DCO_Master__c` and flows
+    -   Those are configured in this scratch org, you can get rid of them if needed.
+-   Useful SOQL Queries
+    -   Monitoring Data Streams...
+        -   `SELECT Id, Name, ImportRunStatus, LastRefreshDate, LastNumberOfRowsAddedCount, TotalNumberOfRowsAdded, ExternalRecordIdentifier, TotalRowsProcessed, LastDataChangeStatusDateTime, LastDataChangeStatusErrorCode, ExternalStreamErrorCode FROM DataStream`
+    -   `SELECT Id__c, CustomerId_c__c, Name__c, DateBirth_c__c, AssistantPhone__c, Phone__c, HomePhone__c, MobilePhone__c FROM Contact_Home__dll ORDER BY CustomerId_c__c ASC`
+-
+
+The batch data transform failed due to a runtime error. Make sure that there aren't any null values in the fields mapped to Contact_Point_Phone_Id\_\_c on output node OUTPUT0. Check the output of join and transform node operations to verify that the operations don't introduce null values for related fields.
 
 # ========================================================================================================================
 
