@@ -5,7 +5,6 @@
     <columns>SoldToCustomer__c</columns>
     <columns>PromiseDate__c</columns>
     <columns>OrderCreatedDate__c</columns>
-    <columns>IsTaxExempt__c</columns>
     <columns>GrandTotalAmount__c</columns>
     <filterScope>Everything</filterScope>
     <label>All Records</label>

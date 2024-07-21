@@ -1,6 +1,6 @@
 {
-  "orgSource": "prDCO_Demo64276",
-  "orgDestination": "prDCO_Demo64276",
+  "orgSource": "soDCO_TestPKG_DC",
+  "orgDestination": "soDCO_TestPKG_DC",
   "sObjectsData": [
     {
       "name": "Lead",

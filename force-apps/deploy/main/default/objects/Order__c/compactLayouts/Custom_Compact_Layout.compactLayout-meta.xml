@@ -4,6 +4,5 @@
     <fields>Name</fields>
     <fields>PromiseDate__c</fields>
     <fields>OrderCreatedDate__c</fields>
-    <fields>IsTaxExempt__c</fields>
     <label>Custom Compact Layout</label>
 </CompactLayout>

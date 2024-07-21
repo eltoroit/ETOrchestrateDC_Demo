@@ -17,33 +17,40 @@
 		// "CreateFinestDebugLevel",
 		// { "ExecuteApex": "@ELTOROIT/scripts/apex/SetUserRecord.apex" },
 
-		// === Wait until the Data Cloud instance is ready ===
-		// "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
-		// { "InstallPackage": { "id": "04t2J000000EycyQAC" } }, // Install Package while Data Cloud finishes initializing
-		// Wait for the Data Cloud org to be ready (clicking "the blue button")
-		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
-
-		// === Configure Data Cloud using "ETOrchestrateDC" Data Kit ===
-		// // I was not able to deploy via a Data Kit. No objects were created... Try metadata.
-		// // ETOrchestrateDC DemoDK Package (July 2024) Version 1.0 [04tHs000000z1br]
-		// // { "InstallPackage": { "id": "04tHs000000z1br" } },
-
-		// // === Push metadata ===
-		// "ShowDeployPage",
-		// "PushMetadata",
-		// { "AssignPermissionSet": "psDemo" },
-		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
+		// // === Install ETOrchestrate Data Cloud ===
+		// // "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
+		// { "InstallPackage": { "id": "04t2J000000EycyQAC" } },
 		// { "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
+
+		// // === Wait until the Data Cloud instance is ready ===
+		// // Wait for the Data Cloud org to be ready (clicking "the blue button")
+		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
+		// Install Sales Cloud Data Bundle
+		// { "InstallPackage": { "id": "04tB0000000BYKv" } },
+
+		// // === === === === This is not working for Salesforce streams
+		// // === === === === // === Configure Data Cloud using "ETOrchestrateDC" Data Kit ===
+		// // === === === === // I was not able to deploy via a Data Kit. No objects were created... Try metadata.
+		// // === === === === // ETOrchestrateDC DemoDK Package (July 2024) Version 1.0 [04tHs000000z1br]
+		// // === === === === // { "InstallPackage": { "id": "04tHs000000z1br" } },
+		// // === === === === This is not working for Salesforce streams
+
+		// === Push metadata ===
+		"ShowDeployPage",
+		"PushMetadata",
+		// { "AssignPermissionSet": "psDataCloudData" },
 		// { "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
+
+		// // === Loading Data ===
+		{ "ETCopyData": "./@ELTOROIT/data" },
+
 		{ "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
 		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud using \"ETOrchestrateDC\" Data Kit" } },
 
 		// // === Configure HTTP Callouts ===
+		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
 		// { "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
-
-		// // === Loading Data ===
-		// { "ETCopyData": "./@ELTOROIT/data" },
 
 		// // === Success! ===
 		"ShowFinalSuccess"
