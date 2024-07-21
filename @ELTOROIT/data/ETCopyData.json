@@ -12,14 +12,6 @@
       "maxRecords": -1
     },
     {
-      "name": "Case",
-      "ignoreFields": "",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": null
-    },
-    {
       "name": "Contact",
       "ignoreFields": "OwnerId",
       "externalIdField": null,
@@ -63,6 +55,14 @@
     },
     {
       "name": "Product__c",
+      "ignoreFields": "",
+      "externalIdField": null,
+      "twoPassReferenceFields": "",
+      "where": null,
+      "orderBy": null
+    },
+    {
+      "name": "ETOrchestrateDC__DCO_Master__c",
       "ignoreFields": "",
       "externalIdField": null,
       "twoPassReferenceFields": "",

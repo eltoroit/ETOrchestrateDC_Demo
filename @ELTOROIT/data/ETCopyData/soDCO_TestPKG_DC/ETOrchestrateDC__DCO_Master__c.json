@@ -1,0 +1,74 @@
+{
+	"fetched": 4,
+	"records": [
+		{
+			"attributes": {
+				"type": "DCO_Master__c",
+				"url": "/services/data/v61.0/sobjects/DCO_Master__c/a027g00000Am9DlAAJ"
+			},
+			"ETOrchestrateDC__ActionName__c": "Normalize Phone Numbers",
+			"ETOrchestrateDC__ActionType__c": "Data Transform",
+			"ETOrchestrateDC__DataSource__c": "OrchestrateDC_Customers*",
+			"ETOrchestrateDC__FlowName__c": "Individuals",
+			"ETOrchestrateDC__IsActive__c": true,
+			"ETOrchestrateDC__LastRun__c": null,
+			"ETOrchestrateDC__MaxFrequency__c": null,
+			"ETOrchestrateDC__Message__c": null,
+			"ETOrchestrateDC__NextRun__c": null,
+			"Id": "a027g00000Am9DlAAJ",
+			"Name": "01 Normalize Phones"
+		},
+		{
+			"attributes": {
+				"type": "DCO_Master__c",
+				"url": "/services/data/v61.0/sobjects/DCO_Master__c/a027g00000Am9DmAAJ"
+			},
+			"ETOrchestrateDC__ActionName__c": "ETOrchestrateDC",
+			"ETOrchestrateDC__ActionType__c": "Identity Resolution",
+			"ETOrchestrateDC__DataSource__c": "NormalizePhoneNumbers",
+			"ETOrchestrateDC__FlowName__c": "Contact Point Phones",
+			"ETOrchestrateDC__IsActive__c": true,
+			"ETOrchestrateDC__LastRun__c": null,
+			"ETOrchestrateDC__MaxFrequency__c": "1 D",
+			"ETOrchestrateDC__Message__c": null,
+			"ETOrchestrateDC__NextRun__c": null,
+			"Id": "a027g00000Am9DmAAJ",
+			"Name": "02 Create buckets"
+		},
+		{
+			"attributes": {
+				"type": "DCO_Master__c",
+				"url": "/services/data/v61.0/sobjects/DCO_Master__c/a027g00000Am9DnAAJ"
+			},
+			"ETOrchestrateDC__ActionName__c": "RFM__cio",
+			"ETOrchestrateDC__ActionType__c": "Calculated Insight",
+			"ETOrchestrateDC__DataSource__c": "ANY",
+			"ETOrchestrateDC__FlowName__c": "Unified Individuals",
+			"ETOrchestrateDC__IsActive__c": true,
+			"ETOrchestrateDC__LastRun__c": null,
+			"ETOrchestrateDC__MaxFrequency__c": "1 H",
+			"ETOrchestrateDC__Message__c": null,
+			"ETOrchestrateDC__NextRun__c": null,
+			"Id": "a027g00000Am9DnAAJ",
+			"Name": "03 Calculate RFM"
+		},
+		{
+			"attributes": {
+				"type": "DCO_Master__c",
+				"url": "/services/data/v61.0/sobjects/DCO_Master__c/a027g00000Am9DoAAJ"
+			},
+			"ETOrchestrateDC__ActionName__c": "Top Adult Customers",
+			"ETOrchestrateDC__ActionType__c": "Publish Segment",
+			"ETOrchestrateDC__DataSource__c": "ANY",
+			"ETOrchestrateDC__FlowName__c": "Calculated Insights",
+			"ETOrchestrateDC__IsActive__c": true,
+			"ETOrchestrateDC__LastRun__c": null,
+			"ETOrchestrateDC__MaxFrequency__c": "30 M",
+			"ETOrchestrateDC__Message__c": null,
+			"ETOrchestrateDC__NextRun__c": null,
+			"Id": "a027g00000Am9DoAAJ",
+			"Name": "04 Publish Top Customers"
+		}
+	],
+	"total": 4
+}
