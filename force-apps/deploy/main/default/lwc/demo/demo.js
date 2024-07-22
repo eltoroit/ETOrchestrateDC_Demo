@@ -1,5 +1,6 @@
 import { LightningElement } from "lwc";
 import resetMasters from "@salesforce/apex/Demo.resetMasters";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import simulateIngestAPI from "@salesforce/apex/Demo.simulateIngestAPI";
 import getDataToRandomize from "@salesforce/apex/Demo.getDataToRandomize";
 import saveRandomizedData from "@salesforce/apex/Demo.saveRandomizedData";
@@ -36,6 +37,18 @@ export default class Demo extends LightningElement {
 		data.orders = this.randomOrders({ contacts: data.contacts, orders: data.orders });
 		await saveRandomizedData({ data: [...data.contacts, ...data.orders] });
 		this.isLoading = false;
+		this.dispatchEvent(
+			new ShowToastEvent({
+				title: "Data Has Been Randomized",
+				message: "Please refresh the data streams",
+				variant: "success",
+				mode: "dismissible"
+			})
+		);
+		// eslint-disable-next-line
+		setTimeout(() => {
+			window.open("/lightning/o/DataStream/list?filterName=My_DataStreams", "_top").focus();
+		}, 2e3);
 	}
 
 	randomContacts({ contacts }) {
