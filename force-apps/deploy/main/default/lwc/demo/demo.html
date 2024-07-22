@@ -3,17 +3,14 @@
         <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
     </template>
     <lightning-card title="Demo">
-        <div class="slds-m-around_medium">
-            <lightning-button label="Reset Data" onclick={onResetData}></lightning-button>
-        </div>
-        <div class="slds-m-around_medium">
-            <lightning-button label="Run simulator" onclick={onRunSimulator}></lightning-button>
-        </div>
-        <div class="slds-m-around_medium">
-            <lightning-button label="Modify custom metadata types" onclick={onModify__mdt}></lightning-button>
-        </div>
-        <div class="slds-m-around_medium">
-            <lightning-button label="Show time queue" onclick={onShowTimeQueue}></lightning-button>
+        <div class="slds-m-around_medium slds-align_absolute-center">
+            <lightning-button-group>
+                <lightning-button label="Randomize Data" onclick={onRandomizeData} variant="brand"></lightning-button>
+                <lightning-button label="View Custom Metadata Types" onclick={onView__mdt}></lightning-button>
+                <lightning-button label="Show Time Queue" onclick={onShowTimeQueue}></lightning-button>
+                <lightning-button label="Run Simulator" onclick={onRunSimulator}></lightning-button>
+                <lightning-button label="Reset Master Data" onclick={onResetData} variant="destructive"></lightning-button>
+            </lightning-button-group>
         </div>
     </lightning-card>
 </template>

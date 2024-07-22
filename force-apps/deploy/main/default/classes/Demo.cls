@@ -30,4 +30,24 @@ public with sharing class Demo {
 		}
 		insert logs;
 	}
+
+	@AuraEnabled
+	public static Map<String, List<SObject>> getDataToRandomize() {
+		Map<String, List<SObject>> output = new Map<String, List<SObject>>();
+		output.put(
+			'contacts',
+			[
+				SELECT Id, PersonName__c, CustomerId__c, DateBirth__c, Phone, OtherPhone, MobilePhone, HomePhone, AssistantPhone
+				FROM Contact
+				ORDER BY CustomerId__c
+			]
+		);
+		output.put('orders', [SELECT Id, Name, OrderCreatedDate__c, PromiseDate__c, SoldToCustomer__c FROM Order__c]);
+		return output;
+	}
+
+	@AuraEnabled
+	public static void saveRandomizedData(List<SObject> data) {
+		update data;
+	}
 }
