@@ -13,9 +13,6 @@
     -   Monitoring Data Streams...
         -   `SELECT Id, Name, ImportRunStatus, LastRefreshDate, LastNumberOfRowsAddedCount, TotalNumberOfRowsAdded, ExternalRecordIdentifier, TotalRowsProcessed, LastDataChangeStatusDateTime, LastDataChangeStatusErrorCode, ExternalStreamErrorCode FROM DataStream`
     -   `SELECT Id__c, CustomerId_c__c, Name__c, DateBirth_c__c, AssistantPhone__c, Phone__c, HomePhone__c, MobilePhone__c FROM Contact_Home__dll ORDER BY CustomerId_c__c ASC`
--   Orgs
-
-The batch data transform failed due to a runtime error. Make sure that there aren't any null values in the fields mapped to Contact_Point_Phone_Id\_\_c on output node OUTPUT0. Check the output of join and transform node operations to verify that the operations don't introduce null values for related fields.
 
 # ========================================================================================================================
 
