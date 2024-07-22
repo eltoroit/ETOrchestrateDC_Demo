@@ -7,52 +7,55 @@
 		"UserOnScreen": true // Can I prompt the user for manual verification? On CICD, this should be false
 	},
 	"steps": [
-		// // === Prepare environment ===
-		// "ValidateETCopyData",
-		// "BackupAlias", // In case you need to go back to the old org :-)
+		// === Prepare environment ===
+		"ValidateETCopyData",
+		"BackupAlias", // In case you need to go back to the old org :-)
 
-		// // === Creating Scratch org ===
-		// "CreateScratchOrg",
-		// "GeneratePassword",
-		// "CreateFinestDebugLevel",
-		// { "ExecuteApex": "@ELTOROIT/scripts/apex/SetUserRecord.apex" },
+		// === Creating Scratch org ===
+		"CreateScratchOrg",
+		"GeneratePassword",
+		"CreateFinestDebugLevel",
+		{ "ExecuteApex": "@ELTOROIT/scripts/apex/SetUserRecord.apex" },
 
-		// // === Install ETOrchestrate Data Cloud ===
-		// // "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
-		// { "InstallPackage": { "id": "04t2J000000EycyQAC" } },
-		// { "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
+		// === Install ETOrchestrate Data Cloud ===
+		// "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
+		{ "InstallPackage": { "id": "04t2J000000EycyQAC" } },
+		{ "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
 
-		// // === Wait for Data Cloud to be ready (clicking "the blue button") ===
-		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
-		// // Install Sales Cloud Data Bundle
-		// { "InstallPackage": { "id": "04tB0000000BYKv" } },
+		// === Wait for Data Cloud to be ready (clicking "the blue button") ===
+		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
+		// Install Sales Cloud Data Bundle
+		{ "InstallPackage": { "id": "04tB0000000BYKv" } },
 
-		// // === === === === This is not working for Salesforce streams
-		// // === === === === // === Configure Data Cloud using "ETOrchestrateDC" Data Kit ===
-		// // === === === === // I was not able to deploy via a Data Kit. No objects were created... Try metadata.
-		// // === === === === // ETOrchestrateDC DemoDK Package (July 2024) Version 1.0 [04tHs000000z1br]
-		// // === === === === // { "InstallPackage": { "id": "04tHs000000z1br" } },
-		// // === === === === This is not working for Salesforce streams
+		// === === === === This is not working for Salesforce streams
+		// === === === === // === Configure Data Cloud using "ETOrchestrateDC" Data Kit ===
+		// === === === === // I was not able to deploy via a Data Kit. No objects were created... Try metadata.
+		// === === === === // ETOrchestrateDC DemoDK Package (July 2024) Version 1.0 [04tHs000000z1br]
+		// === === === === // { "InstallPackage": { "id": "04tHs000000z1br" } },
+		// === === === === This is not working for Salesforce streams
 
-		// // === Push metadata ===
-		// "ShowDeployPage",
-		// "PushMetadata",
-		// { "AssignPermissionSet": "psDataCloudData" },
-		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
-		// { "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
+		// === Push metadata ===
+		"ShowDeployPage",
+		"PushMetadata",
+		{ "AssignPermissionSet": "psDataCloudData" },
+		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
+		{ "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
-		// // === Loading Data ===
-		// { "ETCopyData": "./@ELTOROIT/data" },
+		// === Loading Data ===
+		{ "ETCopyData": "./@ELTOROIT/data" },
 
-		// // === Configure Data Cloud ===
-		// { "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
+		// === Configure Data Cloud ===
+		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
 
-		// // === Configure HTTP Callouts ===
-		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
-		// { "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
+		// These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist
+		{ "DeployMetadata": "./@ELTOROIT/metadata/PostConfigDC/" },
 
-		{ "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
+		// === Configure HTTP Callouts ===
+		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
+		{ "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
+
 		// // === Success! ===
 		"ShowFinalSuccess"
 	]
 }
+// { "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },

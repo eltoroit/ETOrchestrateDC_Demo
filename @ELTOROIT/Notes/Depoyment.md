@@ -43,21 +43,15 @@ The batch data transform failed due to a runtime error. Make sure that there are
             -   Date Of Birth | DateBirth_c
             -   Middle Name | MiddleName_c
             -   Person Name | PersonName_c
-        -   Create a new formula fied
-            -   Name: `Identification Type`
-            -   Formula: `"ETOrchestrateDC"`
-        -   Create a new formula fied
-            -   Name: `Identification Name`
-            -   Formula: `"CustomerID"`
 2.  Ingest Salesforce custom objects
     -   Use the "All Objects" option
     -   `DCOrder`
-        -   Category: Engagement
-        -   Event Time Field: OrderCreatedDate_c
+        -   Category: `Engagement`
+        -   Event Time Field: `OrderCreatedDate_c`
     -   `DCOrderItem`
-        -   Category: Other
+        -   Category: `Other`
     -   `DCProduct`
-        -   Category: Other
+        -   Category: `Other`
 3.  Create DLO
     -   Name: `Phone Numbers Normalized`
     -   Category: `Other`
@@ -69,20 +63,22 @@ The batch data transform failed due to a runtime error. Make sure that there are
         -   Name: `Type`
     -   Add it to the data space
         -   Navigate to this URL: `/lightning/o/DataSpace/list?filterName=__Recent`
-        -   Add `Phone Numbers Normalized` DLO to the data space without any filters
+        -   Add `Phone Numbers Normalized` DLO to the data space
+        -   No need to add filters
 4.  Harmonizate the objects based on the Data Dictionary
     -   No changes for Account and Lead objects
-    -   [Data Dictionary](hhttps://docs.google.com/spreadsheets/d/1Mxs-FWU3pwnAEEyeXkv0plfgPSk_hY78NlqXdZn1_Uc/edit?gid=226856693#gid=226856693)
-5.  Create relationship between Orders and Individuals
-    -   Back to the harmonization screen for `Order__c_Home`
-    -   Click on the relations button
-    -   Click Edit
-    -   Click `+ New Relationship` button
-    -   `Sales Order`.`Sold To Customer` | `N:1` | `Individual`.`Individual Id`
-6.  Create Data Transform
-    -   Name: `Normalize Phone Numbers`
+    -   [Data Dictionary](https://docs.google.com/spreadsheets/d/1Mxs-FWU3pwnAEEyeXkv0plfgPSk_hY78NlqXdZn1_Uc/edit?gid=226856693#gid=226856693)
+    -   Create relationship between Orders and Individuals
+        -   Back to the harmonization screen for `Order__c_Home`
+        -   Click **relations**
+        -   Click **Edit**
+        -   Click **+ New Relationship**
+        -   `Sales Order`.`Sold To Customer` | `N:1` | `Individual`.`Individual Id`
+        -   Click **Save & Close**
+5.  Create Batch Data Transform on DLOs
     -   Paste this JSON file `@ELTOROIT/Notes/Normalize Phone Numbers.json`
-7.  Create the Identity Resolution Ruleset
+    -   Name: `Normalize Phone Numbers`
+6.  Create the Identity Resolution Ruleset
     -   Primary DMO: `Individual`
     -   Name: `Create Buckets`
     -   Toggle `Run jobs automatically` off
@@ -90,21 +86,21 @@ The batch data transform failed due to a runtime error. Make sure that there are
     -   Fuzzy Name and Normalized Phone (Standard configuration)
     -   Fuzzy Name and Normalized Address (Standard configuration)
     -   Ignore reconciliation rules
-8.  Create a calculated insight
+7.  Create a calculated insight
     -   Create with SQL
     -   Name: `RFM`
     -   Paste this text file `@ELTOROIT/Notes/RFM_sql.txt`
-9.  Create Activation target
+8.  Create Activation target
     -   Type: Data Cloud
     -   Name: `ETOrchestrateDC`
-10. Create Segment
+9.  Create Segment
     -   Name: `Top Adult Customers`
     -   Segment on: `Unified Individual`
     -   Type: `Standard Publish`
     -   **OR**
         -   Container: `Birth Date` Is Before `Jan 1, 2000`
         -   Container: `RFMCombined__c` = `1111`
-11. Create Activation
+10. Create Activation
     -   Activation Target: `ETOrchestrateDC`
     -   Activation Membership: `Unified Individual`
     -   Select both Contact Points (email, phone)
@@ -112,50 +108,51 @@ The batch data transform failed due to a runtime error. Make sure that there are
         -   Person Name
         -   Birth Date
         -   RFM Combined
-        -   Unified Indv Party Identification
-            -   Type
-            -   Name
-            -   Number
     -   Contact Point Phone
         -   Preferred Name for `Formatted E164 Phone Number`: `Phone`
-    -   Unified Indv Party Identification
-        -   Sort By: `Unified Party Identification Id`
     -   Name: `Activate Top Adult Customers`
     -   Refresh Type: `Incremental Refresh`
-12. Create Data Graph
+11. Create Data Graph
     -   Go to this URL: `/lightning/o/DataGraph/list?filterName=__Recent`
     -   Name: `ETOrchestrateDC Graph`
     -   Primary Data Model Object: `Unified Individual`
     -   Graph
-        -   Unified Individual (4/9)
+        -   Unified Individual (3/9)
             -   Fields
-                -   Unified Individual Id
+                -   ✅ Unified Individual Id
                 -   Birth Date
                 -   Person Name
-                -   Salutation
             -   Unified Link Individual (4/8)
                 -   Fields
-                    -   Individual Id
-                    -   Key Qualifier Id
-                    -   Unified Individual Id
+                    -   ✅ Individual Id
+                    -   ✅ Key Qualifier Id
+                    -   ✅ Unified Individual Id
                     -   Match Keys
                 -   Individual (6/12)
                     -   Fields
-                        -   Individual Id
-                        -   Key Qualifier Individual Id
+                        -   ✅ Individual Id
+                        -   ✅ Key Qualifier Individual Id
                         -   Birth Date
                         -   Data Source
                         -   Data Source Object
                         -   Person Name
                     -   Sales Order (9/10)
                         -   Fields
-                            -   All except Last Modified Date
+                            -   ✅ Created Date
+                            -   ✅ Key Qualifier Sales Order Id
+                            -   ✅ Key Qualifier Sold To Customer
+                            -   ✅ Sales Order Id
+                            -   ✅ Sold To Customer
+                            -   Data Source
+                            -   Data Source Object
+                            -   Grand Total Amount
+                            -   Promise Date
                         -   Sales Order Product (12/15)
                             -   Fields
-                                -   Key Qualifier Sales Order
-                                -   Key Qualifier Sales Order Product
-                                -   Sales Order
-                                -   Sales Order Product
+                                -   ✅ Key Qualifier Sales Order
+                                -   ✅ Key Qualifier Sales Order Product
+                                -   ✅ Sales Order
+                                -   ✅ Sales Order Product
                                 -   Data Source
                                 -   Data Source Object
                                 -   Discount Amount
@@ -183,11 +180,13 @@ This is not part of ETOrchestrateDC for two reasons:
 1. Open Connected App [ETOrchestrateDC]
     - [**Open Page**](/lightning/setup/NavigationMenus/home)
         - Keep this tab open, we'll need to make changes later
-    - Copy Key/Secret
-    - Update project file `etLogs/_user.json`
+    - Click **Manage Consumer Details**
+    - From email copy security number
+    - Copy Key and Secret, paste them into the `etLogs/_user.json` file
 2. Open Auth. Provider [ETOrchestrateDC]
     - [**Open Page**](/lightning/setup/AuthProviders/home)
         - Reuse the tab that showed the credentials
+    - Click [ETOrchestrateDC]
     - Click [Edit]
     - Paste Key/Secret
     - Click [Save]
@@ -199,6 +198,7 @@ This is not part of ETOrchestrateDC for two reasons:
     - [**Open Page**](/lightning/setup/NamedCredential/home)
     - Change URL to `https://***.scratch.my.salesforce.com`
 5. Go to External Credentials [ETOrchestrateDC]
+    - Click on [ETOrchestrateDC] under Authentication > External Credential
     - Authenticate
     - Did you get an error?
         - `error=redirect_uri_mismatch&error_description=redirect_uri%20must%20match%20configuration`
