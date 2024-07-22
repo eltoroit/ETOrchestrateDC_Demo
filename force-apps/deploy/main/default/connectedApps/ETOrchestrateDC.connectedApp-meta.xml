@@ -3,9 +3,7 @@
     <contactEmail>aperez@salesforce.com</contactEmail>
     <label>ETOrchestrateDC</label>
     <oauthConfig>
-        <callbackUrl>null:null
-https://app-drive-5867-dev-ed.scratch.my.salesforce.com/services/authcallback/ETOrchestrateDC</callbackUrl>
-        <consumerKey>3MVG9bmlmX4LX1ZsoFbEgLVwR8MWc6dEiydV8R3.lQ4wKHcDOM89U.lmSTnhTywXGXVgV1oeUsokJSC_4_dQR</consumerKey>
+        <callbackUrl>null:null</callbackUrl>
         <isAdminApproved>false</isAdminApproved>
         <isClientCredentialEnabled>false</isClientCredentialEnabled>
         <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
@@ -35,4 +33,4 @@ https://app-drive-5867-dev-ed.scratch.my.salesforce.com/services/authcallback/ET
         <isTokenExchangeFlowEnabled>false</isTokenExchangeFlowEnabled>
         <refreshTokenPolicy>infinite</refreshTokenPolicy>
     </oauthPolicy>
-</ConnectedApp>
+</ConnectedApp> 
