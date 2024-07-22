@@ -1458,7 +1458,6 @@
 		"PartyConsentFeed": [],
 		"PartyConsentHistory": [],
 		"PartyConsentShare": [],
-		"PartyIdentificationIdentityLink__dlm": [],
 		"Payment": [],
 		"PaymentAuthAdjustment": [],
 		"PaymentAuthorization": [],
@@ -1855,7 +1854,6 @@
 		"UnifiedContactPointEmail__dlm": [],
 		"UnifiedContactPointPhone__dlm": [],
 		"UnifiedIndividual__dlm": [],
-		"UnifiedPartyIdentification__dlm": [],
 		"UnitOfMeasure": [],
 		"UnitOfMeasureChangeEvent": [],
 		"UnitOfMeasureShare": [],
@@ -1986,7 +1984,6 @@
 		"ssot__GoodsProduct__dlm": [],
 		"ssot__Individual__dlm": [],
 		"ssot__Lead__dlm": [],
-		"ssot__PartyIdentification__dlm": [],
 		"ssot__SalesOrderProduct__dlm": [],
 		"ssot__SalesOrder__dlm": []
 	},
@@ -2074,43 +2071,6 @@
 			"Product__c.LastReferencedDate": [
 				"Must be createable"
 			],
-			"Order__c.OwnerId": [
-				"Reference, but it points to 0 or more than 1 sObject: | Group | User | "
-			],
-			"Order__c.IsDeleted": [
-				"Must be createable"
-			],
-			"Order__c.Name": [
-				"Can't be autoNumber",
-				"Must be createable"
-			],
-			"Order__c.CreatedDate": [
-				"Must be createable"
-			],
-			"Order__c.CreatedById": [
-				"Must be createable",
-				"Parent sObject [User] is not processed"
-			],
-			"Order__c.LastModifiedDate": [
-				"Must be createable"
-			],
-			"Order__c.LastModifiedById": [
-				"Must be createable",
-				"Parent sObject [User] is not processed"
-			],
-			"Order__c.SystemModstamp": [
-				"Must be createable"
-			],
-			"Order__c.LastViewedDate": [
-				"Must be createable"
-			],
-			"Order__c.LastReferencedDate": [
-				"Must be createable"
-			],
-			"Order__c.GrandTotalAmount__c": [
-				"Can't be calculated",
-				"Must be createable"
-			],
 			"OrderItem__c.IsDeleted": [
 				"Must be createable"
 			],
@@ -2151,6 +2111,72 @@
 			],
 			"OrderItem__c.UnitPriceAmount__c": [
 				"Can't be calculated",
+				"Must be createable"
+			],
+			"Order__c.OwnerId": [
+				"Reference, but it points to 0 or more than 1 sObject: | Group | User | "
+			],
+			"Order__c.IsDeleted": [
+				"Must be createable"
+			],
+			"Order__c.Name": [
+				"Can't be autoNumber",
+				"Must be createable"
+			],
+			"Order__c.CreatedDate": [
+				"Must be createable"
+			],
+			"Order__c.CreatedById": [
+				"Must be createable",
+				"Parent sObject [User] is not processed"
+			],
+			"Order__c.LastModifiedDate": [
+				"Must be createable"
+			],
+			"Order__c.LastModifiedById": [
+				"Must be createable",
+				"Parent sObject [User] is not processed"
+			],
+			"Order__c.SystemModstamp": [
+				"Must be createable"
+			],
+			"Order__c.LastViewedDate": [
+				"Must be createable"
+			],
+			"Order__c.LastReferencedDate": [
+				"Must be createable"
+			],
+			"Order__c.GrandTotalAmount__c": [
+				"Can't be calculated",
+				"Must be createable"
+			],
+			"ETOrchestrateDC__DCO_Master__c.OwnerId": [
+				"Reference, but it points to 0 or more than 1 sObject: | Group | User | "
+			],
+			"ETOrchestrateDC__DCO_Master__c.IsDeleted": [
+				"Must be createable"
+			],
+			"ETOrchestrateDC__DCO_Master__c.CreatedDate": [
+				"Must be createable"
+			],
+			"ETOrchestrateDC__DCO_Master__c.CreatedById": [
+				"Must be createable",
+				"Parent sObject [User] is not processed"
+			],
+			"ETOrchestrateDC__DCO_Master__c.LastModifiedDate": [
+				"Must be createable"
+			],
+			"ETOrchestrateDC__DCO_Master__c.LastModifiedById": [
+				"Must be createable",
+				"Parent sObject [User] is not processed"
+			],
+			"ETOrchestrateDC__DCO_Master__c.SystemModstamp": [
+				"Must be createable"
+			],
+			"ETOrchestrateDC__DCO_Master__c.LastViewedDate": [
+				"Must be createable"
+			],
+			"ETOrchestrateDC__DCO_Master__c.LastReferencedDate": [
 				"Must be createable"
 			],
 			"Lead.IsDeleted": [
@@ -2228,35 +2254,6 @@
 				"Parent sObject [Individual] is not processed"
 			],
 			"Lead.IsPriorityRecord": [
-				"Must be createable"
-			],
-			"ETOrchestrateDC__DCO_Master__c.OwnerId": [
-				"Reference, but it points to 0 or more than 1 sObject: | Group | User | "
-			],
-			"ETOrchestrateDC__DCO_Master__c.IsDeleted": [
-				"Must be createable"
-			],
-			"ETOrchestrateDC__DCO_Master__c.CreatedDate": [
-				"Must be createable"
-			],
-			"ETOrchestrateDC__DCO_Master__c.CreatedById": [
-				"Must be createable",
-				"Parent sObject [User] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.LastModifiedDate": [
-				"Must be createable"
-			],
-			"ETOrchestrateDC__DCO_Master__c.LastModifiedById": [
-				"Must be createable",
-				"Parent sObject [User] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.SystemModstamp": [
-				"Must be createable"
-			],
-			"ETOrchestrateDC__DCO_Master__c.LastViewedDate": [
-				"Must be createable"
-			],
-			"ETOrchestrateDC__DCO_Master__c.LastReferencedDate": [
 				"Must be createable"
 			],
 			"Contact.IsDeleted": [
@@ -2633,6 +2630,129 @@
 			"Product__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
 				"Child sObject [UserDefinedLabelAssignment] is not processed"
 			],
+			"OrderItem__c.null => AIInsightValue": [
+				"Child sObject [AIInsightValue] is not processed"
+			],
+			"OrderItem__c.null => AIRecordInsight": [
+				"Child sObject [AIRecordInsight] is not processed"
+			],
+			"OrderItem__c.AttachedContentDocuments => AttachedContentDocument": [
+				"Child sObject [AttachedContentDocument] is not processed"
+			],
+			"OrderItem__c.Attachments => Attachment": [
+				"Child sObject [Attachment] is not processed"
+			],
+			"OrderItem__c.RecordAssociatedGroups => CollaborationGroupRecord": [
+				"Child sObject [CollaborationGroupRecord] is not processed"
+			],
+			"OrderItem__c.CombinedAttachments => CombinedAttachment": [
+				"Child sObject [CombinedAttachment] is not processed"
+			],
+			"OrderItem__c.ContactRequests => ContactRequest": [
+				"Child sObject [ContactRequest] is not processed"
+			],
+			"OrderItem__c.null => ContentDistribution": [
+				"Child sObject [ContentDistribution] is not processed"
+			],
+			"OrderItem__c.ContentDocumentLinks => ContentDocumentLink": [
+				"Child sObject [ContentDocumentLink] is not processed"
+			],
+			"OrderItem__c.null => ContentDocumentLinkChangeEvent": [
+				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
+			],
+			"OrderItem__c.null => ContentVersion": [
+				"Child sObject [ContentVersion] is not processed"
+			],
+			"OrderItem__c.null => ContentVersionChangeEvent": [
+				"Child sObject [ContentVersionChangeEvent] is not processed"
+			],
+			"OrderItem__c.DuplicateRecordItems => DuplicateRecordItem": [
+				"Child sObject [DuplicateRecordItem] is not processed"
+			],
+			"OrderItem__c.null => EmailMessageChangeEvent": [
+				"Child sObject [EmailMessageChangeEvent] is not processed"
+			],
+			"OrderItem__c.FeedSubscriptionsForEntity => EntitySubscription": [
+				"Child sObject [EntitySubscription] is not processed"
+			],
+			"OrderItem__c.null => EventChangeEvent": [
+				"Child sObject [EventChangeEvent] is not processed"
+			],
+			"OrderItem__c.null => EventRelationChangeEvent": [
+				"Child sObject [EventRelationChangeEvent] is not processed"
+			],
+			"OrderItem__c.null => FeedComment": [
+				"Child sObject [FeedComment] is not processed"
+			],
+			"OrderItem__c.null => FeedItem": [
+				"Child sObject [FeedItem] is not processed"
+			],
+			"OrderItem__c.FinanceBalanceSnapshots => FinanceBalanceSnapshot": [
+				"Child sObject [FinanceBalanceSnapshot] is not processed"
+			],
+			"OrderItem__c.null => FinanceBalanceSnapshotChangeEvent": [
+				"Child sObject [FinanceBalanceSnapshotChangeEvent] is not processed"
+			],
+			"OrderItem__c.DestinationFinanceTransactions => FinanceTransaction": [
+				"Child sObject [FinanceTransaction] is not processed"
+			],
+			"OrderItem__c.FinanceTransactions => FinanceTransaction": [
+				"Child sObject [FinanceTransaction] is not processed"
+			],
+			"OrderItem__c.ParentFinanceTransactions => FinanceTransaction": [
+				"Child sObject [FinanceTransaction] is not processed"
+			],
+			"OrderItem__c.SourceFinanceTransactions => FinanceTransaction": [
+				"Child sObject [FinanceTransaction] is not processed"
+			],
+			"OrderItem__c.null => FinanceTransactionChangeEvent": [
+				"Child sObject [FinanceTransactionChangeEvent] is not processed"
+			],
+			"OrderItem__c.null => FlowExecutionErrorEvent": [
+				"Child sObject [FlowExecutionErrorEvent] is not processed"
+			],
+			"OrderItem__c.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+				"Child sObject [FlowOrchestrationWorkItem] is not processed"
+			],
+			"OrderItem__c.null => FlowRecordRelation": [
+				"Child sObject [FlowRecordRelation] is not processed"
+			],
+			"OrderItem__c.Notes => Note": [
+				"Child sObject [Note] is not processed"
+			],
+			"OrderItem__c.NotesAndAttachments => NoteAndAttachment": [
+				"Child sObject [NoteAndAttachment] is not processed"
+			],
+			"OrderItem__c.ProcessExceptions => ProcessException": [
+				"Child sObject [ProcessException] is not processed"
+			],
+			"OrderItem__c.null => ProcessExceptionEvent": [
+				"Child sObject [ProcessExceptionEvent] is not processed"
+			],
+			"OrderItem__c.ProcessInstances => ProcessInstance": [
+				"Child sObject [ProcessInstance] is not processed"
+			],
+			"OrderItem__c.null => ProcessInstanceChangeEvent": [
+				"Child sObject [ProcessInstanceChangeEvent] is not processed"
+			],
+			"OrderItem__c.ProcessSteps => ProcessInstanceHistory": [
+				"Child sObject [ProcessInstanceHistory] is not processed"
+			],
+			"OrderItem__c.RecordActions => RecordAction": [
+				"Child sObject [RecordAction] is not processed"
+			],
+			"OrderItem__c.RecordActionHistories => RecordActionHistory": [
+				"Child sObject [RecordActionHistory] is not processed"
+			],
+			"OrderItem__c.null => TaskChangeEvent": [
+				"Child sObject [TaskChangeEvent] is not processed"
+			],
+			"OrderItem__c.TopicAssignments => TopicAssignment": [
+				"Child sObject [TopicAssignment] is not processed"
+			],
+			"OrderItem__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+				"Child sObject [UserDefinedLabelAssignment] is not processed"
+			],
 			"Order__c.null => AIInsightValue": [
 				"Child sObject [AIInsightValue] is not processed"
 			],
@@ -2759,127 +2879,133 @@
 			"Order__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
 				"Child sObject [UserDefinedLabelAssignment] is not processed"
 			],
-			"OrderItem__c.null => AIInsightValue": [
+			"ETOrchestrateDC__DCO_Master__c.null => AIInsightValue": [
 				"Child sObject [AIInsightValue] is not processed"
 			],
-			"OrderItem__c.null => AIRecordInsight": [
+			"ETOrchestrateDC__DCO_Master__c.null => AIRecordInsight": [
 				"Child sObject [AIRecordInsight] is not processed"
 			],
-			"OrderItem__c.AttachedContentDocuments => AttachedContentDocument": [
+			"ETOrchestrateDC__DCO_Master__c.AttachedContentDocuments => AttachedContentDocument": [
 				"Child sObject [AttachedContentDocument] is not processed"
 			],
-			"OrderItem__c.Attachments => Attachment": [
+			"ETOrchestrateDC__DCO_Master__c.Attachments => Attachment": [
 				"Child sObject [Attachment] is not processed"
 			],
-			"OrderItem__c.RecordAssociatedGroups => CollaborationGroupRecord": [
+			"ETOrchestrateDC__DCO_Master__c.RecordAssociatedGroups => CollaborationGroupRecord": [
 				"Child sObject [CollaborationGroupRecord] is not processed"
 			],
-			"OrderItem__c.CombinedAttachments => CombinedAttachment": [
+			"ETOrchestrateDC__DCO_Master__c.CombinedAttachments => CombinedAttachment": [
 				"Child sObject [CombinedAttachment] is not processed"
 			],
-			"OrderItem__c.ContactRequests => ContactRequest": [
+			"ETOrchestrateDC__DCO_Master__c.ContactRequests => ContactRequest": [
 				"Child sObject [ContactRequest] is not processed"
 			],
-			"OrderItem__c.null => ContentDistribution": [
+			"ETOrchestrateDC__DCO_Master__c.null => ContentDistribution": [
 				"Child sObject [ContentDistribution] is not processed"
 			],
-			"OrderItem__c.ContentDocumentLinks => ContentDocumentLink": [
+			"ETOrchestrateDC__DCO_Master__c.ContentDocumentLinks => ContentDocumentLink": [
 				"Child sObject [ContentDocumentLink] is not processed"
 			],
-			"OrderItem__c.null => ContentDocumentLinkChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => ContentDocumentLinkChangeEvent": [
 				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
 			],
-			"OrderItem__c.null => ContentVersion": [
+			"ETOrchestrateDC__DCO_Master__c.null => ContentVersion": [
 				"Child sObject [ContentVersion] is not processed"
 			],
-			"OrderItem__c.null => ContentVersionChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => ContentVersionChangeEvent": [
 				"Child sObject [ContentVersionChangeEvent] is not processed"
 			],
-			"OrderItem__c.DuplicateRecordItems => DuplicateRecordItem": [
+			"ETOrchestrateDC__DCO_Master__c.DuplicateRecordItems => DuplicateRecordItem": [
 				"Child sObject [DuplicateRecordItem] is not processed"
 			],
-			"OrderItem__c.null => EmailMessageChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.Histories => ETOrchestrateDC__DCO_Master__History": [
+				"Child sObject [ETOrchestrateDC__DCO_Master__History] is not processed"
+			],
+			"ETOrchestrateDC__DCO_Master__c.Shares => ETOrchestrateDC__DCO_Master__Share": [
+				"Child sObject [ETOrchestrateDC__DCO_Master__Share] is not processed"
+			],
+			"ETOrchestrateDC__DCO_Master__c.null => EmailMessageChangeEvent": [
 				"Child sObject [EmailMessageChangeEvent] is not processed"
 			],
-			"OrderItem__c.FeedSubscriptionsForEntity => EntitySubscription": [
+			"ETOrchestrateDC__DCO_Master__c.FeedSubscriptionsForEntity => EntitySubscription": [
 				"Child sObject [EntitySubscription] is not processed"
 			],
-			"OrderItem__c.null => EventChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => EventChangeEvent": [
 				"Child sObject [EventChangeEvent] is not processed"
 			],
-			"OrderItem__c.null => EventRelationChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => EventRelationChangeEvent": [
 				"Child sObject [EventRelationChangeEvent] is not processed"
 			],
-			"OrderItem__c.null => FeedComment": [
+			"ETOrchestrateDC__DCO_Master__c.null => FeedComment": [
 				"Child sObject [FeedComment] is not processed"
 			],
-			"OrderItem__c.null => FeedItem": [
+			"ETOrchestrateDC__DCO_Master__c.null => FeedItem": [
 				"Child sObject [FeedItem] is not processed"
 			],
-			"OrderItem__c.FinanceBalanceSnapshots => FinanceBalanceSnapshot": [
+			"ETOrchestrateDC__DCO_Master__c.FinanceBalanceSnapshots => FinanceBalanceSnapshot": [
 				"Child sObject [FinanceBalanceSnapshot] is not processed"
 			],
-			"OrderItem__c.null => FinanceBalanceSnapshotChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => FinanceBalanceSnapshotChangeEvent": [
 				"Child sObject [FinanceBalanceSnapshotChangeEvent] is not processed"
 			],
-			"OrderItem__c.DestinationFinanceTransactions => FinanceTransaction": [
+			"ETOrchestrateDC__DCO_Master__c.DestinationFinanceTransactions => FinanceTransaction": [
 				"Child sObject [FinanceTransaction] is not processed"
 			],
-			"OrderItem__c.FinanceTransactions => FinanceTransaction": [
+			"ETOrchestrateDC__DCO_Master__c.FinanceTransactions => FinanceTransaction": [
 				"Child sObject [FinanceTransaction] is not processed"
 			],
-			"OrderItem__c.ParentFinanceTransactions => FinanceTransaction": [
+			"ETOrchestrateDC__DCO_Master__c.ParentFinanceTransactions => FinanceTransaction": [
 				"Child sObject [FinanceTransaction] is not processed"
 			],
-			"OrderItem__c.SourceFinanceTransactions => FinanceTransaction": [
+			"ETOrchestrateDC__DCO_Master__c.SourceFinanceTransactions => FinanceTransaction": [
 				"Child sObject [FinanceTransaction] is not processed"
 			],
-			"OrderItem__c.null => FinanceTransactionChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => FinanceTransactionChangeEvent": [
 				"Child sObject [FinanceTransactionChangeEvent] is not processed"
 			],
-			"OrderItem__c.null => FlowExecutionErrorEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => FlowExecutionErrorEvent": [
 				"Child sObject [FlowExecutionErrorEvent] is not processed"
 			],
-			"OrderItem__c.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
+			"ETOrchestrateDC__DCO_Master__c.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
 				"Child sObject [FlowOrchestrationWorkItem] is not processed"
 			],
-			"OrderItem__c.null => FlowRecordRelation": [
+			"ETOrchestrateDC__DCO_Master__c.null => FlowRecordRelation": [
 				"Child sObject [FlowRecordRelation] is not processed"
 			],
-			"OrderItem__c.Notes => Note": [
+			"ETOrchestrateDC__DCO_Master__c.Notes => Note": [
 				"Child sObject [Note] is not processed"
 			],
-			"OrderItem__c.NotesAndAttachments => NoteAndAttachment": [
+			"ETOrchestrateDC__DCO_Master__c.NotesAndAttachments => NoteAndAttachment": [
 				"Child sObject [NoteAndAttachment] is not processed"
 			],
-			"OrderItem__c.ProcessExceptions => ProcessException": [
+			"ETOrchestrateDC__DCO_Master__c.ProcessExceptions => ProcessException": [
 				"Child sObject [ProcessException] is not processed"
 			],
-			"OrderItem__c.null => ProcessExceptionEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => ProcessExceptionEvent": [
 				"Child sObject [ProcessExceptionEvent] is not processed"
 			],
-			"OrderItem__c.ProcessInstances => ProcessInstance": [
+			"ETOrchestrateDC__DCO_Master__c.ProcessInstances => ProcessInstance": [
 				"Child sObject [ProcessInstance] is not processed"
 			],
-			"OrderItem__c.null => ProcessInstanceChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => ProcessInstanceChangeEvent": [
 				"Child sObject [ProcessInstanceChangeEvent] is not processed"
 			],
-			"OrderItem__c.ProcessSteps => ProcessInstanceHistory": [
+			"ETOrchestrateDC__DCO_Master__c.ProcessSteps => ProcessInstanceHistory": [
 				"Child sObject [ProcessInstanceHistory] is not processed"
 			],
-			"OrderItem__c.RecordActions => RecordAction": [
+			"ETOrchestrateDC__DCO_Master__c.RecordActions => RecordAction": [
 				"Child sObject [RecordAction] is not processed"
 			],
-			"OrderItem__c.RecordActionHistories => RecordActionHistory": [
+			"ETOrchestrateDC__DCO_Master__c.RecordActionHistories => RecordActionHistory": [
 				"Child sObject [RecordActionHistory] is not processed"
 			],
-			"OrderItem__c.null => TaskChangeEvent": [
+			"ETOrchestrateDC__DCO_Master__c.null => TaskChangeEvent": [
 				"Child sObject [TaskChangeEvent] is not processed"
 			],
-			"OrderItem__c.TopicAssignments => TopicAssignment": [
+			"ETOrchestrateDC__DCO_Master__c.TopicAssignments => TopicAssignment": [
 				"Child sObject [TopicAssignment] is not processed"
 			],
-			"OrderItem__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
+			"ETOrchestrateDC__DCO_Master__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
 				"Child sObject [UserDefinedLabelAssignment] is not processed"
 			],
 			"Lead.null => AIInsightValue": [
@@ -3070,135 +3196,6 @@
 			],
 			"Lead.null => UserPrioritizedRecord": [
 				"Child sObject [UserPrioritizedRecord] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => AIInsightValue": [
-				"Child sObject [AIInsightValue] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => AIRecordInsight": [
-				"Child sObject [AIRecordInsight] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.AttachedContentDocuments => AttachedContentDocument": [
-				"Child sObject [AttachedContentDocument] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.Attachments => Attachment": [
-				"Child sObject [Attachment] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.RecordAssociatedGroups => CollaborationGroupRecord": [
-				"Child sObject [CollaborationGroupRecord] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.CombinedAttachments => CombinedAttachment": [
-				"Child sObject [CombinedAttachment] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.ContactRequests => ContactRequest": [
-				"Child sObject [ContactRequest] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => ContentDistribution": [
-				"Child sObject [ContentDistribution] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.ContentDocumentLinks => ContentDocumentLink": [
-				"Child sObject [ContentDocumentLink] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => ContentDocumentLinkChangeEvent": [
-				"Child sObject [ContentDocumentLinkChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => ContentVersion": [
-				"Child sObject [ContentVersion] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => ContentVersionChangeEvent": [
-				"Child sObject [ContentVersionChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.DuplicateRecordItems => DuplicateRecordItem": [
-				"Child sObject [DuplicateRecordItem] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.Histories => ETOrchestrateDC__DCO_Master__History": [
-				"Child sObject [ETOrchestrateDC__DCO_Master__History] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.Shares => ETOrchestrateDC__DCO_Master__Share": [
-				"Child sObject [ETOrchestrateDC__DCO_Master__Share] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => EmailMessageChangeEvent": [
-				"Child sObject [EmailMessageChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.FeedSubscriptionsForEntity => EntitySubscription": [
-				"Child sObject [EntitySubscription] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => EventChangeEvent": [
-				"Child sObject [EventChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => EventRelationChangeEvent": [
-				"Child sObject [EventRelationChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => FeedComment": [
-				"Child sObject [FeedComment] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => FeedItem": [
-				"Child sObject [FeedItem] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.FinanceBalanceSnapshots => FinanceBalanceSnapshot": [
-				"Child sObject [FinanceBalanceSnapshot] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => FinanceBalanceSnapshotChangeEvent": [
-				"Child sObject [FinanceBalanceSnapshotChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.DestinationFinanceTransactions => FinanceTransaction": [
-				"Child sObject [FinanceTransaction] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.FinanceTransactions => FinanceTransaction": [
-				"Child sObject [FinanceTransaction] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.ParentFinanceTransactions => FinanceTransaction": [
-				"Child sObject [FinanceTransaction] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.SourceFinanceTransactions => FinanceTransaction": [
-				"Child sObject [FinanceTransaction] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => FinanceTransactionChangeEvent": [
-				"Child sObject [FinanceTransactionChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => FlowExecutionErrorEvent": [
-				"Child sObject [FlowExecutionErrorEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.FlowOrchestrationWorkItems => FlowOrchestrationWorkItem": [
-				"Child sObject [FlowOrchestrationWorkItem] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => FlowRecordRelation": [
-				"Child sObject [FlowRecordRelation] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.Notes => Note": [
-				"Child sObject [Note] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.NotesAndAttachments => NoteAndAttachment": [
-				"Child sObject [NoteAndAttachment] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.ProcessExceptions => ProcessException": [
-				"Child sObject [ProcessException] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => ProcessExceptionEvent": [
-				"Child sObject [ProcessExceptionEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.ProcessInstances => ProcessInstance": [
-				"Child sObject [ProcessInstance] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => ProcessInstanceChangeEvent": [
-				"Child sObject [ProcessInstanceChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.ProcessSteps => ProcessInstanceHistory": [
-				"Child sObject [ProcessInstanceHistory] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.RecordActions => RecordAction": [
-				"Child sObject [RecordAction] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.RecordActionHistories => RecordActionHistory": [
-				"Child sObject [RecordActionHistory] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.null => TaskChangeEvent": [
-				"Child sObject [TaskChangeEvent] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.TopicAssignments => TopicAssignment": [
-				"Child sObject [TopicAssignment] is not processed"
-			],
-			"ETOrchestrateDC__DCO_Master__c.UserDefinedLabelAssignments => UserDefinedLabelAssignment": [
-				"Child sObject [UserDefinedLabelAssignment] is not processed"
 			],
 			"Contact.null => AIInsightValue": [
 				"Child sObject [AIInsightValue] is not processed"
@@ -8081,13 +8078,6 @@
 			"PartyConsentShare": [
 				"Was Not requested"
 			],
-			"PartyIdentificationIdentityLink__dlm": [
-				"Must be createable",
-				"Must be deletable",
-				"Must be retrieveable",
-				"Must be updateable",
-				"Was Not requested"
-			],
 			"Payment": [
 				"Was Not requested"
 			],
@@ -9958,13 +9948,6 @@
 				"Must be updateable",
 				"Was Not requested"
 			],
-			"UnifiedPartyIdentification__dlm": [
-				"Must be createable",
-				"Must be deletable",
-				"Must be retrieveable",
-				"Must be updateable",
-				"Was Not requested"
-			],
 			"UnitOfMeasure": [
 				"Was Not requested"
 			],
@@ -10562,13 +10545,6 @@
 				"Was Not requested"
 			],
 			"ssot__Lead__dlm": [
-				"Must be createable",
-				"Must be deletable",
-				"Must be retrieveable",
-				"Must be updateable",
-				"Was Not requested"
-			],
-			"ssot__PartyIdentification__dlm": [
 				"Must be createable",
 				"Must be deletable",
 				"Must be retrieveable",

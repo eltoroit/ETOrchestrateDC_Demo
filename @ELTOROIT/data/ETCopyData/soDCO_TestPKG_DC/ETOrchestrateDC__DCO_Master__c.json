@@ -4,7 +4,7 @@
 		{
 			"attributes": {
 				"type": "ETOrchestrateDC__DCO_Master__c",
-				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02DH000006dWVmYAM"
+				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a028N000007a62rQAA"
 			},
 			"ETOrchestrateDC__ActionName__c": "Create Buckets",
 			"ETOrchestrateDC__ActionType__c": "Identity Resolution",
@@ -16,13 +16,13 @@
 			"ETOrchestrateDC__Message__c": null,
 			"ETOrchestrateDC__NextRun__c": null,
 			"ETOrchestrateDC__Status__c": "New",
-			"Id": "a02DH000006dWVmYAM",
+			"Id": "a028N000007a62rQAA",
 			"Name": "DEMO 02: Create buckets"
 		},
 		{
 			"attributes": {
 				"type": "ETOrchestrateDC__DCO_Master__c",
-				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02DH000006dWVhYAM"
+				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a028N000007a62sQAA"
 			},
 			"ETOrchestrateDC__ActionName__c": "Normalize Phone Numbers",
 			"ETOrchestrateDC__ActionType__c": "Data Transform",
@@ -34,13 +34,13 @@
 			"ETOrchestrateDC__Message__c": null,
 			"ETOrchestrateDC__NextRun__c": null,
 			"ETOrchestrateDC__Status__c": "New",
-			"Id": "a02DH000006dWVhYAM",
+			"Id": "a028N000007a62sQAA",
 			"Name": "DEMO 01: Normalize Phones"
 		},
 		{
 			"attributes": {
 				"type": "ETOrchestrateDC__DCO_Master__c",
-				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02DH000006dWW6YAM"
+				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a028N000007a62tQAA"
 			},
 			"ETOrchestrateDC__ActionName__c": "Top Adult Customers",
 			"ETOrchestrateDC__ActionType__c": "Publish Segment",
@@ -52,85 +52,49 @@
 			"ETOrchestrateDC__Message__c": null,
 			"ETOrchestrateDC__NextRun__c": null,
 			"ETOrchestrateDC__Status__c": "New",
-			"Id": "a02DH000006dWW6YAM",
+			"Id": "a028N000007a62tQAA",
 			"Name": "DEMO 04: Publish Top Customers"
 		},
 		{
 			"attributes": {
 				"type": "ETOrchestrateDC__DCO_Master__c",
-				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02DH000006dWVcYAM"
+				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a028N000007a62uQAA"
 			},
 			"ETOrchestrateDC__ActionName__c": "Normalize Phone Numbers",
 			"ETOrchestrateDC__ActionType__c": "Data Transform",
 			"ETOrchestrateDC__DataSource__c": "OrchestrateDC_Customers*",
 			"ETOrchestrateDC__FlowName__c": "Individuals",
-			"ETOrchestrateDC__IsActive__c": false,
+			"ETOrchestrateDC__IsActive__c": true,
 			"ETOrchestrateDC__LastRun__c": null,
 			"ETOrchestrateDC__MaxFrequency__c": null,
 			"ETOrchestrateDC__Message__c": null,
 			"ETOrchestrateDC__NextRun__c": null,
 			"ETOrchestrateDC__Status__c": "New",
-			"Id": "a02DH000006dWVcYAM",
+			"Id": "a028N000007a62uQAA",
 			"Name": "SIMULATOR 01: Normalize Phones"
 		},
 		{
 			"attributes": {
 				"type": "ETOrchestrateDC__DCO_Master__c",
-				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02DH000006dWVdYAM"
+				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a028N000007a62vQAA"
 			},
 			"ETOrchestrateDC__ActionName__c": "ETOrchestrateDC",
 			"ETOrchestrateDC__ActionType__c": "Identity Resolution",
 			"ETOrchestrateDC__DataSource__c": "NormalizePhoneNumbers",
 			"ETOrchestrateDC__FlowName__c": "Contact Point Phones",
-			"ETOrchestrateDC__IsActive__c": false,
+			"ETOrchestrateDC__IsActive__c": true,
 			"ETOrchestrateDC__LastRun__c": null,
 			"ETOrchestrateDC__MaxFrequency__c": "1 D",
 			"ETOrchestrateDC__Message__c": null,
 			"ETOrchestrateDC__NextRun__c": null,
 			"ETOrchestrateDC__Status__c": "New",
-			"Id": "a02DH000006dWVdYAM",
+			"Id": "a028N000007a62vQAA",
 			"Name": "SIMULATOR 02: Create buckets"
 		},
 		{
 			"attributes": {
 				"type": "ETOrchestrateDC__DCO_Master__c",
-				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02DH000006dWVeYAM"
-			},
-			"ETOrchestrateDC__ActionName__c": "RFM__cio",
-			"ETOrchestrateDC__ActionType__c": "Calculated Insight",
-			"ETOrchestrateDC__DataSource__c": "ANY",
-			"ETOrchestrateDC__FlowName__c": "Unified Individuals",
-			"ETOrchestrateDC__IsActive__c": false,
-			"ETOrchestrateDC__LastRun__c": null,
-			"ETOrchestrateDC__MaxFrequency__c": "1 H",
-			"ETOrchestrateDC__Message__c": null,
-			"ETOrchestrateDC__NextRun__c": null,
-			"ETOrchestrateDC__Status__c": "New",
-			"Id": "a02DH000006dWVeYAM",
-			"Name": "SIMULATOR 03: Calculate RFM"
-		},
-		{
-			"attributes": {
-				"type": "ETOrchestrateDC__DCO_Master__c",
-				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02DH000006dWVfYAM"
-			},
-			"ETOrchestrateDC__ActionName__c": "Top Adult Customers",
-			"ETOrchestrateDC__ActionType__c": "Publish Segment",
-			"ETOrchestrateDC__DataSource__c": "ANY",
-			"ETOrchestrateDC__FlowName__c": "Calculated Insights",
-			"ETOrchestrateDC__IsActive__c": false,
-			"ETOrchestrateDC__LastRun__c": null,
-			"ETOrchestrateDC__MaxFrequency__c": "30 M",
-			"ETOrchestrateDC__Message__c": null,
-			"ETOrchestrateDC__NextRun__c": null,
-			"ETOrchestrateDC__Status__c": "New",
-			"Id": "a02DH000006dWVfYAM",
-			"Name": "SIMULATOR 04: Publish Top Customers"
-		},
-		{
-			"attributes": {
-				"type": "ETOrchestrateDC__DCO_Master__c",
-				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02DH000006dWW1YAM"
+				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a028N000007a62wQAA"
 			},
 			"ETOrchestrateDC__ActionName__c": "RFM__cio",
 			"ETOrchestrateDC__ActionType__c": "Calculated Insight",
@@ -142,7 +106,43 @@
 			"ETOrchestrateDC__Message__c": null,
 			"ETOrchestrateDC__NextRun__c": null,
 			"ETOrchestrateDC__Status__c": "New",
-			"Id": "a02DH000006dWW1YAM",
+			"Id": "a028N000007a62wQAA",
+			"Name": "SIMULATOR 03: Calculate RFM"
+		},
+		{
+			"attributes": {
+				"type": "ETOrchestrateDC__DCO_Master__c",
+				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a028N000007a62xQAA"
+			},
+			"ETOrchestrateDC__ActionName__c": "Top Adult Customers",
+			"ETOrchestrateDC__ActionType__c": "Publish Segment",
+			"ETOrchestrateDC__DataSource__c": "ANY",
+			"ETOrchestrateDC__FlowName__c": "Calculated Insights",
+			"ETOrchestrateDC__IsActive__c": true,
+			"ETOrchestrateDC__LastRun__c": null,
+			"ETOrchestrateDC__MaxFrequency__c": "30 M",
+			"ETOrchestrateDC__Message__c": null,
+			"ETOrchestrateDC__NextRun__c": null,
+			"ETOrchestrateDC__Status__c": "New",
+			"Id": "a028N000007a62xQAA",
+			"Name": "SIMULATOR 04: Publish Top Customers"
+		},
+		{
+			"attributes": {
+				"type": "ETOrchestrateDC__DCO_Master__c",
+				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a028N000007a62yQAA"
+			},
+			"ETOrchestrateDC__ActionName__c": "RFM__cio",
+			"ETOrchestrateDC__ActionType__c": "Calculated Insight",
+			"ETOrchestrateDC__DataSource__c": "ANY",
+			"ETOrchestrateDC__FlowName__c": "Unified Individuals",
+			"ETOrchestrateDC__IsActive__c": true,
+			"ETOrchestrateDC__LastRun__c": null,
+			"ETOrchestrateDC__MaxFrequency__c": "1 H",
+			"ETOrchestrateDC__Message__c": null,
+			"ETOrchestrateDC__NextRun__c": null,
+			"ETOrchestrateDC__Status__c": "New",
+			"Id": "a028N000007a62yQAA",
 			"Name": "DEMO 03: Calculate RFM"
 		}
 	],

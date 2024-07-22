@@ -17,7 +17,7 @@
       "externalIdField": null,
       "twoPassReferenceFields": "",
       "where": null,
-      "orderBy": null,
+      "orderBy": "CustomerId__c",
       "maxRecords": -1
     },
     {
