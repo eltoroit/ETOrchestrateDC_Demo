@@ -13,7 +13,6 @@
     <label>Data Cloud Orchestrator</label>
     <navType>Standard</navType>
     <setupExperience>audience360</setupExperience>
-    <subscriberTabs>Demo</subscriberTabs>
     <tabs>ETOrchestrateDC__DCO_Master__c</tabs>
     <tabs>ETOrchestrateDC__DCO_DmoReceived__c</tabs>
     <tabs>ETOrchestrateDC__DCO_DmoScheduled__c</tabs>
