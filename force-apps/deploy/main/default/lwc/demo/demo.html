@@ -2,15 +2,53 @@
     <template lwc:if={isLoading}>
         <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
     </template>
-    <lightning-card title="Demo">
-        <div class="slds-m-around_medium slds-align_absolute-center">
-            <lightning-button-group>
-                <lightning-button label="Randomize Data" onclick={onRandomizeData} variant="brand"></lightning-button>
-                <lightning-button label="View Custom Metadata Types" onclick={onView__mdt}></lightning-button>
-                <lightning-button label="Show Time Queue" onclick={onShowTimeQueue}></lightning-button>
-                <lightning-button label="Run Simulator" onclick={onRunSimulator}></lightning-button>
-                <lightning-button label="Reset Master Data" onclick={onResetData} variant="destructive"></lightning-button>
-            </lightning-button-group>
-        </div>
-    </lightning-card>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="6">
+            <div class="slds-m-around_medium">
+                <lightning-card title="Demo">
+                    <div class="slds-m-around_medium slds-align_absolute-center">
+                        <lightning-button-group>
+                            <lightning-button label="Randomize Data" onclick={onRandomizeData}
+                                variant="brand"></lightning-button>
+                            <lightning-button label="Manually Refresh Data Streams (optional)"
+                                onclick={onManualRefreshDataStreams}></lightning-button>
+                        </lightning-button-group>
+                    </div>
+                </lightning-card>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="6">
+            <div class="slds-m-around_medium">
+                <lightning-card title="Simulator">
+                    <div class="slds-m-around_medium slds-align_absolute-center">
+                        <lightning-button-group>
+                            <lightning-button label="Run Simulator" onclick={onRunSimulator}
+                                variant="brand"></lightning-button>
+                            <lightning-button label="Create Simulation Data" onclick={onCreateSimulationData}
+                                variant="success"></lightning-button>
+                            <lightning-button label="Delete Simulation Data" onclick={onDeleteSimulationData}
+                                variant="destructive"></lightning-button>
+                        </lightning-button-group>
+                    </div>
+                </lightning-card>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <div class="slds-m-around_medium">
+                <lightning-card title="Setup">
+                    <div class="slds-m-around_medium slds-align_absolute-center">
+                        <lightning-button-group>
+                            <lightning-button label="View Custom Metadata Types"
+                                onclick={onView__mdt}></lightning-button>
+                            <lightning-button label="Show Time Queue" onclick={onShowTimeQueue}></lightning-button>
+                            <lightning-button label="Reset Master Data" onclick={onResetData}
+                                variant="destructive"></lightning-button>
+                            <lightning-button label="Delete Temp Records" onclick={onDeleteTempRecords}
+                                variant="destructive"></lightning-button>
+                        </lightning-button-group>
+                    </div>
+                </lightning-card>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
 </template>

@@ -1,9 +1,12 @@
 import { LightningElement } from "lwc";
 import resetMasters from "@salesforce/apex/Demo.resetMasters";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
+import deleteTempRecords from "@salesforce/apex/Demo.deleteTempRecords";
 import simulateIngestAPI from "@salesforce/apex/Demo.simulateIngestAPI";
 import getDataToRandomize from "@salesforce/apex/Demo.getDataToRandomize";
 import saveRandomizedData from "@salesforce/apex/Demo.saveRandomizedData";
+import createSimulationData from "@salesforce/apex/Demo.createSimulationData";
+import deleteSimulationData from "@salesforce/apex/Demo.deleteSimulationData";
 
 export default class Demo extends LightningElement {
 	isLoading = false;
@@ -27,7 +30,34 @@ export default class Demo extends LightningElement {
 		window.open("/lightning/setup/DataManagementManageWorkflowQueue/home", "timeQueue").focus();
 	}
 
-	async onRandomizeData() {
+	onManualRefreshDataStreams() {
+		window.open("/lightning/o/DataStream/list?filterName=My_DataStreams", "_top").focus();
+	}
+
+	onRandomizeData() {
+		this.randomizer();
+	}
+
+	async onCreateSimulationData() {
+		this.isLoading = true;
+		await createSimulationData();
+		this.isLoading = false;
+	}
+	
+	async onDeleteTempRecords() {
+		this.isLoading = true;
+		await deleteTempRecords();
+		this.isLoading = false;
+	}
+
+	async onDeleteSimulationData() {
+		this.isLoading = true;
+		await deleteSimulationData();
+		this.isLoading = false;
+	}
+
+	//#region Randomizer
+	async randomizer() {
 		this.isLoading = true;
 		let data = await getDataToRandomize();
 		data = JSON.parse(JSON.stringify(data));
@@ -45,10 +75,6 @@ export default class Demo extends LightningElement {
 				mode: "dismissible"
 			})
 		);
-		// eslint-disable-next-line
-		setTimeout(() => {
-			window.open("/lightning/o/DataStream/list?filterName=My_DataStreams", "_top").focus();
-		}, 2e3);
 	}
 
 	randomContacts({ contacts }) {
@@ -132,4 +158,5 @@ export default class Demo extends LightningElement {
 		}
 		return updatedOrders;
 	}
+	//#endregion Randomizer
 }
