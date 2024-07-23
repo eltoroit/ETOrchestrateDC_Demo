@@ -10,6 +10,23 @@ import deleteSimulationData from "@salesforce/apex/Demo.deleteSimulationData";
 
 export default class Demo extends LightningElement {
 	isLoading = false;
+
+	onView__mdt() {
+		window.open("/lightning/setup/CustomMetadata/home", "mdt").focus();
+	}
+
+	onShowTimeQueue() {
+		window.open("/lightning/setup/DataManagementManageWorkflowQueue/home", "timeQueue").focus();
+	}
+
+	onManualRefreshDataStreams() {
+		window.open("/lightning/o/DataStream/list?filterName=My_DataStreams", "DSO").focus();
+	}
+
+	onViewMasterRecords() {
+		window.open("/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "MaterRecords").focus();
+	}
+
 	async onResetData() {
 		this.isLoading = true;
 		await resetMasters();
@@ -22,18 +39,6 @@ export default class Demo extends LightningElement {
 		this.isLoading = false;
 	}
 
-	onView__mdt() {
-		window.open("/lightning/setup/CustomMetadata/home", "mdt").focus();
-	}
-
-	onShowTimeQueue() {
-		window.open("/lightning/setup/DataManagementManageWorkflowQueue/home", "timeQueue").focus();
-	}
-
-	onManualRefreshDataStreams() {
-		window.open("/lightning/o/DataStream/list?filterName=My_DataStreams", "_top").focus();
-	}
-
 	onRandomizeData() {
 		this.randomizer();
 	}
@@ -43,7 +48,7 @@ export default class Demo extends LightningElement {
 		await createSimulationData();
 		this.isLoading = false;
 	}
-	
+
 	async onDeleteTempRecords() {
 		this.isLoading = true;
 		await deleteTempRecords();
