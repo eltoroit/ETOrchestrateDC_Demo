@@ -3,7 +3,9 @@
     <contactEmail>aperez@salesforce.com</contactEmail>
     <label>ETOrchestrateDC</label>
     <oauthConfig>
-        <callbackUrl>null:null</callbackUrl>
+        <callbackUrl>null:null
+https://dream-inspiration-9650-dev-ed.scratch.my.salesforce.com/services/authcallback/ETOrchestrateDC</callbackUrl>
+        <consumerKey>3MVG9BJjUUIJZf1zNx29l10IaVRVMjqnYtxBNizdmV.92KN7_zvO_f0ik0BCKyc6MDZJSZsz9J82lIxK43k.q</consumerKey>
         <isAdminApproved>false</isAdminApproved>
         <isClientCredentialEnabled>false</isClientCredentialEnabled>
         <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
@@ -33,4 +35,4 @@
         <isTokenExchangeFlowEnabled>false</isTokenExchangeFlowEnabled>
         <refreshTokenPolicy>infinite</refreshTokenPolicy>
     </oauthPolicy>
-</ConnectedApp> 
+</ConnectedApp>
