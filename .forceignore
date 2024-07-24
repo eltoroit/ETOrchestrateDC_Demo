@@ -21,6 +21,13 @@ Admin.profile
 # Ignore any profile... Comment this line if you do need to work with your own profiles
 **/profiles/** 
 
+# Org Specifc files
+**/authproviders/**
+**/connectedApps/**
+**/externalCredentials/**
+**/namedCredentials/**
+**/permissionsets/ETOrchestrateDC_Credentials.permissionset-meta.xml
+
 #  Files Created by Data Cloud
 **/authproviders/*SegmentIntelligence*
 **/cdp_crm_dk1__*

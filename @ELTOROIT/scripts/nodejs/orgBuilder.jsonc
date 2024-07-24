@@ -38,11 +38,11 @@
 		"ShowDeployPage",
 		"PushMetadata",
 		{ "AssignPermissionSet": "psDataCloudData" },
-		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 		{ "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
 		// === I do not want to push pull this metadata files
 		{ "DeployMetadata": "./force-apps/OrgSpecific/" },
+		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 
 		// === Loading Data ===
 		{ "ETCopyData": "./@ELTOROIT/data" },
@@ -50,7 +50,7 @@
 		// === Configure Data Cloud ===
 		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
 
-		// These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist
+		// These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist and the deployment will fail
 		{ "DeployMetadata": "./force-apps/PostConfigDC/" },
 
 		// === Configure HTTP Callouts ===
