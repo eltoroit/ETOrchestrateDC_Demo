@@ -67,7 +67,7 @@
       "externalIdField": null,
       "twoPassReferenceFields": "",
       "where": null,
-      "orderBy": null
+      "orderBy": "Name"
     }
   ],
   "sObjectsMetadata": [],
