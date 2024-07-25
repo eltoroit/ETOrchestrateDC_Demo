@@ -29,7 +29,7 @@
     - ⬇️ Configure HTTP Callouts (see below)
 3. ⬇️ Test it (See below)
 
-# Configure Data Cloud
+## Configure Data Cloud
 
 1.  Ingest Salesforce standard objects
     -   Use the Sales Cloud Data Bundle
@@ -78,7 +78,7 @@
 6.  Create the Identity Resolution Ruleset
     -   Primary DMO: `Individual`
     -   Name: `Create Buckets`
-    -   Toggle `Run jobs automatically` off
+    -   Toggle `Run jobs automatically` off **<<< VERY IMPORTANT**
     -   Fuzzy Name and Normalized Email (Standard configuration)
     -   Fuzzy Name and Normalized Phone (Standard configuration)
     -   Fuzzy Name and Normalized Address (Standard configuration)
@@ -91,7 +91,7 @@
     -   Type: Data Cloud
     -   Name: `ETOrchestrateDC`
 9.  Create Segment
-    -   Name: `Top Adult Customers`
+    -   Name: `Top & Adult Customers`
     -   Segment on: `Unified Individual`
     -   Type: `Standard Publish`
     -   **OR**
@@ -109,7 +109,7 @@
         -   Preferred Name for `Formatted E164 Phone Number`: `Phone`
     -   Name: `Activate Top Adult Customers`
     -   Refresh Type: `Incremental Refresh`
-11. Create Data Graph
+11. [OPTIONAL] Create Data Graph
     -   Go to this URL: `/lightning/o/DataGraph/list?filterName=__Recent`
     -   Name: `ETOrchestrateDC Graph`
     -   Primary Data Model Object: `Unified Individual`
@@ -165,20 +165,20 @@
                     -   MonetaryLifetime
                     -   Recency
 
-# Configure HTTP Callouts
+## Configure HTTP Callouts
 
 This is not part of ETOrchestrateDC for two reasons:
 
 1. I do not know what can be configured in a managed package and what is blocked. You need to make some changes, and it may not be possible if it's locked being a managed package.
 2. I do not want to fail security review 😳
 
-## Steps
+### Steps
 
 1. Open Connected App [ETOrchestrateDC]
     - [**Open Page**](/lightning/setup/NavigationMenus/home)
         - Keep this tab open, we'll need to make changes later
     - Click **Manage Consumer Details**
-    - From email copy security number
+    - Use security code received via email
     - Copy Key and Secret, paste them into the `etLogs/_user.json` file
 2. Open Auth. Provider [ETOrchestrateDC]
     - [**Open Page**](/lightning/setup/AuthProviders/home)
