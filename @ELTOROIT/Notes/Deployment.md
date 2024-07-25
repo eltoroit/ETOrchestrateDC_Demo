@@ -13,6 +13,14 @@
     -   Monitoring Data Streams...
         -   `SELECT Id, Name, ImportRunStatus, LastRefreshDate, LastNumberOfRowsAddedCount, TotalNumberOfRowsAdded, ExternalRecordIdentifier, TotalRowsProcessed, LastDataChangeStatusDateTime, LastDataChangeStatusErrorCode, ExternalStreamErrorCode FROM DataStream`
     -   `SELECT Id__c, CustomerId_c__c, Name__c, DateBirth_c__c, AssistantPhone__c, Phone__c, HomePhone__c, MobilePhone__c FROM Contact_Home__dll ORDER BY CustomerId_c__c ASC`
+-   Things to fix AFTER security review passes
+    -   I could not call the segment "Adult & Top Customers"
+        -   The ampersant gave me some errors. I may need to URLEncode it
+    -   ETOrchestrateDC**DCO_DmoReceived**c
+        -   The page layout for the Received record is missing field for Source Object
+        -   Consider removing the message field in the Received object is useless.
+    -   ETOrchestrateDC**DCO_DmoScheduled**c
+        -   Consider removing these records when they become processed, maybe use Custom MDT to control if it should be removed, similar to the ETOrchestrateDC**DCO_DmoReceived**c
 
 # ========================================================================================================================
 
@@ -91,7 +99,7 @@
     -   Type: Data Cloud
     -   Name: `ETOrchestrateDC`
 9.  Create Segment
-    -   Name: `Top & Adult Customers`
+    -   Name: `Top And Adult Customers`
     -   Segment on: `Unified Individual`
     -   Type: `Standard Publish`
     -   **OR**
@@ -194,6 +202,7 @@ This is not part of ETOrchestrateDC for two reasons:
 4. Go To Named Credentials [ETOrchestrateDC]
     - [**Open Page**](/lightning/setup/NamedCredential/home)
     - Change URL to `https://***.scratch.my.salesforce.com`
+    - URL can be the domain from the callback URL in the Auth. Provider
 5. Go to External Credentials [ETOrchestrateDC]
     - Click on [ETOrchestrateDC] under Authentication > External Credential
     - Authenticate
