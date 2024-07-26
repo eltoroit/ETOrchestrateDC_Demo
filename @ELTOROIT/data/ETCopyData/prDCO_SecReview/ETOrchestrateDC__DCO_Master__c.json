@@ -60,7 +60,7 @@
 				"type": "ETOrchestrateDC__DCO_Master__c",
 				"url": "/services/data/v61.0/sobjects/ETOrchestrateDC__DCO_Master__c/a02bm000001vABoAAM"
 			},
-			"ETOrchestrateDC__ActionName__c": "Top And Adult Customers",
+			"ETOrchestrateDC__ActionName__c": "Top Or Adult Customers",
 			"ETOrchestrateDC__ActionType__c": "Publish Segment",
 			"ETOrchestrateDC__DataSource__c": "ANY",
 			"ETOrchestrateDC__FlowName__c": "Calculated Insights",
@@ -71,7 +71,7 @@
 			"ETOrchestrateDC__NextRun__c": null,
 			"ETOrchestrateDC__Status__c": "New",
 			"Id": "a02bm000001vABoAAM",
-			"Name": "DEMO 04: Publish Top & Top Customers"
+			"Name": "DEMO 04: Publish Top Or Adult Customers"
 		}
 	],
 	"total": 4
