@@ -91,7 +91,7 @@
     -   Type: Data Cloud
     -   Name: `ETOrchestrateDC`
 9.  Create Segment
-    -   Name: `Top & Adult Customers`
+    -   Name: `Top Or Adult Customers`
     -   Segment on: `Unified Individual`
     -   Type: `Standard Publish`
     -   **OR**
@@ -107,7 +107,7 @@
         -   RFM Combined
     -   Contact Point Phone
         -   Preferred Name for `Formatted E164 Phone Number`: `Phone`
-    -   Name: `Activate Top Adult Customers`
+    -   Name: `Activate Top Or Adult Customers`
     -   Refresh Type: `Incremental Refresh`
 11. [OPTIONAL] Create Data Graph
     -   Go to this URL: `/lightning/o/DataGraph/list?filterName=__Recent`
