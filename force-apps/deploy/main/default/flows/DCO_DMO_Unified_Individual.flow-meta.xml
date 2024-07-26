@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <description>Fires when DMO records in UnifiedIndividual__dlm are upserted to create DCO_DmoReceived__c records. It requires the ID of the ruleset which can be grabbed from the URL.</description>
+    <environments>Default</environments>
+    <interviewLabel>DCO DMO Unified Individual {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DCO DMO Unified Individual</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>SUB010</targetReference>
+        </connector>
+        <object>UnifiedIndividual__dlm</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>DataCloudDataChange</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>SUB010</name>
+        <label>SUB010 Creates DMOLogger</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <flowName>ETOrchestrateDC__DCO_Subflow_DmoReceiver</flowName>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>Unified Individuals</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Message</name>
+            <value>
+                <stringValue>FLOW: DCO DMO Unified Individuals</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SourceObject</name>
+            <value>
+                <stringValue>ANY</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>
