@@ -1,0 +1,11 @@
+<scopes>Basic</scopes>
+<scopes>Full</scopes>
+<scopes>RefreshToken</scopes>
+<scopes>OpenID</scopes>
+<scopes>CDPIngest</scopes>
+<scopes>CDPProfile</scopes>
+<scopes>CDPQuery</scopes>
+<scopes>CDPSegment</scopes>
+<scopes>CDPIdentityResolution</scopes>
+<scopes>CDPCalculatedInsight</scopes>
+<scopes>CDP</scopes>
