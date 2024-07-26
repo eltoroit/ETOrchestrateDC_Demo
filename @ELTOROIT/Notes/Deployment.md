@@ -24,7 +24,7 @@
 -   OAuth Scopes:
     -   TEST:
         -   api cdp_ingest_api cdp_profile_api cdp_query_api cdp_segment_api cdp_identityresolution_api cdp_calculated_insight_api cdp_api refresh_token offline_access
-    -   WORKS:
+    -   WORKS (but too many):
         -   Manage user data via APIs (api)
         -   Manage user data via Web browsers (web)
         -   Full access (full)
@@ -36,6 +36,13 @@
         -   Manage Data Cloud Identity Resolution (cdp_identityresolution_api)
         -   Manage Data Cloud Calculated Insight data (cdp_calculated_insight_api)
         -   Access all Data Cloud API resources (cdp_api)
+    -   Maybe it's not a problem of scopes, but a problem of permissions
+        -   Problem not finding segments
+            -   [{"message":"This feature is not currently enabled for this user.","errorCode":"FUNCTIONALITY_NOT_ENABLED"}]
+        -   Added `Data Cloud Marketing Admin` permission set to user
+        -   These permissions seem to be enough
+            -   Manage user data via APIs (api)
+            -   Perform requests at any time (refresh_token, offline_access)
 
 # ========================================================================================================================
 
