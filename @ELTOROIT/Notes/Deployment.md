@@ -16,11 +16,26 @@
 -   Things to fix AFTER security review passes
     -   I could not call the segment "Adult & Top Customers"
         -   The ampersant gave me some errors. I may need to URLEncode it
-    -   ETOrchestrateDC**DCO_DmoReceived**c
+    -   `ETOrchestrateDC__DCO_DmoReceived__c`
         -   The page layout for the Received record is missing field for Source Object
         -   Consider removing the message field in the Received object is useless.
-    -   ETOrchestrateDC**DCO_DmoScheduled**c
-        -   Consider removing these records when they become processed, maybe use Custom MDT to control if it should be removed, similar to the ETOrchestrateDC**DCO_DmoReceived**c
+    -   `ETOrchestrateDC__DCO_DmoScheduled__c`
+        -   Consider removing these records when they become processed, maybe use Custom MDT to control if it should be removed, similar to the `ETOrchestrateDC__DCO_DmoReceived__c`
+-   OAuth Scopes:
+    -   TEST:
+        -   api cdp_ingest_api cdp_profile_api cdp_query_api cdp_segment_api cdp_identityresolution_api cdp_calculated_insight_api cdp_api refresh_token offline_access
+    -   WORKS:
+        -   Manage user data via APIs (api)
+        -   Manage user data via Web browsers (web)
+        -   Full access (full)
+        -   Perform requests at any time (refresh_token, offline_access)
+        -   Manage Data Cloud Ingestion API data (cdp_ingest_api)
+        -   Manage Data Cloud profile data (cdp_profile_api)
+        -   Perform ANSI SQL queries on Data Cloud data (cdp_query_api)
+        -   Perform segmentation on Data Cloud data (cdp_segment_api)
+        -   Manage Data Cloud Identity Resolution (cdp_identityresolution_api)
+        -   Manage Data Cloud Calculated Insight data (cdp_calculated_insight_api)
+        -   Access all Data Cloud API resources (cdp_api)
 
 # ========================================================================================================================
 
