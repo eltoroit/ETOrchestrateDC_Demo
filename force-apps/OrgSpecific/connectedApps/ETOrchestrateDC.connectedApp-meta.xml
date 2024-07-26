@@ -3,7 +3,7 @@
     <contactEmail>aperez@salesforce.com</contactEmail>
     <label>ETOrchestrateDC</label>
     <oauthConfig>
-        <callbackUrl>null:null</callbackUrl>
+        <callbackUrl>https://20240717-securityet-orchest-dev-ed.develop.my.salesforce.com/services/authcallback/ETOrchestrateDC</callbackUrl>
         <isAdminApproved>false</isAdminApproved>
         <isClientCredentialEnabled>false</isClientCredentialEnabled>
         <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
@@ -16,8 +16,16 @@
         <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
         <isSecretRequiredForTokenExchange>false</isSecretRequiredForTokenExchange>
         <isTokenExchangeEnabled>false</isTokenExchangeEnabled>
-        <scopes>Api</scopes>
+        <scopes>Basic</scopes>
+        <scopes>Full</scopes>
         <scopes>RefreshToken</scopes>
+        <scopes>OpenID</scopes>
+        <scopes>CDPIngest</scopes>
+        <scopes>CDPProfile</scopes>
+        <scopes>CDPQuery</scopes>
+        <scopes>CDPSegment</scopes>
+        <scopes>CDPIdentityResolution</scopes>
+        <scopes>CDPCalculatedInsight</scopes>
         <scopes>CDP</scopes>
     </oauthConfig>
     <oauthPolicy>
