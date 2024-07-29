@@ -43,6 +43,8 @@
         -   These permissions seem to be enough
             -   Manage user data via APIs (api)
             -   Perform requests at any time (refresh_token, offline_access)
+-   API Documentation
+    -   https://documenter.getpostman.com/view/9044268/2sA3kYjzuD
 
 # ========================================================================================================================
 
