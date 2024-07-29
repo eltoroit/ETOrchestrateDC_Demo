@@ -7,10 +7,6 @@
 		{
 			"path": "force-apps/doNotDeploy",
 			"default": false
-		},
-		{
-			"path": "force-apps/OrgSpecific",
-			"default": false
 		}
 	],
 	"name": "et-basic-project",
