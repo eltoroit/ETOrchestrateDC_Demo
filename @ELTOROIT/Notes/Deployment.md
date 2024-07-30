@@ -21,6 +21,8 @@
         -   Consider removing the message field in the Received object is useless.
     -   `ETOrchestrateDC__DCO_DmoScheduled__c`
         -   Consider removing these records when they become processed, maybe use Custom MDT to control if it should be removed, similar to the `ETOrchestrateDC__DCO_DmoReceived__c`
+    -   I may have found the problem with FLS, use the admin as the sdhedued pacth user on the flow
+        -   Default Workflow User: The default workflow user is required for scheduled paths in record-triggered flows and time-dependent actions in workflow rules. If the user who triggered the automation is no longer active, the default workflow user is associated with the actions that are executed by the automation. The default workflow user always runs schedule-triggered flows.
 -   OAuth Scopes:
     -   TEST:
         -   api cdp_ingest_api cdp_profile_api cdp_query_api cdp_segment_api cdp_identityresolution_api cdp_calculated_insight_api cdp_api refresh_token offline_access
@@ -36,14 +38,15 @@
         -   Manage Data Cloud Identity Resolution (cdp_identityresolution_api)
         -   Manage Data Cloud Calculated Insight data (cdp_calculated_insight_api)
         -   Access all Data Cloud API resources (cdp_api)
-    -   Maybe it's not a problem of scopes, but a problem of permissions
-        -   Problem not finding segments
-            -   [{"message":"This feature is not currently enabled for this user.","errorCode":"FUNCTIONALITY_NOT_ENABLED"}]
-        -   Added `Data Cloud Marketing Admin` permission set to user
-        -   These permissions seem to be enough
-            -   Manage user data via APIs (api)
-            -   Perform requests at any time (refresh_token, offline_access)
--   API Documentation
+    -   Problem not finding segments
+        -   [{"message":"This feature is not currently enabled for this user.","errorCode":"FUNCTIONALITY_NOT_ENABLED"}]
+    -   Added `Data Cloud Marketing Admin` permission set to user
+    -   These permissions seem to be enough
+        -   Manage user data via APIs (api)
+        -   Perform requests at any time (refresh_token, offline_access)
+-   Error: No such column 'ETOrchestrateDC**DataSource**c' on entity 'ETOrchestrateDC**DCO_Master**c'. If you are attempting to use a custom field, be sure to append the '\_\_c' after the custom field name.
+    -   I was having this problem in the org that I used for security review. I though it had to do with permission sets for the automated user. It ended up being not selecting the user who runs the scheduled path flows.
+-   API Documentation for security review
     -   https://documenter.getpostman.com/view/9044268/2sA3kYjzuD
 
 # ========================================================================================================================
