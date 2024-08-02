@@ -2,7 +2,7 @@
 <AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
     <consumerKey>Placeholder_Value</consumerKey>
     <consumerSecret>Placeholder_Value</consumerSecret>
-    <defaultScopes>api cdp_api refresh_token offline_access</defaultScopes>
+    <defaultScopes>api refresh_token offline_access</defaultScopes>
     <friendlyName>ETOrchestrateDC</friendlyName>
     <includeOrgIdInIdentifier>true</includeOrgIdInIdentifier>
     <isPkceEnabled>false</isPkceEnabled>
