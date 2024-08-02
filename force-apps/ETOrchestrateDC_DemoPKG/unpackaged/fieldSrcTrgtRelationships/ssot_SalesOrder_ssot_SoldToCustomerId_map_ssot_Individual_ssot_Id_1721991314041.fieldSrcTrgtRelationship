@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSrcTrgtRelationship xmlns="http://soap.sforce.com/2006/04/metadata">
+    <definitionCreationType>Custom</definitionCreationType>
+    <lookupFieldName>ssot__SalesOrder__dlm.rel_1721991314041_end__c</lookupFieldName>
+    <masterLabel>ssot_SalesOrder_ssot_SoldToCustomerId_map_ssot_Individual_ssot_Id_1721991314041</masterLabel>
+    <relationshipCardinality>ManyToOne</relationshipCardinality>
+    <sourceFieldName>ssot__SalesOrder__dlm.ssot__SoldToCustomerId__c</sourceFieldName>
+    <targetFieldName>ssot__Individual__dlm.ssot__Id__c</targetFieldName>
+</FieldSrcTrgtRelationship>

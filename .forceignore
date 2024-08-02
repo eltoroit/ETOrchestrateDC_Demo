@@ -52,3 +52,6 @@ Admin.profile
 **/objectSourceTargetMaps
 **/objectSourceTargetMaps/IndividualGDPRState*
 **/ssot__*
+**/tsconfig.json
+
+**/*.ts

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataKitObjectDependency xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataPackageKitDef>ETOrchestrateDC_DemoDK</dataPackageKitDef>
+    <developerName>SalesforceDotCom_Home1</developerName>
+    <masterLabel>Salesforce Connector Salesforce Home</masterLabel>
+    <sourceObject>Product_c_Home</sourceObject>
+    <sourceObjectType>DataStreamTemplate</sourceObjectType>
+    <targetObject>SalesforceDotCom_Home</targetObject>
+</DataKitObjectDependency>
