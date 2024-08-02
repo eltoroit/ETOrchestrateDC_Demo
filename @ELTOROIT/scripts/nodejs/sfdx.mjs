@@ -256,9 +256,20 @@ export default class SFDX {
 
 		// Deploy metadata
 		try {
+			debugger;
 			const { stepNumber, stepMethod } = this.getStepId({ config });
 			config.currentStep = `${stepNumber}. ${stepMethod}`;
-			command = `sf project deploy start --source-dir="${data}" --wait=30 --verbose --json`;
+			let location = 'ERROR';
+			if (typeof data === 'string') {
+				location = `--source-dir="${data}"`;
+			} else if (data['source-dir']) {
+				location = `--source-dir="${data['source-dir']}"`;
+			} else if (data['metadata-dir']) {
+				location = `--metadata-dir="${data['metadata-dir']}"`;
+			} else {
+				throw "Can't understand request";
+			}
+			command = `sf project deploy start ${location} --wait=30 --verbose --json`;
 			logFile = `${stepNumber}_${stepMethod}.json`;
 			await this._runSFDX({ config, command, logFile });
 		} catch (ex) {
