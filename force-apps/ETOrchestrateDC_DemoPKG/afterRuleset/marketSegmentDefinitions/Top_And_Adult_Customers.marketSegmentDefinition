@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MarketSegmentDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <includeCriteria>{&quot;type&quot;:&quot;LogicalComparison&quot;,&quot;operator&quot;:&quot;or&quot;,&quot;filters&quot;:[{&quot;type&quot;:&quot;DateComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;UnifiedIndividual__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__BirthDate__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;before&quot;,&quot;value&quot;:[&quot;2000-01-01&quot;]},{&quot;type&quot;:&quot;CalculatedInsight&quot;,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;RFM__cio&quot;,&quot;fieldApiName&quot;:&quot;UnifiedID__c&quot;},&quot;path&quot;:[[{&quot;objectApiName&quot;:&quot;UnifiedIndividual__dlm&quot;,&quot;fieldApiName&quot;:&quot;ssot__Id__c&quot;},{&quot;objectApiName&quot;:&quot;RFM__cio&quot;,&quot;fieldApiName&quot;:&quot;UnifiedID__c&quot;}]],&quot;comparison&quot;:{&quot;type&quot;:&quot;NumberComparison&quot;,&quot;path&quot;:null,&quot;joinPath&quot;:null,&quot;subject&quot;:{&quot;objectApiName&quot;:&quot;RFM__cio&quot;,&quot;fieldApiName&quot;:&quot;RFMCombined__c&quot;},&quot;selfReference&quot;:false,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:1111}}]}</includeCriteria>
+    <masterLabel>Top Or Adult Customers</masterLabel>
+    <segmentOn>UnifiedIndividual__dlm</segmentOn>
+    <segmentType>UI</segmentType>
+</MarketSegmentDefinition>
