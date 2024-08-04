@@ -18,7 +18,6 @@
         <isTokenExchangeEnabled>false</isTokenExchangeEnabled>
         <scopes>Api</scopes>
         <scopes>RefreshToken</scopes>
-        <scopes>CDP</scopes>
     </oauthConfig>
     <oauthPolicy>
         <ipRelaxation>BYPASS</ipRelaxation>
