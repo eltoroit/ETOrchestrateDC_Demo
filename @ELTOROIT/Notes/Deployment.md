@@ -29,7 +29,105 @@
     - ⬇️ Configure HTTP Callouts (see below)
 3. ⬇️ Test it (See below)
 
-## Configure Data Cloud
+## Configure Data Cloud With A Package
+
+1. Ingest Salesforce standard objects
+    - Data Stream > New > Salesforce > "ETOrchestrateDC_DemoBundle" Bundle
+2. Create DLO
+    - DLOs > New > Data Kit
+3. Create Batch Data Transform on DLOs
+    - Data Transforms > New > Data Kit >
+    - Name: `Normalize Phone Numbers`
+4. Create the Identity Resolution Ruleset
+    - Primary DMO: `Individual`
+    - Name: `Create Buckets`
+    - Toggle `Run jobs automatically` off **<<< VERY IMPORTANT**
+    - Fuzzy Name and Normalized Email (Standard configuration)
+    - Fuzzy Name and Normalized Phone (Standard configuration)
+    - Fuzzy Name and Normalized Address (Standard configuration)
+    - Ignore reconciliation rules
+5. Create a calculated insight
+    - Create from Data Kit
+    - Name: `RFM`
+6. Create Activation target
+    - Type: Data Cloud
+    - Name: `ETOrchestrateDC`
+7. Create Segment
+    - Name: `Top Or Adult Customers`
+    - Segment on: `Unified Individual`
+    - Type: `Standard Publish`
+    - **OR**
+        - Container: `Birth Date` Is Before `Jan 1, 2000`
+        - Container: `RFMCombined__c` = `1111`
+8. Create Activation
+    - Activation Target: `ETOrchestrateDC`
+    - Activation Membership: `Unified Individual`
+    - Select both Contact Points (email, phone)
+    - Add Attributes:
+        - Person Name
+        - Birth Date
+        - RFM Combined
+    - Contact Point Phone
+        - Preferred Name for `Formatted E164 Phone Number`: `Phone`
+    - Name: `Activate Top Or Adult Customers`
+    - Refresh Type: `Incremental Refresh`
+9. [OPTIONAL] Create Data Graph
+    - Go to this URL: `/lightning/o/DataGraph/list?filterName=__Recent`
+    - Name: `ETOrchestrateDC Graph`
+    - Primary Data Model Object: `Unified Individual`
+    - Graph
+        - Unified Individual (3/9)
+            - Fields
+                - ✅ Unified Individual Id
+                - Birth Date
+                - Person Name
+            - Unified Link Individual (4/8)
+                - Fields
+                    - ✅ Individual Id
+                    - ✅ Key Qualifier Id
+                    - ✅ Unified Individual Id
+                    - Match Keys
+                - Individual (6/12)
+                    - Fields
+                        - ✅ Individual Id
+                        - ✅ Key Qualifier Individual Id
+                        - Birth Date
+                        - Data Source
+                        - Data Source Object
+                        - Person Name
+                    - Sales Order (9/10)
+                        - Fields
+                            - ✅ Created Date
+                            - ✅ Key Qualifier Sales Order Id
+                            - ✅ Key Qualifier Sold To Customer
+                            - ✅ Sales Order Id
+                            - ✅ Sold To Customer
+                            - Data Source
+                            - Data Source Object
+                            - Grand Total Amount
+                            - Promise Date
+                        - Sales Order Product (12/15)
+                            - Fields
+                                - ✅ Key Qualifier Sales Order
+                                - ✅ Key Qualifier Sales Order Product
+                                - ✅ Sales Order
+                                - ✅ Sales Order Product
+                                - Data Source
+                                - Data Source Object
+                                - Discount Amount
+                                - List Price Amount
+                                - Ordered Quantity
+                                - Product
+                                - Total Line Amount
+                                - Unit Price Amount
+            - RFM (4/5)
+                - Fields
+                    - Frequency
+                    - MonetaryAvg
+                    - MonetaryLifetime
+                    - Recency
+
+## Configure Data Cloud From Scratch
 
 1.  Ingest Salesforce standard objects
     -   Use the Sales Cloud Data Bundle
@@ -263,6 +361,11 @@ This is not part of ETOrchestrateDC for two reasons:
 -   Install Package
     -   `sf package install --apex-compile=all --package 04tHu000003j1FP --wait=30 --no-prompt --json --target-org soDCO_TestPKG_DC`
     -   `sf org open --target-org soDCO_TestPKG_DC`
+-   Two packages
+    -   ETOrchestrateDC_DemoPKG_BeforeRuleset
+        -   `sf project retrieve start --target-metadata-dir . --package-name "ETOrchestrateDC_DemoPKG_BeforeRuleset" --target-org prDCO_SecReview`
+    -   ETOrchestrateDC_DemoPKG_AfterRuleset
+        -   `sf project retrieve start --target-metadata-dir . --package-name "ETOrchestrateDC_DemoPKG_AfterRuleset" --target-org prDCO_SecReview`
 
 # ========================================================================================================================
 
