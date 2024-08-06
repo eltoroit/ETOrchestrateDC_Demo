@@ -9,7 +9,7 @@
 			"default": false
 		}
 	],
-	"name": "et-basic-project",
+	"name": "et-orchestrate-dc-scratch-org-demo",
 	"namespace": "",
 	"sfdcLoginUrl": "https://login.salesforce.com",
 	"sourceApiVersion": "61.0"
