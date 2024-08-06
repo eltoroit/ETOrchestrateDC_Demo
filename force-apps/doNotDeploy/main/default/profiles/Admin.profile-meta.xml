@@ -6,7 +6,7 @@
         <default>false</default>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>ODC_Data</application>
+        <application>ETODC_Demo</application>
         <visible>true</visible>
         <default>false</default>
     </applicationVisibilities>
