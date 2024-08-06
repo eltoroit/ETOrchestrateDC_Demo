@@ -1,6 +1,6 @@
 {
 	"settings": {
-		"days": 30,
+		"days": 1,
 		"alias": "soDCO_TestPKG_DC",
 		"OpenBrowser": true,
 		"QuitOnErrors": true,
