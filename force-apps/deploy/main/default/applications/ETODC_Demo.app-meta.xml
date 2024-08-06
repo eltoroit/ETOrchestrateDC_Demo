@@ -9,7 +9,7 @@
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
-    <label>ODC Data</label>
+    <label>ETODC Demo</label>
     <navType>Standard</navType>
     <tabs>Demo</tabs>
     <tabs>standard-Account</tabs>
@@ -19,5 +19,5 @@
     <tabs>OrderItem__c</tabs>
     <tabs>Product__c</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>ODC_Data_UtilityBar</utilityBar>
+    <utilityBar>ETODC_Demo_UtilityBar</utilityBar>
 </CustomApplication>

@@ -1,6 +1,6 @@
 {
 	"settings": {
-		"days": 30,
+		"days": 1,
 		"alias": "soDCO_TestPKG_DC",
 		"OpenBrowser": true,
 		"QuitOnErrors": true,
@@ -41,9 +41,6 @@
 		{ "DeployMetadata": "./force-apps/OrgSpecific/" },
 		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 
-		// === Loading Data ===
-		{ "ETCopyData": "./@ELTOROIT/data" },
-
 		// === Configure Data Cloud ===
 		{ "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/beforeRuleset/" } },
 		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
@@ -55,6 +52,9 @@
 		// === Configure HTTP Callouts ===
 		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
 		// { "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
+
+		// === Loading Data ===
+		{ "ETCopyData": "./@ELTOROIT/data" },
 
 		// === Success! ===
 		"ShowFinalSuccess"
