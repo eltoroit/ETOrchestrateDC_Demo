@@ -43,5 +43,6 @@ $RECYCLE.BIN/
 # package-lock.json
 
 # My Files
+secrets.json
 etLogs/*.json
 package-lock.json

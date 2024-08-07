@@ -9,27 +9,6 @@
 	"steps": [
 		// === Prepare environment ===
 		"ValidateETCopyData",
-		"BackupAlias", // In case you need to go back to the old org :-)
-
-		// === Creating Scratch org ===
-		"CreateScratchOrg",
-		"GeneratePassword",
-		"CreateFinestDebugLevel",
-		{ "ExecuteApex": "@ELTOROIT/scripts/apex/SetUserRecord.apex" },
-
-		// === Install ETOrchestrate Data Cloud ===
-		// "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
-		{ "InstallPackage": { "id": "04t2J000000EycyQAC" } },
-		// {
-		// 	"ManualMetadata": {
-		// 		"url": "https://appexchange.salesforce.com/appxListingDetail?listingId=f8bb6d2d-c6c0-424f-8193-a039306e2a3a",
-		// 		"message": "Install ETOrchestrate Data Cloud from AppExchange"
-		// 	}
-		// },
-		{ "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
-
-		// === Wait for Data Cloud to be ready (clicking "the blue button") ===
-		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
 
 		// === Push metadata ===
 		"ShowDeployPage",
@@ -37,21 +16,21 @@
 		{ "AssignPermissionSet": "psDataCloudData" },
 		{ "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
-		// === I do not want to push pull this metadata files, but they must be deployed to the scratch org
-		{ "DeployMetadata": "./force-apps/OrgSpecific/" },
-		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
+		// // === This should be shown manually on the setup guide, but it could also be scripted
+		// { "DeployMetadata": "./force-apps/OrgSpecific/" },
+		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 
 		// === Configure Data Cloud ===
 		{ "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/beforeRuleset/" } },
 		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
 		// { "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/afterRuleset/" } },
 
-		// These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist and the deployment will fail
-		{ "DeployMetadata": { "source-dir": "./force-apps/PostConfigDC/" } },
-
 		// === Configure HTTP Callouts ===
 		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
-		// { "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
+
+		// // === This should be shown manually on the setup guide, but it could also be scripted. Maybe do one in the guide, and the rest deployed
+		// // These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist and the deployment will fail
+		// { "DeployMetadata": { "source-dir": "./force-apps/PostConfigDC/" } },
 
 		// === Loading Data ===
 		{ "ETCopyData": "./@ELTOROIT/data" },
@@ -63,6 +42,7 @@
 // { "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
 // Install Sales Cloud Data Bundle
 // { "InstallPackage": { "id": "04tB0000000BYKv" } },
+// { "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
 
 // === === === === This is not working for Salesforce streams
 // === === === === // === Configure Data Cloud using "ETOrchestrateDC" Data Kit ===
