@@ -30,7 +30,7 @@
       "maxRecords": -1
     },
     {
-      "name": "Entitlement",
+      "name": "Case",
       "ignoreFields": "",
       "externalIdField": null,
       "twoPassReferenceFields": "",
