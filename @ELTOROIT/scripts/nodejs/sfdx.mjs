@@ -1,3 +1,4 @@
+import os from 'os';
 import Logs2 from './logs.mjs';
 import Colors2 from './colors.mjs';
 import OS2 from './lowLevelOs.mjs';
@@ -297,9 +298,33 @@ export default class SFDX {
 
 		const { stepNumber, stepMethod } = this.getStepId({ config });
 		config.currentStep = `${stepNumber}. ${stepMethod}`;
-		command = `sf org open --path="${data.url}" --json`;
 		logFile = `${stepNumber}_${stepMethod}.json`;
-		await this._runSFDX({ config, command, logFile });
+		debugger;
+		if (data.url.toLowerCase().startsWith('http')) {
+			// Absolute path
+			const platform = os.platform();
+			const type = os.type();
+			switch (platform) {
+				case 'win32':
+					command = `start`;
+					break;
+				case 'darwin':
+					command = `open`;
+					break;
+				case 'linux':
+					command = `xdg-open`;
+					break;
+				default:
+					throw `Operating System not supported [${type}]`;
+			}
+
+			command = `${command} ${data.url}`;
+			await this._runAndLog({ config, command, logFile });
+		} else {
+			// Relative path
+			command = `sf org open --path="${data.url}" --json`;
+			await this._runSFDX({ config, command, logFile });
+		}
 
 		if (config.settings.UserOnScreen) {
 			let result = await Logs2.promptYesNo({ config, message: data.message, question: 'Did you complete the manual steps on this page?' });
