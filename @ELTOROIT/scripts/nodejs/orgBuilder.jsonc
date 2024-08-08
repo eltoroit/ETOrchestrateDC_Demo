@@ -10,27 +10,29 @@
 		// === Prepare environment ===
 		"ValidateETCopyData",
 
+		// === "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
+		// { "InstallPackage": { "id": "04t2J000000EycyQAC" } },
+		{ "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04t2J000000EycyQAC", "message": "Install ETOrchestrateDC Package" } },
+		// { "ManualMetadata": { "url": "https://appexchange.salesforce.com/appxListingDetail?listingId=f8bb6d2d-c6c0-424f-8193-a039306e2a3a", "message": "Install ETOrchestrateDC Package" } },
+
 		// === Push metadata ===
 		"ShowDeployPage",
 		"PushMetadata",
 		{ "AssignPermissionSet": "psDataCloudData" },
 		{ "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
+		// === Install demo package and manually configure Data Cloud ===
+		{ "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04tbm0000002Ild", "message": "Install Demo Package" } },
+		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
+
+		// These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist and the deployment will fail
+		{ "DeployMetadata": { "source-dir": "./force-apps/PostConfigDC/" } },
+		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Clone Data Cloud Triggered Flow for Individual" } },
+
 		// // === This should be shown manually on the setup guide, but it could also be scripted
 		// { "DeployMetadata": "./force-apps/OrgSpecific/" },
 		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
-
-		// === Configure Data Cloud ===
-		{ "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/beforeRuleset/" } },
-		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
-		// { "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/afterRuleset/" } },
-
-		// === Configure HTTP Callouts ===
 		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
-
-		// // === This should be shown manually on the setup guide, but it could also be scripted. Maybe do one in the guide, and the rest deployed
-		// // These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist and the deployment will fail
-		// { "DeployMetadata": { "source-dir": "./force-apps/PostConfigDC/" } },
 
 		// === Loading Data ===
 		{ "ETCopyData": "./@ELTOROIT/data" },
@@ -39,6 +41,7 @@
 		"ShowFinalSuccess"
 	]
 }
+// { "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
 // { "ManualMetadata": { "url": "/ERROR", "message": "I WAS EXPECTING THIS TO FAIL.... CONTINUE HERE!!!!" } },
 // Install Sales Cloud Data Bundle
 // { "InstallPackage": { "id": "04tB0000000BYKv" } },
@@ -50,3 +53,19 @@
 // === === === === // ETOrchestrateDC DemoDK Package (July 2024) Version 1.0 [04tHs000000z1br]
 // === === === === // { "InstallPackage": { "id": "04tHs000000z1br" } },
 // === === === === This is not working for Salesforce streams
+
+// {
+// 	"ManualMetadata": {
+// 		"url": "https://appexchange.salesforce.com/appxListingDetail?listingId=f8bb6d2d-c6c0-424f-8193-a039306e2a3a",
+// 		"message": "Install ETOrchestrate Data Cloud from AppExchange"
+// 	}
+// },
+
+/*
+Reset Sandbox
+- Remove Permission sets assigned
+	- https://sdc10167166com--devdc1.sandbox.lightning.force.com/lightning/setup/PermSets/page?address=%2Fudd%2FPermissionSet%2FassignPermissionSet.apexp%3FuserId%3D005Hr00000GEjah
+	- Remove
+		- psDataCloudData
+		- ETOrchestrateDC_Credentials
+*/
