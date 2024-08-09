@@ -22,7 +22,7 @@
 		{ "InstallPackage": { "id": "04t2J000000EycyQAC" } },
 		// {
 		// 	"ManualMetadata": {
-		// 		"url": "https://appexchange.salesforce.com/appxListingDetail?listingId=f8bb6d2d-c6c0-424f-8193-a039306e2a3a",
+		// 		"url": "https://appexchange.salesforce.com/appxListingDetail?listingId=a0NHu00000ozQhpMAE",
 		// 		"message": "Install ETOrchestrate Data Cloud from AppExchange"
 		// 	}
 		// },
@@ -38,8 +38,9 @@
 		{ "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
 		// === I do not want to push pull this metadata files, but they must be deployed to the scratch org
-		{ "DeployMetadata": "./force-apps/OrgSpecific/" },
-		{ "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
+		// === The guide has been updated, and I am merging steps with the production/sandbox steps.
+		// { "DeployMetadata": "./force-apps/OrgSpecific/" },
+		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 
 		// === Configure Data Cloud ===
 		{ "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/beforeRuleset/" } },
