@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>  
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>61.0</apiVersion>
     <environments>Default</environments>
@@ -28,6 +28,9 @@
         <label>CREATE010 Create Received record</label>
         <locationX>176</locationX>
         <locationY>350</locationY>
+        <connector>
+            <targetReference>SCREEN020</targetReference>
+        </connector>
         <inputAssignments>
             <field>ETOrchestrateDC__FlowName__c</field>
             <value>
@@ -128,6 +131,22 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>SCREEN020</name>
+        <label>SCREEN020 Success</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>SCR020_Success</name>
+            <fieldText>&lt;p&gt;Record successfully created&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
