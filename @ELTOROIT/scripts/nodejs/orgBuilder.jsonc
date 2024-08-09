@@ -24,7 +24,7 @@
 
 		// These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist and the deployment will fail
 		{ "DeployMetadata": { "source-dir": "./force-apps/PostConfigDC/" } },
-		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Clone Data Cloud Triggered Flow for Individual" } },
+		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Create Data Cloud Triggered Flow for Individual" } },
 
 		// // === This should be shown manually on the setup guide, but it could also be scripted
 		// { "DeployMetadata": "./force-apps/OrgSpecific/" },
