@@ -30,6 +30,7 @@
 		// { "DeployMetadata": "./force-apps/OrgSpecific/" },
 		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
+		"CreateFinestDebugLevel",
 
 		// === Success! ===
 		"ShowFinalSuccess"
