@@ -9,7 +9,7 @@
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
-    <label>ETODC Demo</label>
+    <label>Demo ETOrchestrateDC</label>
     <navType>Standard</navType>
     <tabs>Demo</tabs>
     <tabs>standard-Account</tabs>

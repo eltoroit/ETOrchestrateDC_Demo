@@ -1,3 +1,4 @@
+import Utils from "c/utils";
 import { LightningElement } from "lwc";
 import resetMasters from "@salesforce/apex/Demo.resetMasters";
 import deleteTempRecords from "@salesforce/apex/Demo.deleteTempRecords";
@@ -20,19 +21,31 @@ export default class Demo extends LightningElement {
 
 	async onCreateMasterData() {
 		this.isLoading = true;
-		await createMasterRecords();
+		try {
+			await createMasterRecords();
+		} catch (ex) {
+			Utils.reportError(this, { error: ex, title: "Error Creating Master Data" });
+		}
 		this.isLoading = false;
 	}
 
 	async onResetData() {
 		this.isLoading = true;
-		await resetMasters();
+		try {
+			await resetMasters();
+		} catch (ex) {
+			Utils.reportError(this, { error: ex, title: "Error Reseting Master Data" });
+		}
 		this.isLoading = false;
 	}
 
 	async onDeleteTempRecords() {
 		this.isLoading = true;
-		await deleteTempRecords();
+		try {
+			await deleteTempRecords();
+		} catch (ex) {
+			Utils.reportError(this, { error: ex, title: "Error Deleting Temp Data" });
+		}
 		this.isLoading = false;
 	}
 }

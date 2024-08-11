@@ -1,5 +1,6 @@
+import Utils from "c/utils";
 import { LightningElement } from "lwc";
-import { ShowToastEvent } from "lightning/platformShowToastEvent";
+// import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 // Apex Methods
 import clearTable from "@salesforce/apex/Demo.clearTable";
@@ -37,12 +38,23 @@ export default class LoadData extends LightningElement {
 	message = "Data Loader";
 
 	async onDeleteDataClick() {
-		this.loading = true;
-		for (let i = dataItemsOrder.length - 1; i >= 0; i--) {
-			let sObjName = dataItems[dataItemsOrder[i]].salesforce;
+		const deleteRecordsViaApex = async ({ sObjName }) => {
 			this.message = `Deleting ${sObjName}`;
 			console.log(`*** ${this.message}`);
-			await clearTable({ sObjName }); // eslint-disable-line no-await-in-loop
+			await clearTable({ sObjName });
+		};
+
+		this.loading = true;
+		try {
+			await deleteRecordsViaApex({ sObjName: "Entitlement" });
+			// Loop in reverse order
+			for (let i = dataItemsOrder.length - 1; i >= 0; i--) {
+				let sObjName = dataItems[dataItemsOrder[i]].salesforce;
+				await deleteRecordsViaApex({ sObjName }); // eslint-disable-line no-await-in-loop
+			}
+		} catch (ex) {
+			this.showErrors({ ex, title: "Error Deleting Data" });
+			throw ex;
 		}
 		this.loading = false;
 		this.message = "Data Loader";
@@ -77,18 +89,7 @@ export default class LoadData extends LightningElement {
 							loadDataIds = { ...loadDataIds, ...output.IDS };
 						})
 						.catch((ex) => {
-							debugger;
-							this.dispatchEvent(
-								new ShowToastEvent({
-									title: "Error",
-									message: JSON.stringify(ex),
-									variant: "error",
-									mode: "sticky"
-								})
-							);
-							console.log(`***`, JSON.stringify(ex));
-							console.log(`***`, JSON.parse(JSON.stringify(ex)));
-							debugger;
+							this.showErrors({ ex, title: `Error Loading ${dataItem.salesforce} Data` });
 						});
 				}
 			}
@@ -96,18 +97,7 @@ export default class LoadData extends LightningElement {
 			this.message = "Data Loader";
 			console.log(`***`, "DONE");
 		} catch (ex) {
-			debugger;
-			this.dispatchEvent(
-				new ShowToastEvent({
-					title: "Error",
-					message: JSON.stringify(ex),
-					variant: "error",
-					mode: "sticky"
-				})
-			);
-			console.log(`***`, JSON.stringify(ex));
-			console.log(`***`, JSON.parse(JSON.stringify(ex)));
-			debugger;
+			this.showErrors({ ex, title: `Error Loading Data` });
 		}
 	}
 
@@ -146,18 +136,7 @@ export default class LoadData extends LightningElement {
 				});
 			});
 		} catch (ex) {
-			debugger;
-			this.dispatchEvent(
-				new ShowToastEvent({
-					title: "Error",
-					message: JSON.stringify(ex),
-					variant: "error",
-					mode: "sticky"
-				})
-			);
-			console.log(`***`, JSON.stringify(ex));
-			console.log(`***`, JSON.parse(JSON.stringify(ex)));
-			debugger;
+			this.showErrors({ ex, title: `Error Retrieving Metadata` });
 		}
 
 		// Gate data
@@ -170,18 +149,7 @@ export default class LoadData extends LightningElement {
 						this.cleanData({ dataItem });
 					})
 					.catch((ex) => {
-						debugger;
-						this.dispatchEvent(
-							new ShowToastEvent({
-								title: "Error",
-								message: JSON.stringify(ex),
-								variant: "error",
-								mode: "sticky"
-							})
-						);
-						console.log(`***`, JSON.stringify(ex));
-						console.log(`***`, JSON.parse(JSON.stringify(ex)));
-						debugger;
+						this.showErrors({ ex, title: `Error Loading ${dataItemName} Static Resource` });
 					});
 			})
 		);
@@ -289,18 +257,7 @@ export default class LoadData extends LightningElement {
 			});
 			this.data[dataItems.Data_Contact.json] = data;
 		} catch (ex) {
-			debugger;
-			this.dispatchEvent(
-				new ShowToastEvent({
-					title: "Error",
-					message: JSON.stringify(ex),
-					variant: "error",
-					mode: "sticky"
-				})
-			);
-			console.log(`***`, JSON.stringify(ex));
-			console.log(`***`, JSON.parse(JSON.stringify(ex)));
-			debugger;
+			this.showErrors({ ex, title: `Error Randomizing Contacts` });
 		}
 	}
 
@@ -361,18 +318,14 @@ export default class LoadData extends LightningElement {
 			});
 			this.data[dataItems.Data_Order.json] = updatedOrders;
 		} catch (ex) {
-			debugger;
-			this.dispatchEvent(
-				new ShowToastEvent({
-					title: "Error",
-					message: JSON.stringify(ex),
-					variant: "error",
-					mode: "sticky"
-				})
-			);
-			console.log(`***`, JSON.stringify(ex));
-			console.log(`***`, JSON.parse(JSON.stringify(ex)));
-			debugger;
+			this.showErrors({ ex, title: `Error Randomizing Orders` });
 		}
+	}
+
+	showErrors({ ex, title }) {
+		if (!title) {
+			title = "Error Communication With Server";
+		}
+		Utils.reportError(this, { error: ex, title });
 	}
 }
