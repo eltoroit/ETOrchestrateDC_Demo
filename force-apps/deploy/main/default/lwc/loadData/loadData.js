@@ -1,6 +1,6 @@
 import Utils from "c/utils";
 import { LightningElement } from "lwc";
-import { ShowToastEvent } from "lightning/platformShowToastEvent";
+// import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 // Apex Methods
 import clearTable from "@salesforce/apex/Demo.clearTable";
