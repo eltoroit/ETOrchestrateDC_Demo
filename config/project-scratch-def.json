@@ -2,7 +2,7 @@
 	"orgName": "ELTOROit Data Cloud Scratch Org",
 	"edition": "Developer",
 	"hasSampleData": false,
-	"features": ["EnableSetPasswordInApi", "CustomerDataPlatform", "MarketingUser"],
+	"features": ["EnableSetPasswordInApi", "CustomerDataPlatform", "MarketingUser", "EinsteinGPTForDevelopers"],
 	"settings": {
 		"lightningExperienceSettings": {
 			"enableS1DesktopEnabled": true

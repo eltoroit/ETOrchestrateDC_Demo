@@ -4,31 +4,8 @@
     </template>
     <lightning-layout multiple-rows>
         <lightning-layout-item size="4" class="slds-p-right_x-small">
-            <lightning-card title="Demo">
-                <div class="slds-m-around_medium slds-align_absolute-center">
-                    <lightning-button-group>
-                        <lightning-button label="Randomize Data" onclick={onRandomizeData}
-                            variant="brand"></lightning-button>
-                        <lightning-button label="Manually Refresh Data Streams (optional)"
-                            onclick={onManualRefreshDataStreams}></lightning-button>
-                    </lightning-button-group>
-                </div>
-            </lightning-card>
+            <c-load-data></c-load-data>
         </lightning-layout-item>
-        <!-- <lightning-layout-item size="8">
-                <lightning-card title="Simulator">
-                    <div class="slds-m-around_medium slds-align_absolute-center">
-                        <lightning-button-group>
-                            <lightning-button label="Run Simulator" onclick={onRunSimulator}
-                                variant="brand"></lightning-button>
-                            <lightning-button label="Create Simulation Data" onclick={onCreateSimulationData}
-                                variant="success"></lightning-button>
-                            <lightning-button label="Delete Simulation Data" onclick={onDeleteSimulationData}
-                                variant="destructive"></lightning-button>
-                        </lightning-button-group>
-                    </div>
-                </lightning-card>
-        </lightning-layout-item> -->
         <lightning-layout-item size="8">
             <lightning-card title="Setup">
                 <div class="slds-m-around_medium slds-align_absolute-center">

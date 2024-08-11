@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title={message} class="slds-is-relative">
+        <lightning-spinner lwc:if={loading} alternative-text="Loading" size="medium"
+            variant="brand"></lightning-spinner>
+        <div class="slds-m-around_medium slds-align_absolute-center">
+            <lightning-button-group>
+                <lightning-button label="Load Data" variant="success" onclick={onLoadDataClick}>
+                </lightning-button>
+                <lightning-button label="Delete Data" variant="destructive" onclick={onDeleteDataClick}>
+                </lightning-button>
+            </lightning-button-group>
+        </div>
+    </lightning-card>
+</template>
