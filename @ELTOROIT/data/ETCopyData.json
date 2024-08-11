@@ -1,84 +1,84 @@
 {
-  "orgSource": "soDCO_TestPKG_DC",
-  "orgDestination": "soDCO_TestPKG_DC",
-  "sObjectsData": [
-    {
-      "name": "Lead",
-      "ignoreFields": "OwnerId",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": null,
-      "maxRecords": -1
-    },
-    {
-      "name": "Contact",
-      "ignoreFields": "OwnerId",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": "CustomerId__c",
-      "maxRecords": -1
-    },
-    {
-      "name": "Account",
-      "ignoreFields": "OwnerId",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": null,
-      "maxRecords": -1
-    },
-    {
-      "name": "Entitlement",
-      "ignoreFields": "",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": null
-    },
-    {
-      "name": "Order__c",
-      "ignoreFields": "",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": null
-    },
-    {
-      "name": "OrderItem__c",
-      "ignoreFields": "",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": null
-    },
-    {
-      "name": "Product__c",
-      "ignoreFields": "",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": null
-    },
-    {
-      "name": "ETOrchestrateDC__DCO_Master__c",
-      "ignoreFields": "",
-      "externalIdField": null,
-      "twoPassReferenceFields": "",
-      "where": null,
-      "orderBy": "Name"
-    }
-  ],
-  "sObjectsMetadata": [],
-  "rootFolder": "ETCopyData",
-  "includeAllCustom": false,
-  "customObjectsToIgnore": null,
-  "stopOnErrors": true,
-  "ignoreFields": null,
-  "copyToProduction": true,
-  "twoPassReferenceFields": null,
-  "deleteDestination": true,
-  "useBulkAPI": false,
-  "bulkPollingTimeout": null
+	"orgSource": "soDC_ETODC",
+	"orgDestination": "soDC_ETODC",
+	"sObjectsData": [
+		{
+			"name": "Lead",
+			"ignoreFields": "OwnerId",
+			"externalIdField": null,
+			"twoPassReferenceFields": "",
+			"where": null,
+			"orderBy": null,
+			"maxRecords": -1
+		},
+		{
+			"name": "Contact",
+			"ignoreFields": "OwnerId",
+			"externalIdField": null,
+			"twoPassReferenceFields": "",
+			"where": null,
+			"orderBy": "CustomerId__c",
+			"maxRecords": -1
+		},
+		{
+			"name": "Account",
+			"ignoreFields": "OwnerId",
+			"externalIdField": null,
+			"twoPassReferenceFields": "",
+			"where": null,
+			"orderBy": null,
+			"maxRecords": -1
+		},
+		{
+			"name": "Entitlement",
+			"ignoreFields": "",
+			"externalIdField": null,
+			"twoPassReferenceFields": "",
+			"where": null,
+			"orderBy": null
+		},
+		{
+			"name": "Order__c",
+			"ignoreFields": "",
+			"externalIdField": null,
+			"twoPassReferenceFields": "",
+			"where": null,
+			"orderBy": null
+		},
+		{
+			"name": "OrderItem__c",
+			"ignoreFields": "",
+			"externalIdField": null,
+			"twoPassReferenceFields": "",
+			"where": null,
+			"orderBy": null
+		},
+		{
+			"name": "Product__c",
+			"ignoreFields": "",
+			"externalIdField": null,
+			"twoPassReferenceFields": "",
+			"where": null,
+			"orderBy": null
+		},
+		{
+			"name": "ETOrchestrateDC__DCO_Master__c",
+			"ignoreFields": "",
+			"externalIdField": null,
+			"twoPassReferenceFields": "",
+			"where": null,
+			"orderBy": "Name"
+		}
+	],
+	"sObjectsMetadata": [],
+	"rootFolder": "ETCopyData",
+	"includeAllCustom": false,
+	"customObjectsToIgnore": null,
+	"stopOnErrors": true,
+	"ignoreFields": null,
+	"copyToProduction": true,
+	"twoPassReferenceFields": null,
+	"deleteDestination": true,
+	"useBulkAPI": false,
+	"bulkPollingTimeout": null
 }
