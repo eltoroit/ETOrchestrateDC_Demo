@@ -82,7 +82,10 @@ public with sharing class Demo {
 
 	@AuraEnabled
 	public static void clearTable(String sObjName) {
-		delete Database.query('SELECT Id FROM ' + sObjName);
+		Map<String, Schema.SObjectType> mapSObjects = Schema.getGlobalDescribe();
+		if (mapSObjects.containsKey(sObjName)) {
+			delete Database.query('SELECT Id FROM ' + sObjName);
+		}
 	}
 
 	@AuraEnabled
