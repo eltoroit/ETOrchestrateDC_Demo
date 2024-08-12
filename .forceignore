@@ -54,3 +54,10 @@ Admin.profile
 **/objectSourceTargetMaps
 **/objectSourceTargetMaps/IndividualGDPRState*
 **/ssot__*
+**/dataCalcInsightTemplates/**
+**/dataKitObjectDependencies/**
+**/dataKitObjectTemplates/**
+**/dataPackageKitDefinitions/**
+**/DataPackageKitObjects/**
+**/dataSourceBundleDefinitions/**
+**/dataSrcDataModelFieldMaps/**
