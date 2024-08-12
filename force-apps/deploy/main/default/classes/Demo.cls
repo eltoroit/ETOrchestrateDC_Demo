@@ -109,6 +109,20 @@ public with sharing class Demo {
 		return output;
 	}
 
+	/*
+	These multiple methods could be combined, if we apply some code like this....
+		Type listType = Type.forName('List<Contact>');
+		System.debug(listType.getName());
+		
+		String jsonRecords = '[{"Name": "Acme", "LastName": "Perez", "DateBirth__c":"1968-10-03T03:00:00", "NumberOfEmployees": 3900}]';
+		List<SObject> records = (List<SObject>) JSON.deserialize(jsonRecords, listType);
+		System.debug(records);
+		insert records;
+		System.debug('INSERTED: ' + records);
+		
+		Integer i = 0;
+		System.debug(5/i);
+	*/
 	@AuraEnabled
 	public static Map<String, Object> loadAccount(String jsonRecords) {
 		Map<String, Object> output = new Map<String, Object>();
