@@ -46,6 +46,7 @@ export default class LoadData extends LightningElement {
 
 		this.loading = true;
 		try {
+			await deleteRecordsViaApex({ sObjName: "Case" });
 			await deleteRecordsViaApex({ sObjName: "Entitlement" });
 			// Loop in reverse order
 			for (let i = dataItemsOrder.length - 1; i >= 0; i--) {
