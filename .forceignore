@@ -24,10 +24,13 @@ Admin.profile
 **/profiles/** 
 
 # Org Specifc files
+**/flows/DCO_DMO*
 **/authproviders/**
 **/connectedApps/**
-**/externalCredentials/**
 **/namedCredentials/**
+**/externalCredentials/**
+**/appMenus/AppSwitcher.appMenu-meta.xml
+**/permissionsets/ETOrchestrateDC_CALLOUT.permissionset-meta.xml
 **/permissionsets/ETOrchestrateDC_Credentials.permissionset-meta.xml
 
 #  Files Created by Data Cloud

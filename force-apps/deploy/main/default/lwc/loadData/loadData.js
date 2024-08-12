@@ -5,12 +5,7 @@ import { LightningElement } from "lwc";
 // Apex Methods
 import clearTable from "@salesforce/apex/Demo.clearTable";
 import getMetadata from "@salesforce/apex/Demo.getMetadata";
-import loadAccount from "@salesforce/apex/Demo.loadAccount";
-import loadProduct__c from "@salesforce/apex/Demo.loadProduct";
-import loadContact from "@salesforce/apex/Demo.loadContact";
-import loadLead from "@salesforce/apex/Demo.loadLead";
-import loadOrder__c from "@salesforce/apex/Demo.loadOrder";
-import loadOrderItem__c from "@salesforce/apex/Demo.loadOrderItem";
+import loadTable from "@salesforce/apex/Demo.loadTable";
 
 // Static Resources
 import Data_Account from "@salesforce/resourceUrl/Data_Account";
@@ -22,12 +17,12 @@ import Data_Product from "@salesforce/resourceUrl/Data_Product";
 
 let loadDataIds = {};
 const dataItems = {
-	Data_Account: { sr: Data_Account, json: "Data_Account", salesforce: "Account", loader: loadAccount },
-	Data_Product: { sr: Data_Product, json: "Data_Product", salesforce: "Product__c", loader: loadProduct__c },
-	Data_Contact: { sr: Data_Contact, json: "Data_Contact", salesforce: "Contact", loader: loadContact },
-	Data_Lead: { sr: Data_Lead, json: "Data_Lead", salesforce: "Lead", loader: loadLead },
-	Data_Order: { sr: Data_Order, json: "Data_Order", salesforce: "Order__c", loader: loadOrder__c },
-	Data_OrderItem: { sr: Data_OrderItem, json: "Data_OrderItem", salesforce: "OrderItem__c", loader: loadOrderItem__c }
+	Data_Account: { sr: Data_Account, json: "Data_Account", salesforce: "Account" },
+	Data_Product: { sr: Data_Product, json: "Data_Product", salesforce: "Product__c" },
+	Data_Contact: { sr: Data_Contact, json: "Data_Contact", salesforce: "Contact" },
+	Data_Lead: { sr: Data_Lead, json: "Data_Lead", salesforce: "Lead" },
+	Data_Order: { sr: Data_Order, json: "Data_Order", salesforce: "Order__c" },
+	Data_OrderItem: { sr: Data_OrderItem, json: "Data_OrderItem", salesforce: "OrderItem__c" }
 };
 // In the order they are supposed to be loaded
 const dataItemsOrder = ["Data_Account", "Data_Product", "Data_Contact", "Data_Lead", "Data_Order", "Data_OrderItem"];
@@ -78,8 +73,7 @@ export default class LoadData extends LightningElement {
 				let chunks = this.getData({ dataItem });
 				for (const records of chunks) {
 					// eslint-disable-next-line no-await-in-loop
-					await dataItem
-						.loader({ jsonRecords: JSON.stringify(records) })
+					await loadTable({ jsonRecords: JSON.stringify(records), SObjectName: dataItem.salesforce })
 						// eslint-disable-next-line no-loop-func
 						.then((output) => {
 							console.log(`***`, JSON.parse(JSON.stringify(output)));

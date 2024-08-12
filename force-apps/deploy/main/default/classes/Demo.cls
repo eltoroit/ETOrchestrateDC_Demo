@@ -109,71 +109,19 @@ public with sharing class Demo {
 		return output;
 	}
 
-	/*
-	These multiple methods could be combined, if we apply some code like this....
-		Type listType = Type.forName('List<Contact>');
-		System.debug(listType.getName());
-		
-		String jsonRecords = '[{"Name": "Acme", "LastName": "Perez", "DateBirth__c":"1968-10-03T03:00:00", "NumberOfEmployees": 3900}]';
+	@AuraEnabled
+	public static Map<String, Object> loadTable(String jsonRecords, String SObjectName) {
+		Map<String, Object> output = new Map<String, Object>();
+
+		// Make a list of explicit data type
+		Type listType = Type.forName('List<' + SObjectName + '>');
 		List<SObject> records = (List<SObject>) JSON.deserialize(jsonRecords, listType);
-		System.debug(records);
-		insert records;
-		System.debug('INSERTED: ' + records);
-		
-		Integer i = 0;
-		System.debug(5/i);
-	*/
-	@AuraEnabled
-	public static Map<String, Object> loadAccount(String jsonRecords) {
-		Map<String, Object> output = new Map<String, Object>();
-		List<Account> records = (List<Account>) JSON.deserialize(jsonRecords, List<Account>.class);
-		output.put('IDS', loadTable(records));
-		output.put('RECORDS', records);
-		return output;
-	}
-	@AuraEnabled
-	public static Map<String, Object> loadProduct(String jsonRecords) {
-		Map<String, Object> output = new Map<String, Object>();
-		List<Product__c> records = (List<Product__c>) JSON.deserialize(jsonRecords, List<Product__c>.class);
-		output.put('IDS', loadTable(records));
-		output.put('RECORDS', records);
-		return output;
-	}
-	@AuraEnabled
-	public static Map<String, Object> loadContact(String jsonRecords) {
-		Map<String, Object> output = new Map<String, Object>();
-		List<Contact> records = (List<Contact>) JSON.deserialize(jsonRecords, List<Contact>.class);
-		output.put('IDS', loadTable(records));
-		output.put('RECORDS', records);
-		return output;
-	}
-	@AuraEnabled
-	public static Map<String, Object> loadLead(String jsonRecords) {
-		Map<String, Object> output = new Map<String, Object>();
-		List<Lead> records = (List<Lead>) JSON.deserialize(jsonRecords, List<Lead>.class);
-		output.put('IDS', loadTable(records));
-		output.put('RECORDS', records);
-		return output;
-	}
-	@AuraEnabled
-	public static Map<String, Object> loadOrder(String jsonRecords) {
-		Map<String, Object> output = new Map<String, Object>();
-		List<Order__c> records = (List<Order__c>) JSON.deserialize(jsonRecords, List<Order__c>.class);
-		output.put('IDS', loadTable(records));
-		output.put('RECORDS', records);
-		return output;
-	}
-	@AuraEnabled
-	public static Map<String, Object> loadOrderItem(String jsonRecords) {
-		Map<String, Object> output = new Map<String, Object>();
-		List<OrderItem__c> records = (List<OrderItem__c>) JSON.deserialize(jsonRecords, List<OrderItem__c>.class);
-		output.put('IDS', loadTable(records));
+		output.put('IDS', loadTableHelper(records));
 		output.put('RECORDS', records);
 		return output;
 	}
 
-	@AuraEnabled
-	public static Map<Id, Id> loadTable(List<SObject> records) {
+	public static Map<Id, Id> loadTableHelper(List<SObject> records) {
 		Map<Id, Id> output = new Map<Id, Id>();
 		Map<Id, SObject> mapRecords = new Map<Id, SObject>();
 		for (SObject record : records) {
