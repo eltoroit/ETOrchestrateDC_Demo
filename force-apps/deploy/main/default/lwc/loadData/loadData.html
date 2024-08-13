@@ -1,4 +1,21 @@
 <template>
+    <!--
+    <lightning-card title={message} class="slds-is-relative">
+        <lightning-spinner lwc:if={loading} alternative-text="Loading" size="medium"
+            variant="brand"></lightning-spinner>
+        <lightning-button-group slot="actions">
+            <lightning-button label="Refresh" onclick={onReloadDataStreamClick}>
+            </lightning-button>
+            <lightning-button label="Load Data" variant="success" onclick={onLoadDataClick}>
+            </lightning-button>
+        </lightning-button-group>
+        <div class="slds-m-around_medium slds-align_absolute-center">
+            // The idea is good, but it does not refresh! There is no way to call the "Update Status" button :-(
+            <lightning-datatable key-field="Id" data={rows} columns={columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+    -->
     <lightning-card title={message} class="slds-is-relative">
         <lightning-spinner lwc:if={loading} alternative-text="Loading" size="medium"
             variant="brand"></lightning-spinner>

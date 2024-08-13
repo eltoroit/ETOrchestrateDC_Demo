@@ -6,6 +6,7 @@ import { LightningElement } from "lwc";
 import clearTable from "@salesforce/apex/Demo.clearTable";
 import getMetadata from "@salesforce/apex/Demo.getMetadata";
 import loadTable from "@salesforce/apex/Demo.loadTable";
+import getDataStreamStatus from "@salesforce/apex/Demo.getDataStreamStatus";
 
 // Static Resources
 import Data_Account from "@salesforce/resourceUrl/Data_Account";
@@ -16,6 +17,7 @@ import Data_OrderItem from "@salesforce/resourceUrl/Data_OrderItem";
 import Data_Product from "@salesforce/resourceUrl/Data_Product";
 
 let loadDataIds = {};
+// These are the objects to load
 const dataItems = {
 	Data_Account: { sr: Data_Account, json: "Data_Account", salesforce: "Account" },
 	Data_Product: { sr: Data_Product, json: "Data_Product", salesforce: "Product__c" },
@@ -24,13 +26,48 @@ const dataItems = {
 	Data_Order: { sr: Data_Order, json: "Data_Order", salesforce: "Order__c" },
 	Data_OrderItem: { sr: Data_OrderItem, json: "Data_OrderItem", salesforce: "OrderItem__c" }
 };
-// In the order they are supposed to be loaded
+// This is the order to load them
 const dataItemsOrder = ["Data_Account", "Data_Product", "Data_Contact", "Data_Lead", "Data_Order", "Data_OrderItem"];
+
+// Columns to show the Data Streams
+const columns = [
+	{ label: "Name", fieldName: "Name" },
+	{
+		label: "Date Time",
+		fieldName: "LastRefreshDate",
+		type: "date",
+		typeAttributes: {
+			year: "numeric",
+			month: "2-digit",
+			day: "2-digit",
+			hour: "2-digit",
+			minute: "2-digit",
+			second: "2-digit"
+		}
+	},
+	{ label: "Status", fieldName: "ImportRunStatus", fixedWidth: 100 }
+];
 
 export default class LoadData extends LightningElement {
 	data = {};
+	rows = [];
+	columns = columns;
 	loading = false;
 	message = "Data Loader";
+
+	connectedCallback() {
+		this.onReloadDataStreamClick();
+	}
+
+	async onReloadDataStreamClick() {
+		this.loading = true;
+		this.message = "Loading DataStreams Data...";
+		console.log(`***`, this.message);
+		this.rows = await getDataStreamStatus();
+		this.message = "Data Loader";
+		console.log(`***`, "DONE");
+		this.loading = false;
+	}
 
 	async onDeleteDataClick() {
 		const deleteRecordsViaApex = async ({ sObjName }) => {
@@ -58,17 +95,14 @@ export default class LoadData extends LightningElement {
 
 	async onLoadDataClick() {
 		try {
-			// First delete all records
-			await this.onDeleteDataClick();
-
-			// Then reload data from static resources
+			// First reload data from static resources
 			await this.initializeData();
 
-			// Now create the new ones
+			// then, update the new ones
 			this.loading = true;
 			for (const dataItemName of dataItemsOrder) {
 				let dataItem = dataItems[dataItemName];
-				this.message = `Creating ${dataItem.salesforce}`;
+				this.message = `Loading ${dataItem.salesforce}`;
 				console.log(`*** ${this.message}`);
 				let chunks = this.getData({ dataItem });
 				for (const records of chunks) {
@@ -118,7 +152,7 @@ export default class LoadData extends LightningElement {
 		this.data = {};
 		loadDataIds = {};
 
-		// Get meatadata
+		// Get metadata
 		try {
 			let result = await getMetadata({ sObjectNames: dataItemsOrder.map((dataItemName) => dataItems[dataItemName].salesforce) });
 			dataItemsOrder.forEach((dataItemName) => {
@@ -134,7 +168,7 @@ export default class LoadData extends LightningElement {
 			this.showErrors({ ex, title: `Error Retrieving Metadata` });
 		}
 
-		// Gate data
+		// Get data
 		await Promise.allSettled(
 			dataItemsOrder.map((dataItemName) => {
 				let dataItem = dataItems[dataItemName];

@@ -110,30 +110,53 @@ public with sharing class Demo {
 	}
 
 	@AuraEnabled
+	public static List<DataStream> getDataStreamStatus() {
+		return [SELECT Id, Name, LastModifiedDate, ImportRunStatus, LastRefreshDate, LastDataChangeStatusDateTime FROM DataStream ORDER BY Name ASC];
+	}
+
+	@AuraEnabled
 	public static Map<String, Object> loadTable(String jsonRecords, String SObjectName) {
+		Map<Id, Id> mapIDs = new Map<Id, Id>();
 		Map<String, Object> output = new Map<String, Object>();
+		Map<String, String> mapKey2Id_SR = new Map<String, String>();
+		Map<String, String> mapKey2Id_DB = new Map<String, String>();
 
 		// Make a list of explicit data type
 		Type listType = Type.forName('List<' + SObjectName + '>');
-		List<SObject> records = (List<SObject>) JSON.deserialize(jsonRecords, listType);
-		output.put('IDS', loadTableHelper(records));
-		output.put('RECORDS', records);
-		return output;
-	}
+		List<SObject> records_SR = (List<SObject>) JSON.deserialize(jsonRecords, listType);
 
-	public static Map<Id, Id> loadTableHelper(List<SObject> records) {
-		Map<Id, Id> output = new Map<Id, Id>();
-		Map<Id, SObject> mapRecords = new Map<Id, SObject>();
-		for (SObject record : records) {
-			// Put the record with the old Id, but then clear it so the records can be inserrted
-			mapRecords.put(record.Id, record);
-			record.Id = null;
+		// Save Old Ids
+		for (SObject sobj_SR : records_SR) {
+			String key = (String) sobj_SR.get('ETODC_Key__c');
+			mapKey2Id_SR.put(key, sobj_SR.Id);
 		}
-		insert records;
-		for (Id recordId : mapRecords.keySet()) {
-			// Map the new Id to the old one
-			output.put(recordId, mapRecords.get(recordId).Id);
+
+		// Find Ids for keys in database
+		Set<String> keys = mapKey2Id_SR.keySet();
+		for (SObject sobj_DB : Database.query('SELECT Id, ETODC_Key__c FROM ' + SObjectName + ' WHERE ETODC_Key__c in :keys')) {
+			mapKey2Id_DB.put((String) sobj_DB.get('ETODC_Key__c'), sobj_DB.Id);
 		}
+
+		// Update the records_SR with the Database Ids
+		for (SObject sobj_SR : records_SR) {
+			Id Id_DB = null;
+			String key = (String) sobj_SR.get('ETODC_Key__c');
+			if (mapKey2Id_DB.containsKey(key)) {
+				Id_DB = mapKey2Id_DB.get(key);
+			}
+			sobj_SR.Id = Id_DB;
+		}
+		upsert records_SR;
+
+		// Create map of Ids
+		for (SObject sobj_SR : records_SR) {
+			String key = (String) sobj_SR.get('ETODC_Key__c');
+			mapIDs.put(mapKey2Id_SR.get(key), sobj_SR.Id);
+		}
+
+		// Load the data
+		output.put('IDS', mapIDs);
+		output.put('RECORDS', records_SR);
 		return output;
 	}
 }
