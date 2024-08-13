@@ -9,6 +9,7 @@
     <columns>LEAD.UNREAD</columns>
     <columns>LEAD.CREATED_DATE</columns>
     <columns>CORE.USERS.ALIAS</columns>
+    <columns>ETODC_Key__c</columns>
     <filterScope>Mine</filterScope>
     <label>ETOrchestrateDC</label>
 </ListView>

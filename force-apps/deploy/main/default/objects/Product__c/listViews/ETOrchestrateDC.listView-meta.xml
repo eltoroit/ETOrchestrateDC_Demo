@@ -3,6 +3,7 @@
     <fullName>ETOrchestrateDC</fullName>
     <columns>NAME</columns>
     <columns>MSRPAmount__c</columns>
+    <columns>ETODC_Key__c</columns>
     <filterScope>Everything</filterScope>
     <label>ETOrchestrateDC</label>
 </ListView>

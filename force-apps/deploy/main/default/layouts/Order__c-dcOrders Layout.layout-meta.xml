@@ -18,6 +18,10 @@
                 <behavior>Readonly</behavior>
                 <field>GrandTotalAmount__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>ETODC_Key__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

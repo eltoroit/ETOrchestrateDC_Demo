@@ -6,6 +6,7 @@
     <columns>PromiseDate__c</columns>
     <columns>OrderCreatedDate__c</columns>
     <columns>GrandTotalAmount__c</columns>
+    <columns>ETODC_Key__c</columns>
     <filterScope>Everything</filterScope>
     <label>ETOrchestrateDC</label>
 </ListView>

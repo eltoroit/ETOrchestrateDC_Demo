@@ -12,6 +12,7 @@
     <columns>CONTACT.PHONE5</columns>
     <columns>CONTACT.PHONE3</columns>
     <columns>CONTACT.PHONE1</columns>
+    <columns>ETODC_Key__c</columns>
     <filterScope>Everything</filterScope>
     <label>ETOrchestrateDC</label>
 </ListView>
