@@ -17,6 +17,9 @@
 		"CreateFinestDebugLevel",
 		{ "ExecuteApex": "@ELTOROIT/scripts/apex/SetUserRecord.apex" },
 
+		// === Wait for Data Cloud to be ready (clicking "the blue button") ===
+		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
+
 		// === Install ETOrchestrate Data Cloud ===
 		// "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
 		{ "InstallPackage": { "id": "04t2J000000EycyQAC" } },
@@ -27,9 +30,6 @@
 		// 	}
 		// },
 		{ "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
-
-		// === Wait for Data Cloud to be ready (clicking "the blue button") ===
-		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
 
 		// === Push metadata ===
 		"ShowDeployPage",
