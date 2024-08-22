@@ -352,7 +352,7 @@ This is not part of ETOrchestrateDC for two reasons:
 
 -   Retrieve package
     1.  `rm -rf packagesFolder && mkdir packagesFolder && cd packagesFolder`
-    2.  `sf project retrieve start --target-metadata-dir . --package-name "ETOrchestrateDC_DemoPKG" --target-org prDCO_SecReview`
+    2.  `sf project retrieve start --target-metadata-dir . --package-name "ETOrchestrateDC DemoDK Package" --target-org prDCO_SecReview`
     3.  `unzip unpackaged.zip`
 -   Deploy the metadata
     1.  `sf project deploy start --dry-run --metadata-dir="ETOrchestrateDC_DemoPKG" --target-org soDCO_TestPKG_DC`
