@@ -35,7 +35,7 @@ public with sharing class Demo {
 					ETOrchestrateDC__FlowName__c = 'Unified Individuals',
 					ETOrchestrateDC__DataSource__c = 'ANY',
 					ETOrchestrateDC__ActionType__c = 'Calculated Insight',
-					ETOrchestrateDC__ActionName__c = 'RFM__cio',
+					ETOrchestrateDC__ActionName__c = 'RFM',
 					ETOrchestrateDC__IsActive__c = true,
 					ETOrchestrateDC__Status__c = 'New',
 					ETOrchestrateDC__MaxFrequency__c = '1 H'
