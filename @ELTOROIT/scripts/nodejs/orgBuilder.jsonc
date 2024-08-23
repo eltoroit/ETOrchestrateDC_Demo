@@ -42,6 +42,9 @@
 		// { "DeployMetadata": "./force-apps/OrgSpecific/" },
 		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
 
+		// Load data using demo
+		{ "ManualMetadata": { "url": "/lightning/n/Demo", "message": "Using the demo, load the data" } },
+
 		// === Configure Data Cloud ===
 		{ "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/beforeRuleset/" } },
 		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
@@ -51,11 +54,15 @@
 		{ "DeployMetadata": { "source-dir": "./force-apps/PostConfigDC/" } },
 
 		// === Configure HTTP Callouts ===
-		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
+		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
 		// { "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
 
 		// === Loading Data ===
 		// === { "ETCopyData": "./@ELTOROIT/data" },
+
+		// Upgrade version
+		// "ETOrchestrate Data Cloud@1.0.0-2": "04t2J000000Eyd8QAC"
+		{ "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04t2J000000Eyd8QAC", "message": "Install ETOrchestrateDC Package 1.0.0.1" } },
 
 		// === Success! ===
 		"ShowFinalSuccess"

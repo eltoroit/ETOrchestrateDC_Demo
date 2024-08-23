@@ -1,0 +1,20 @@
+{
+	"settings": {
+		"days": 7,
+		"alias": "soDC_ETODC",
+		"OpenBrowser": true,
+		"QuitOnErrors": true,
+		"UserOnScreen": true // Can I prompt the user for manual verification? On CICD, this should be false
+	},
+	"steps": [
+		// uninstall package
+		{ "ManualMetadata": { "url": "/lightning/setup/ImportedPackage/home", "message": "Remove old package" } },
+
+		// // Upgrade version
+		// // "ETOrchestrate Data Cloud@1.0.0-2": "04t2J000000Eyd8QAC"
+		{ "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04t2J000000Eyd8QAC", "message": "Install ETOrchestrateDC Package 1.0.0.1" } },
+
+		// === Success! ===
+		"ShowFinalSuccess"
+	]
+}
