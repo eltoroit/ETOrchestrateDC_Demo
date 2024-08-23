@@ -31,6 +31,10 @@
 		// },
 		{ "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
 
+		// Upgrade version
+		// "ETOrchestrate Data Cloud@1.0.0-2": "04t2J000000Eyd8QAC"
+		{ "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04t2J000000Eyd8QAC", "message": "Install ETOrchestrateDC Package 1.0.0.2" } },
+
 		// === Push metadata ===
 		"ShowDeployPage",
 		"PushMetadata",
@@ -59,10 +63,6 @@
 
 		// === Loading Data ===
 		// === { "ETCopyData": "./@ELTOROIT/data" },
-
-		// Upgrade version
-		// "ETOrchestrate Data Cloud@1.0.0-2": "04t2J000000Eyd8QAC"
-		{ "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04t2J000000Eyd8QAC", "message": "Install ETOrchestrateDC Package 1.0.0.1" } },
 
 		// === Success! ===
 		"ShowFinalSuccess"
