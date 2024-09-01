@@ -1,6 +1,6 @@
 {
 	"settings": {
-		"days": 7,
+		"days": 1,
 		"alias": "soDC_ETODC",
 		"OpenBrowser": true,
 		"QuitOnErrors": true,
@@ -21,19 +21,22 @@
 		{ "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=audience360", "message": "Wait until the Data Cloud instance is ready" } },
 
 		// === Install ETOrchestrate Data Cloud ===
-		// "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
-		{ "InstallPackage": { "id": "04t2J000000EycyQAC" } },
-		// {
-		// 	"ManualMetadata": {
-		// 		"url": "https://appexchange.salesforce.com/appxListingDetail?listingId=a0NHu00000ozQhpMAE",
-		// 		"message": "Install ETOrchestrate Data Cloud from AppExchange"
-		// 	}
-		// },
-		{ "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
+		// === First Release with HTTP (0.4.0-1) ===
+		// === === === "ETOrchestrate Data Cloud@0.4.0-1": "04t2J000000EycyQAC"
+		// === === === { "ManualMetadata": { "url": "https://appexchange.salesforce.com/appxListingDetail?listingId=a0NHu00000ozQhpMAE", "message": "Install ETOrchestrate Data Cloud from AppExchange" } },
+		// === === === { "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04t2J000000EycyQAC", "message": "Install ETOrchestrateDC Package 1.0.0.NEXT" } },
+		// === === === { "InstallPackage": { "id": "04t2J000000EycyQAC" } },
+		// === === === I do not want to push pull this metadata files, but they must be deployed to the scratch org
+		// === === === The guide has been updated, and I am merging steps with the production/sandbox steps.
+		// === === === { "DeployMetadata": "./force-apps/OrgSpecific/" },
+		// === === === { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
+		// === === === { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
 
-		// Upgrade version
-		// "ETOrchestrate Data Cloud@1.0.0-2": "04t2J000000Eyd8QAC"
-		{ "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04t2J000000Eyd8QAC", "message": "Install ETOrchestrateDC Package 1.0.0.2" } },
+		// === Second Release with flow actions 1.0.0-4) ===
+		// "ETOrchestrate Data Cloud@1.0.0-4": "04t2J000000EydIQAS"
+		// { "ManualMetadata": { "url": "/packaging/installPackage.apexp?p0=04t2J000000EydIQAS", "message": "Install ETOrchestrateDC Package 1.0.0.NEXT" } },
+		{ "InstallPackage": { "id": "04t2J000000EydIQAS" } },
+		{ "AssignPermissionSet": "ETOrchestrateDC__ETOrchestrateDC" },
 
 		// === Push metadata ===
 		"ShowDeployPage",
@@ -41,28 +44,21 @@
 		{ "AssignPermissionSet": "psDataCloudData" },
 		{ "DeployProfile": "force-apps/doNotDeploy/main/default/profiles/Admin.profile-meta.xml" },
 
-		// === I do not want to push pull this metadata files, but they must be deployed to the scratch org
-		// === The guide has been updated, and I am merging steps with the production/sandbox steps.
-		// { "DeployMetadata": "./force-apps/OrgSpecific/" },
-		// { "AssignPermissionSet": "ETOrchestrateDC_Credentials" },
-
-		// Load data using demo
+		// === Loading Data ===
+		// === { "ETCopyData": "./@ELTOROIT/data" },
 		{ "ManualMetadata": { "url": "/lightning/n/Demo", "message": "Using the demo, load the data" } },
 
 		// === Configure Data Cloud ===
+		// This could be replaced with the data kit package install
 		{ "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/beforeRuleset/" } },
 		{ "ManualMetadata": { "url": "/lightning/o/DataStream/list?filterName=__Recent", "message": "Configure Data Cloud" } },
-		// { "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/afterRuleset/" } },
+		// === { "DeployMetadata": { "metadata-dir": "./force-apps/ETOrchestrateDC_DemoPKG/afterRuleset/" } },
 
 		// These flows must be deployed after Data Cloud is configured otherwise the DMOs do not exist and the deployment will fail
 		{ "DeployMetadata": { "source-dir": "./force-apps/PostConfigDC/" } },
 
-		// === Configure HTTP Callouts ===
-		// { "ManualMetadata": { "url": "/lightning/setup/SetupOneHome/home?setupApp=all", "message": "Configure HTTP Callouts" } },
+		// === Configure Demo ===
 		// { "ManualMetadata": { "url": "/lightning/o/ETOrchestrateDC__DCO_Master__c/list?filterName=ETOrchestrateDC__All", "message": "Pin the \"All\" listviews" } },
-
-		// === Loading Data ===
-		// === { "ETCopyData": "./@ELTOROIT/data" },
 
 		// === Success! ===
 		"ShowFinalSuccess"
